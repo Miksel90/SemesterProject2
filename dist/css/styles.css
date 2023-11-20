@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Raleway:wght@100;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -11856,9 +11857,48 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.brand-name {
+  font-family: "Playfair Display", serif;
+}
+
 body {
-  font-family: "ADLaM Display", cursive;
-  font-family: "Raleway", sans-serif;
+  font-family: "ADLaM Display", cursive, "Raleway", sans-serif;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 180, 65, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.carousel-item img {
+  height: 600px;
+  object-fit: cover;
+}
+
+.carousel-control-prev .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23E0B441' width='50' height='50'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z' stroke='%23E0B441' stroke-width='2'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23E0B441' width='50' height='50'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z' stroke='%23E0B441' stroke-width='2'/%3e%3c/svg%3e");
+}
+
+.masthead {
+  position: relative;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(/images/Masthead.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 /*# sourceMappingURL=styles.css.map */
