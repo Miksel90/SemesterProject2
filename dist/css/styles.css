@@ -11884,6 +11884,7 @@ body {
 
 .masthead {
   position: relative;
+  height: 500px;
 }
 
 .masthead::before {
