@@ -22,14 +22,13 @@
 <body>
     <header class="navbar navbar-expand-lg sticky-top">
       <div class="container bg-primary">
-        <a href="index.html" class="navbar-brand d-flex align-items-center text-secondary brand-name fs-1 "
+        <a href="index.html" class="navbar-brand d-flex align-items-center text-secondary brand-name fs-1"
           ><img
             src="/images/Vintagebrokers.logo.jpg"
             alt="Pokétown Logo"
             width="100"
-            class="rounded-circle"
-            style="margin-right: 10px;"
-          />Vintage$Brokers</a
+            class="rounded-circle p-1">
+            <span class="d-sm-inline d-none">Vintage$Brokers</span></a
         >
         <button
           class="navbar-toggler"
@@ -41,7 +40,7 @@
           <span class="navbar-toggler-icon" ></span>
         </button>
         <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto me-1-sm float-end">
             <li class="nav-item">
               <a class="nav-link text-secondary" href="#">Register</a>
             </li>
@@ -94,15 +93,15 @@
           </div>
     <div class="container-fluid text-center text-primary">
         <div class="masthead bg-image">
-          <div class="row h-100 justify-content-center">
+          <div class="row h-100 justify-content-center align-items-center">
             <div class="col-lg-4 col-md-6 col-sm-8">
+                <h3 class="text-primary fs-2">Please log in</h3>
               <form
                 id="loginForm"
                 method="post"
-                class="needs-validation was-validated mb-3"
+                class="needs-validation was-validated mb-3 "
               >
-                <h3 class="text-primary  mt-3">Please log in</h3>
-                <div class="form-floating mb-2 border border-2 border-info">
+                <div class="form-floating mb-2 border border-2 border-info ">
                   <input
                     type="text"
                     class="form-control"
@@ -125,11 +124,15 @@
                   />
                   <label for="password">Password</label>
                 </div>
-                <button type="submit" class="btn btn-primary text-secondary   btn-lg mt-3">
+                <button type="submit" class="btn btn-primary text-secondary btn-lg mt-3">
                   Login
                 </button>
               </form>
             </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <p class="fs-1">Not a member?</p>
+                <p>Register Here or continue as Guest</p>
+              </div>
           </div>
         </div>
     </div>
