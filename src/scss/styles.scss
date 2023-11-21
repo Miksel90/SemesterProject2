@@ -1,7 +1,7 @@
 // Color Variables
 
 $primary: #000000;
-$secondary: #e0b441;
+$secondary: #d4af37;
 $info: #2f4ba1;
 $success: #a39191;
 
@@ -12,6 +12,8 @@ $success: #a39191;
 @import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
 
+// .gradient-bg {
+// }
 .brand-name {
   font-family: "Playfair Display", serif;
 }
@@ -65,4 +67,22 @@ body {
   background-position: center;
   opacity: 0.5;
   z-index: -1;
+}
+
+// Register //
+
+.register-img {
+  height: 600px;
+  background-image: url(/images/register.mastehead.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wider-border {
+  width: 130px;
+  border-style: solid;
+  border-color: #d4af37;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
