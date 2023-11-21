@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mikael Even Selstad" />
+    <meta name="title" content="" />
+    <meta name="description" content=" " />
+    <meta name="keywords" content="" />
+    <title>Vintag$Brokers | Profile</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+</html>
+<body>
+  <header class="navbar navbar-expand-lg sticky-top">
+    <div class="container bg-primary">
+      <a
+        href="index.html"
+        class="navbar-brand d-flex align-items-center text-secondary brand-name fs-1"
+        ><img
+          src="/images/Vintagebrokers.logo.jpg"
+          alt="Pokétown Logo"
+          width="100"
+          class="rounded-circle p-1"
+        />
+        <span class="d-sm-inline d-none">Vintage$Brokers</span></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target=".navbar-collapse"
+        aria-label="Toggle Navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto me-1-sm float-end fs-5">
+          <li class="nav-item">
+            <a
+              class="nav-link text-secondary text-decoration-underline"
+              href="/profile/index.html"
+              >Profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="/feed/listings.html">Auctions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main>
+    <h1 class="visually-hidden">Profile</h1>
+    <div class="profileBox container row mx-auto">
+    <div class="col-sm-12 col-md-3 bg-success">
+        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#editModal">
+            Open Edit Modal
+          </button>
+          
+    </div>
+    <div class="col-md-9 d-none d-md-block">
+        <img src="/images/profilebanner.jpg" alt="Profile Banner">
+    </div>
+    
+    </div>
+  </main>
+</body>
+<footer class="container-fluid bg-success bg-opacity-25 mt-1">
+    <div class="row"></div>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid justify-content-evenly fs-5 p-3">
+            <ul class="navbar-nav fs-2">
+              <li class="nav-item mx-5">
+                <a class="nav-link" href="register.html">Register</a>
+              </li>
+              <li class="nav-item mx-5">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item mx-5">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-6">
+        <p class="fs-2 text-center">Get Social With US</p>
+        <div class="d-flex flex-row justify-content-center gap-5">
+          <i class="fa-brands fa-facebook fs-1 text-info"></i>
+          <i class="fa-brands fa-square-instagram text-danger fs-1"></i>
+          <i class="fa-brands fa-twitter fs-1 text-info"></i>
+          <i class="fa-brands fa-linkedin fs-1 text-dark"></i>
+        </div>
+      </div>
+      <p class="text-center mt-1">Vintage$Brokers 2023</p>
+    </div>
+  </footer>
+  <div class="modal fade bg-dark bg-opacity-50  modal-fullscreen-sm-down" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border border-3 border-secondary bg-info text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProfileImage">Edit Profile Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="updateProfileMediaForm">
+            <label for="UpdateProfileMedia" class="form-label text-start">Edit Avatar</label>
+            <div class="UpdateProfileMedia">
+              <input
+                type="text"
+                class="form-control"
+                id="updateProfileMedia"
+                name="avatar"
+                placeholder="New image url"
+              />
+            </div>
+            <div class="modal-footer justify-content-around mt-2">
+              <button
+                type="submit"
+                id="editProfileMedia"
+                class="btn btn-info btn-lg mt-2 ml-auto btn-dark"
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
