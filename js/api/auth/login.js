@@ -1,8 +1,10 @@
 import { API_BASE_URL, authURL, loginURL } from "../../consts/consts.mjs";
 
-if (userName && token) {
-  window.location.href = "profile/index.html";
-}
+// export function redirectToProfile(userName, token) {
+//   if (userName && token) {
+//     window.location.href = "profile/index.html";
+//   }
+// }
 
 /**
  * Logs in a user by sending a POST request to the specified URL with user data.
