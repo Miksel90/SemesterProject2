@@ -14,10 +14,10 @@ async function loginUser(url, userData) {
     loginButton.disabled = true;
 
     const response = await fetch(url, postData);
-    console.log(response);
+    // console.log(response);
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
 
     if (response.ok) {
       const accessToken = json.accessToken;
@@ -26,21 +26,17 @@ async function loginUser(url, userData) {
       localStorage.setItem("userName", userName);
       localStorage.setItem("userEmail", userData.email);
 
-      // Change the button text to "Success!" after 1.5 seconds
       setTimeout(() => {
         loginButton.innerText = "Success!";
-        // Redirect after another 1.5 seconds (adjust the timing as needed)
         setTimeout(() => {
           window.location.href = "/profile/index.html";
         }, 1500);
       }, 1500);
     } else {
-      // Handle login failure
       console.log("Login failed");
-      loginButton.innerText = "Login"; // Reset button text
-      loginButton.disabled = false; // Enable the button
+      loginButton.innerText = "Login";
+      loginButton.disabled = false;
 
-      // Display an error message to the user
       const errorMessage = document.getElementById("errorMessage");
       errorMessage.innerText =
         "Login failed. Please check your email and password.";
@@ -55,7 +51,6 @@ document
   .addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // Clear any previous error messages
     const errorMessage = document.getElementById("errorMessage");
     errorMessage.innerText = "";
 
