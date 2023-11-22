@@ -1,6 +1,6 @@
 import { API_BASE_URL, profileURL, userName } from "../../consts/consts.mjs";
 import { populateProfile } from "./populateProfileInfo.mjs";
-import { showLoader, hideLoader } from "../../utilties/loader.mjs";
+import { showLoader, hideLoader } from "../../utilities/loader.mjs";
 
 export async function createProfile(url) {
   try {
