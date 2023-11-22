@@ -14,10 +14,7 @@ async function loginUser(url, userData) {
     loginButton.disabled = true;
 
     const response = await fetch(url, postData);
-    // console.log(response);
-
     const json = await response.json();
-    // console.log(json);
 
     if (response.ok) {
       const accessToken = json.accessToken;

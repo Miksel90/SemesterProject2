@@ -2,7 +2,7 @@ import { API_BASE_URL, profileURL, userName } from "../../consts/consts.mjs";
 import { populateProfile } from "./populateProfileInfo.mjs";
 import { showLoader, hideLoader } from "../../utilties/loader.mjs";
 
-async function createProfile(url) {
+export async function createProfile(url) {
   try {
     showLoader();
 
@@ -17,10 +17,8 @@ async function createProfile(url) {
     };
     const response = await fetch(url, fetchProfileInfo);
     const json = await response.json();
-
-    hideLoader();
-
     populateProfile(json);
+    hideLoader();
 
     console.log(json);
   } catch (error) {
@@ -28,6 +26,6 @@ async function createProfile(url) {
   }
 }
 
-const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
+export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
 
 createProfile(profileInfo);
