@@ -4,7 +4,9 @@ import {
   register_endpoint,
 } from "../../consts/consts.mjs";
 
-async function registerUser(url, userData) {
+export async function registerUser(url, userData) {
+  const registerButton = document.getElementById("registerButton");
+
   try {
     const postData = {
       method: "POST",
@@ -13,15 +15,31 @@ async function registerUser(url, userData) {
       },
       body: JSON.stringify(userData),
     };
+
+    registerButton.innerText = "Registering...";
+    registerButton.disabled = true;
+
     const response = await fetch(url, postData);
-    console.log(response);
+    // console.log(response);
     const json = await response.json();
+
     if (response.ok) {
-      window.location.href = "index.html";
+      registerButton.innerText = "Success!";
+      registerButton.classList.add("success");
+
+      setTimeout(function () {
+        window.location.href = "index.html";
+      }, 1000);
+    } else {
+      //   console.log(json);
+      registerButton.innerText = "Register";
+      registerButton.disabled = false;
     }
-    console.log(json);
   } catch (error) {
     console.log(error);
+
+    registerButton.innerText = "Register";
+    registerButton.disabled = false;
   }
 }
 
