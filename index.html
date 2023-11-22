@@ -18,7 +18,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/utilties/utilities.mjs" type="module"></script>
-    <script src="/js/auth/login.js" type="module"></script>
+    <script src="/js/api/auth/login.js" type="module"></script>
   </head>
 </html>
 <body>
@@ -106,45 +106,46 @@
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <h3 class="text-primary fs-2">Please log in</h3>
                 <form id="loginForm" method="post" class="needs-validation mb-3">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="userEmail"
-                        name="email"
-                        placeholder="E-mail"
-                        required
-                      />
-                      <label for="userEmail">Email</label>
-                      <div class="invalid-feedback text-danger">
-                        Please enter a valid email address.
-                      </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="userEmail"
+                      name="email"
+                      placeholder="E-mail"
+                      required
+                    />
+                    <label for="userEmail">Email</label>
+                    <div class="invalid-feedback text-danger">
+                      Please enter a valid email address.
                     </div>
-                    <div class="form-floating">
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="userPassword"
-                        name="password"
-                        placeholder="Password"
-                        required
-                        minlength="8"
-                      />
-                      <label for="userPassword">Password</label>
-                      <div class="invalid-feedback">
-                        Password must be at least 8 characters long.
-                      </div>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="userPassword"
+                      name="password"
+                      placeholder="Password"
+                      required
+                      minlength="8"
+                    />
+                    <label for="userPassword">Password</label>
+                    <div class="invalid-feedback">
+                      Password must be at least 8 characters long.
                     </div>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                      <button
-                        type="submit"
-                        class="btn btn-primary btn-lg border border-info border-3 text-white btn-lg mt-3"
-                      >
-                        Login
-                      </button>
-                    </div>
-                  </form>
-                  
+                  </div>
+                  <div id="errorMessage" class="text-danger mt-2 fs-4"></div>
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button
+                      id="loginButton"
+                      type="submit"
+                      class="btn btn-primary btn-lg border border-info border-3 text-white btn-lg mt-3"
+                    >
+                      Login
+                    </button>
+                  </div>
+                </form>                
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="justify-content-center p-3 ms-5">

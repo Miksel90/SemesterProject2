@@ -1,6 +1,6 @@
-import { API_BASE_URL, authURL, loginURL } from "../../consts/consts.mjs";
+import { API_BASE_URL, authURL, login_endpoint } from "../../consts/consts.mjs";
 
-export async function loginUser(url, userData) {
+async function loginUser(url, userData) {
   try {
     const postData = {
       method: "POST",
@@ -9,21 +9,41 @@ export async function loginUser(url, userData) {
       },
       body: JSON.stringify(userData),
     };
+
+    loginButton.innerText = "trying to log in...";
+    loginButton.disabled = true;
+
     const response = await fetch(url, postData);
-    // console.log(response);
+    console.log(response);
+
+    const json = await response.json();
+    console.log(json);
 
     if (response.ok) {
-      const json = await response.json();
-      // console.log(json);
       const accessToken = json.accessToken;
       const userName = json.name;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("userName", userName);
-      localStorage.setItem("userEmail", userEmail);
+      localStorage.setItem("userEmail", userData.email);
 
-      window.location.href = "/profile/index.html";
+      // Change the button text to "Success!" after 1.5 seconds
+      setTimeout(() => {
+        loginButton.innerText = "Success!";
+        // Redirect after another 1.5 seconds (adjust the timing as needed)
+        setTimeout(() => {
+          window.location.href = "/profile/index.html";
+        }, 1500);
+      }, 1500);
     } else {
+      // Handle login failure
       console.log("Login failed");
+      loginButton.innerText = "Login"; // Reset button text
+      loginButton.disabled = false; // Enable the button
+
+      // Display an error message to the user
+      const errorMessage = document.getElementById("errorMessage");
+      errorMessage.innerText =
+        "Login failed. Please check your email and password.";
     }
   } catch (error) {
     console.log(error);
@@ -35,6 +55,10 @@ document
   .addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    // Clear any previous error messages
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.innerText = "";
+
     const userEmail = document.getElementById("userEmail").value;
     const userPassword = document.getElementById("userPassword").value;
 
@@ -43,7 +67,7 @@ document
       password: userPassword,
     };
 
-    const fullUrl = `${API_BASE_URL}${authURL}${loginURL}`;
+    const loginUrl = `${API_BASE_URL}${authURL}${login_endpoint}`;
 
-    loginUser(fullUrl, userData);
+    loginUser(loginUrl, userData);
   });
