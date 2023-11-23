@@ -11968,4 +11968,8 @@ body {
   margin: unset;
 }
 
+.bannerImage {
+  height: 300px;
+}
+
 /*# sourceMappingURL=styles.css.map */

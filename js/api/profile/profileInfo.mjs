@@ -7,7 +7,7 @@ export async function createProfile(url) {
     showLoader();
 
     const token = localStorage.getItem("accessToken");
-    console.log(token);
+    // console.log(token);
     const fetchProfileInfo = {
       method: "GET",
       headers: {
@@ -20,7 +20,7 @@ export async function createProfile(url) {
     populateProfile(json);
     hideLoader();
 
-    console.log(json);
+    // console.log(json);
   } catch (error) {
     console.log(error);
   }

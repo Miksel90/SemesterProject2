@@ -5,18 +5,36 @@ export function populateProfile(json) {
 
   const profileContainer = document.createElement("div");
   profileContainer.classList.add(
-    "bg-success",
-    "text-center",
     "p-2",
-    "d-flex",
-    "flex-column",
-    "justify-content-between",
-    "align-items-center"
+    "bg-success",
+    "border",
+    "border-primary"
   );
   profileContainer.id = profileInfo.id;
 
+  const profileDetails = document.createElement("div");
+  profileContainer.appendChild(profileDetails);
+
+  const profileBody = document.createElement("div");
+  profileBody.classList.add(
+    "d-flex",
+    "justify-content-around",
+    "align-items-center",
+    "mb-3",
+    "fs-1",
+    "mt-3"
+  );
+
   const profileAvatar = document.createElement("img");
-  profileAvatar.classList.add("img-fluid", "rounded-circle", "p-1");
+  profileAvatar.classList.add(
+    "img-fluid",
+    "rounded-circle",
+    "border",
+    "border-primary",
+    "border-2",
+    "p-1",
+    "d-md-none"
+  );
   profileAvatar.style.width = "100px";
 
   if (json.avatar && json.avatar.trim() !== "") {
@@ -26,15 +44,49 @@ export function populateProfile(json) {
     profileAvatar.src = "/images/default-avatar.jpg";
     profileAvatar.alt = "Profile image of " + json.name;
   }
-  profileContainer.append(profileAvatar);
 
-  const profileName = document.createElement("h1");
-  profileName.classList.add("text-white", "bolder", "display-1");
+  const profileName = document.createElement("p");
+  profileName.classList.add("text-white", "bolder", "fs-sm-2", "fs-md-1");
   const capitalizedFirstName =
     json.name.charAt(0).toUpperCase() + json.name.slice(1);
 
   profileName.innerText = capitalizedFirstName;
-  profileContainer.append(profileName);
+
+  profileBody.append(profileAvatar);
+  profileBody.append(profileName);
+
+  const ul = document.createElement("ul");
+  ul.classList.add(
+    "list-unstyled",
+    "mt-2",
+    "fs-5",
+    "ms-md-5",
+    "p-1",
+    "d-block"
+  );
+
+  const li1 = document.createElement("li");
+  li1.classList.add("text-white", "fs-4");
+  li1.innerText = "Credits: " + parseInt(json.credits, 10);
+
+  const li2 = document.createElement("li");
+  li2.classList.add("text-white", "fs-4");
+  li2.innerText = "Current Listings: " + json._count.listings;
+
+  const li3 = document.createElement("li");
+  li3.classList.add("text-white", "fs-4");
+  li3.innerText = "Auctions Won: " + json.wins.length;
+
+  ul.appendChild(li1);
+  ul.appendChild(li2);
+  ul.appendChild(li3);
+
+  profileContainer.appendChild(ul);
+
+  profileDetails.appendChild(profileBody);
+
+  const userInfoDetails = document.createElement("div");
+  userInfoDetails.classList.add("d-flex", "row", "justify-content-center");
 
   const editButton = document.createElement("button");
   editButton.classList.add(
@@ -70,7 +122,26 @@ export function populateProfile(json) {
     }
   });
 
-  profileContainer.appendChild(editButton);
+  userInfoDetails.append(editButton);
+
+  profileContainer.appendChild(userInfoDetails);
 
   profileBox.append(profileContainer);
+
+  const bannerImage = document.querySelector(".bannerImage");
+
+  const largeAvatar = document.createElement("img");
+  largeAvatar.classList.add("img-fluid", "border", "border-primary");
+  largeAvatar.style.width = "1000px";
+  largeAvatar.style.height = "296px";
+
+  if (json.avatar && json.avatar.trim() !== "") {
+    largeAvatar.src = json.avatar;
+    largeAvatar.alt = "Profile image of " + json.name;
+  } else {
+    largeAvatar.src = "/images/default-avatar.jpg";
+    largeAvatar.alt = "Profile image of " + json.name;
+  }
+
+  bannerImage.append(largeAvatar);
 }
