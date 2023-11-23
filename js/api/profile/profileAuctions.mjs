@@ -19,5 +19,5 @@ export async function createRecentBids(url) {
   }
 }
 
-export const profileBids = `${API_BASE_URL}${profileURL}${userName}/listings`;
+export const profileBids = `${API_BASE_URL}${profileURL}${userName}/bids?_listings=true`;
 createRecentBids(profileBids);
