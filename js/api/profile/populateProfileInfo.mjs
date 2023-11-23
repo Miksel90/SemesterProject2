@@ -18,6 +18,7 @@ export function populateProfile(json) {
   const profileBody = document.createElement("div");
   profileBody.classList.add(
     "d-flex",
+    "flex-column",
     "justify-content-around",
     "align-items-center",
     "mb-3",
@@ -28,14 +29,12 @@ export function populateProfile(json) {
   const profileAvatar = document.createElement("img");
   profileAvatar.classList.add(
     "img-fluid",
-    "rounded-circle",
     "border",
-    "border-primary",
+    "border-info",
     "border-2",
-    "p-1",
     "d-md-none"
   );
-  profileAvatar.style.width = "100px";
+  profileAvatar.style.width = "150px";
 
   if (json.avatar && json.avatar.trim() !== "") {
     profileAvatar.src = json.avatar;
@@ -46,7 +45,7 @@ export function populateProfile(json) {
   }
 
   const profileName = document.createElement("p");
-  profileName.classList.add("text-white", "bolder", "fs-sm-2", "fs-md-1");
+  profileName.classList.add("text-white", "bolder", "fs-1", "mt-3");
   const capitalizedFirstName =
     json.name.charAt(0).toUpperCase() + json.name.slice(1);
 
@@ -154,7 +153,7 @@ export function populateProfile(json) {
   const largeAvatar = document.createElement("img");
   largeAvatar.classList.add("img-fluid", "border", "border-primary");
   largeAvatar.style.width = "100%";
-  largeAvatar.style.height = "309px";
+  largeAvatar.style.height = "324px";
 
   if (json.avatar && json.avatar.trim() !== "") {
     largeAvatar.src = json.avatar;
