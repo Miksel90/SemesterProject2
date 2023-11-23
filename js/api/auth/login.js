@@ -26,7 +26,7 @@ async function loginUser(url, userData) {
       setTimeout(() => {
         loginButton.innerText = "Success!";
         setTimeout(() => {
-          window.location.href = "profile/index.html";
+          window.location.href = "/profile/index.html";
         }, 1500);
       }, 1500);
     } else {

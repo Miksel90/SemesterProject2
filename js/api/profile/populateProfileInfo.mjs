@@ -86,7 +86,12 @@ export function populateProfile(json) {
   profileDetails.appendChild(profileBody);
 
   const userInfoDetails = document.createElement("div");
-  userInfoDetails.classList.add("d-flex", "row", "justify-content-center");
+  userInfoDetails.classList.add(
+    "d-flex",
+    "row",
+    "justify-content-evenly",
+    "gap-1"
+  );
 
   const editButton = document.createElement("button");
   editButton.classList.add(
@@ -122,6 +127,22 @@ export function populateProfile(json) {
     }
   });
 
+  const createButton = document.createElement("button");
+  createButton.classList.add(
+    "btn",
+    "btn-primary",
+    "border",
+    "border-info",
+    "text-white",
+    "btn-sm",
+    "rounded"
+  );
+
+  createButton.style.width = "100px";
+  createButton.style.height = "50px";
+  createButton.innerText = "Create Auction";
+
+  userInfoDetails.append(createButton);
   userInfoDetails.append(editButton);
 
   profileContainer.appendChild(userInfoDetails);
@@ -132,8 +153,8 @@ export function populateProfile(json) {
 
   const largeAvatar = document.createElement("img");
   largeAvatar.classList.add("img-fluid", "border", "border-primary");
-  largeAvatar.style.width = "1000px";
-  largeAvatar.style.height = "296px";
+  largeAvatar.style.width = "100%";
+  largeAvatar.style.height = "309px";
 
   if (json.avatar && json.avatar.trim() !== "") {
     largeAvatar.src = json.avatar;
