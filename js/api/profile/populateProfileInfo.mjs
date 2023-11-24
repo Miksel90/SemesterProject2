@@ -4,10 +4,38 @@ export function populateProfile(json) {
   const profileBox = document.querySelector(".profileBox");
 
   const profileContainer = document.createElement("div");
-  profileContainer.classList.add("p-2", "border", "border-primary");
+  profileContainer.classList.add(
+    "p-1",
+    "border",
+    "border-secondary",
+    "row",
+    "justify-content-evenly",
+    "bg-success",
+    "bg-opacity-25"
+  );
   profileContainer.id = profileInfo.id;
 
   const profileDetails = document.createElement("div");
+  profileDetails.classList.add("col-md-6");
+
+  const profileAvatar = document.createElement("img");
+  profileAvatar.classList.add(
+    "img-fluid",
+    "img-thumbnail",
+    "d-none",
+    "d-md-block"
+  );
+  profileAvatar.style.width = "300px";
+
+  if (json.avatar && json.avatar.trim() !== "") {
+    profileAvatar.src = json.avatar;
+    profileAvatar.alt = "Profile image of " + json.name;
+  } else {
+    profileAvatar.src = "/images/default-avatar.jpg";
+    profileAvatar.alt = "Profile image of " + json.name;
+  }
+
+  profileContainer.append(profileAvatar);
   profileContainer.appendChild(profileDetails);
 
   const profileBody = document.createElement("div");
@@ -21,32 +49,12 @@ export function populateProfile(json) {
     "mt-3"
   );
 
-  const profileAvatar = document.createElement("img");
-  profileAvatar.classList.add(
-    "img-fluid",
-    "border",
-    "border-info",
-    "border-2",
-    "d-md-none"
-  );
-  profileAvatar.style.width = "150px";
-
-  if (json.avatar && json.avatar.trim() !== "") {
-    profileAvatar.src = json.avatar;
-    profileAvatar.alt = "Profile image of " + json.name;
-  } else {
-    profileAvatar.src = "/images/default-avatar.jpg";
-    profileAvatar.alt = "Profile image of " + json.name;
-  }
-
   const profileName = document.createElement("p");
-  profileName.classList.add("text-primary", "bolder", "fs-1", "mt-3");
+  profileName.classList.add("text-primary", "bolder", "fs-1");
   const capitalizedFirstName =
     json.name.charAt(0).toUpperCase() + json.name.slice(1);
 
   profileName.innerText = capitalizedFirstName;
-
-  profileBody.append(profileAvatar);
   profileBody.append(profileName);
 
   const ul = document.createElement("ul");
@@ -75,7 +83,7 @@ export function populateProfile(json) {
   ul.appendChild(li2);
   ul.appendChild(li3);
 
-  profileContainer.appendChild(ul);
+  profileBody.appendChild(ul);
 
   profileDetails.appendChild(profileBody);
 
@@ -83,8 +91,9 @@ export function populateProfile(json) {
   userInfoDetails.classList.add(
     "d-flex",
     "row",
-    "justify-content-evenly",
-    "gap-1"
+    "justify-content-md-end",
+    "justify-content-center",
+    "gap-3"
   );
 
   const editButton = document.createElement("button");
@@ -142,21 +151,4 @@ export function populateProfile(json) {
   profileContainer.appendChild(userInfoDetails);
 
   profileBox.append(profileContainer);
-
-  const bannerImage = document.querySelector(".bannerImage");
-
-  const largeAvatar = document.createElement("img");
-  largeAvatar.classList.add("img-fluid", "border", "border-primary");
-  largeAvatar.style.width = "100%";
-  largeAvatar.style.height = "324px";
-
-  if (json.avatar && json.avatar.trim() !== "") {
-    largeAvatar.src = json.avatar;
-    largeAvatar.alt = "Profile image of " + json.name;
-  } else {
-    largeAvatar.src = "/images/default-avatar.jpg";
-    largeAvatar.alt = "Profile image of " + json.name;
-  }
-
-  bannerImage.append(largeAvatar);
 }

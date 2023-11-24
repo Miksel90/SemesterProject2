@@ -11970,14 +11970,12 @@ body {
 
 .tab-link.active {
   color: #2f4ba1;
-  border-bottom: #000000;
-  border-right: #000000;
-  border-left: #000000;
-  border-style: solid;
+  font-weight: bolder;
 }
 
 .tab-link:not(.active) {
-  font-weight: lighter;
+  font-weight: light;
+  font-style: oblique;
   color: #000000;
 }
 
