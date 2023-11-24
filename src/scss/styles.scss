@@ -133,3 +133,18 @@ body {
 .margin-unset {
   margin: unset;
 }
+
+// Profile //
+
+.tab-link.active {
+  color: #2f4ba1;
+  border-bottom: #000000;
+  border-right: #000000;
+  border-left: #000000;
+  border-style: solid;
+}
+
+.tab-link:not(.active) {
+  font-weight: lighter;
+  color: #000000;
+}

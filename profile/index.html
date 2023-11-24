@@ -82,12 +82,69 @@
       <div class="col-md-6 d-none d-md-block">
         <div class="bannerImage"></div>
         </div>
-        <div class="profileAuctions"></div>
+        <div class="container fs-3 mt-3">
+        <ul class="nav mb-3 gap-1 " id="pills-tab" role="tablist">
+          <li class="nav-item " role="presentation">
+            <button class="nav-link tab-link active" id="pills-auction-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Auctions</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link tab-link" id="pills-bids-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Bids</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link tab-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Won</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-auction-tab" tabindex="0">
+            <div class="profileAuctions"></div>
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-bids-tab" tabindex="0">...</div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">...</div>
+        </div>
+      </div>
+      <div class="modal fade bg-dark bg-opacity-50  modal-fullscreen-sm-down" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border border-3 border-secondary bg-info text-white">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editProfileImage">Edit Profile Image</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="updateProfileMediaForm">
+                <label for="UpdateProfileMedia" class="form-label text-start">Edit Avatar</label>
+                <div class="UpdateProfileMedia">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="updateProfileMedia"
+                    name="avatar"
+                    placeholder="New image url"
+                  />
+                </div>
+                <div class="modal-footer justify-content-around mt-2">
+                  <button
+                    type="submit"
+                    id="editProfileMedia"
+                    class="btn btn-info btn-lg mt-2 ml-auto btn-dark"
+                  >
+                    Update
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+      class="btn btn-lg btn-primary rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+      id="back-to-up"
+    >
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
     </div>
   </main>
 </body>
 <footer class="container-fluid bg-success bg-opacity-25 mt-1">
-    <div class="row"></div>
     <div class="row align-items-center">
       <div class="col-md-6">
         <nav class="navbar navbar-expand-lg">
@@ -118,44 +175,5 @@
       <p class="text-center mt-1">Vintage$Brokers 2023</p>
     </div>
   </footer>
-  <div class="modal fade bg-dark bg-opacity-50  modal-fullscreen-sm-down" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border border-3 border-secondary bg-info text-white">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editProfileImage">Edit Profile Image</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="updateProfileMediaForm">
-            <label for="UpdateProfileMedia" class="form-label text-start">Edit Avatar</label>
-            <div class="UpdateProfileMedia">
-              <input
-                type="text"
-                class="form-control"
-                id="updateProfileMedia"
-                name="avatar"
-                placeholder="New image url"
-              />
-            </div>
-            <div class="modal-footer justify-content-around mt-2">
-              <button
-                type="submit"
-                id="editProfileMedia"
-                class="btn btn-info btn-lg mt-2 ml-auto btn-dark"
-              >
-                Update
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button
-  class="btn btn-lg btn-primary rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
-  id="back-to-up"
->
-  <i class="fa fa-arrow-up" aria-hidden="true"></i>
-</button>
 </body>
 </html>

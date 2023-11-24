@@ -4,12 +4,7 @@ export function populateProfile(json) {
   const profileBox = document.querySelector(".profileBox");
 
   const profileContainer = document.createElement("div");
-  profileContainer.classList.add(
-    "p-2",
-    "bg-success",
-    "border",
-    "border-primary"
-  );
+  profileContainer.classList.add("p-2", "border", "border-primary");
   profileContainer.id = profileInfo.id;
 
   const profileDetails = document.createElement("div");
@@ -45,7 +40,7 @@ export function populateProfile(json) {
   }
 
   const profileName = document.createElement("p");
-  profileName.classList.add("text-white", "bolder", "fs-1", "mt-3");
+  profileName.classList.add("text-primary", "bolder", "fs-1", "mt-3");
   const capitalizedFirstName =
     json.name.charAt(0).toUpperCase() + json.name.slice(1);
 
@@ -65,15 +60,15 @@ export function populateProfile(json) {
   );
 
   const li1 = document.createElement("li");
-  li1.classList.add("text-white", "fs-4");
+  li1.classList.add("text-primary", "fs-4");
   li1.innerText = "Credits: " + parseInt(json.credits, 10);
 
   const li2 = document.createElement("li");
-  li2.classList.add("text-white", "fs-4");
+  li2.classList.add("text-primary", "fs-4");
   li2.innerText = "Current Listings: " + json._count.listings;
 
   const li3 = document.createElement("li");
-  li3.classList.add("text-white", "fs-4");
+  li3.classList.add("text-primary", "fs-4");
   li3.innerText = "Auctions Won: " + json.wins.length;
 
   ul.appendChild(li1);
