@@ -1,7 +1,7 @@
 import { API_BASE_URL, profileURL, userName } from "../../consts/consts.mjs";
-import { populateAuctions } from "./populateAuctions.mjs";
+import { populateBids } from "./populateBids.mjs";
 
-export async function createAuctions(url) {
+export async function createBids(url) {
   try {
     const token = localStorage.getItem("accessToken");
     // console.log(token);
@@ -12,17 +12,17 @@ export async function createAuctions(url) {
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await fetch(profileAuctions, fetchProfileAuctions);
+    const response = await fetch(profileBids, fetchProfileAuctions);
 
     const json = await response.json();
 
-    populateAuctions(json);
+    populateBids(json);
 
-    // console.log(json);
+    console.log(json);
   } catch (error) {
     console.log(error);
   }
 }
 
-export const profileAuctions = `${API_BASE_URL}${profileURL}${userName}/listings?_active=true`;
-// createAuctions();
+export const profileBids = `${API_BASE_URL}${profileURL}${userName}/bids?_listings=true`;
+// createBids();

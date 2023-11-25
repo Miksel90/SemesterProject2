@@ -1,7 +1,8 @@
 import { API_BASE_URL, profileURL, userName } from "../../consts/consts.mjs";
 import { populateProfile } from "./populateProfileInfo.mjs";
 import { showLoader, hideLoader } from "../../utilities/loader.mjs";
-import { createRecentBids, profileBids } from "./profileAuctions.mjs";
+import { createAuctions } from "./profileAuctions.mjs";
+import { createBids } from "./profileBids.mjs";
 
 export async function createProfile(url) {
   try {
@@ -18,14 +19,17 @@ export async function createProfile(url) {
     };
     const response = await fetch(url, fetchProfileInfo);
     const json = await response.json();
+
+    createBids(json);
+    createAuctions(json);
     populateProfile(json);
     hideLoader();
 
-    console.log(json);
+    // console.log(json);
   } catch (error) {
     console.log(error);
   }
 }
 
 export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
-createProfile(profileInfo, createRecentBids);
+createProfile(profileInfo);
