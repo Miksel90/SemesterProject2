@@ -145,6 +145,25 @@ export function populateProfile(json) {
   createButton.style.height = "50px";
   createButton.innerText = "Create Auction";
 
+  createButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const createAuctionModal = document.getElementById("createAuctionModal");
+    createAuctionModal.classList.add("show");
+    createAuctionModal.style.display = "block";
+  });
+
+  const closeCreateAuctionModal = document.getElementById("createAuctionModal");
+  closeCreateAuctionModal.addEventListener("click", (e) => {
+    if (
+      e.target === closeCreateAuctionModal ||
+      e.target.classList.contains("btn-close")
+    ) {
+      closeCreateAuctionModal.classList.remove("show");
+      closeCreateAuctionModal.style.display = "none";
+    }
+  });
+
   userInfoDetails.append(createButton);
   userInfoDetails.append(editButton);
 

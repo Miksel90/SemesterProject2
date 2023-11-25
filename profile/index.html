@@ -20,6 +20,7 @@
     <script src="/js/utilities/utilities.mjs" type="module"></script>
    <script src="/js/api/auth/logout.mjs" type="module"></script>
    <script src="/js/api/profile/profileInfo.mjs" type="module"></script>
+   <script src="/js/auctions/createAuction.mjs" type="module"></script>
   </head>
 </html>
 <body>
@@ -140,6 +141,96 @@
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
     </div>
+    <div class="modal fade modal-lg bg-dark bg-opacity-50" id="createAuctionModal">
+      <div class="modal-dialog ">
+          <div class="modal-content border border-3 border-secondary bg-info text-white">
+              <div class="modal-header" id="modal-header">
+                  <h4 class="modal-title">Create New Auction</h4>
+                  <button
+                      type="button"
+                      class="btn-close"
+                      id="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                  ></button>
+              </div>
+              <div class="modal-body">
+                  <form id="createNewAuctionForm">
+                      <label for="auctionTitle" class="form-label text-start">Title</label>
+                      <div class="auctionTitle">
+                          <input
+                              type="text"
+                              class="form-control"
+                              id="auctionTitle"
+                              name="title"
+                              placeholder="Change Title"
+                              required
+                          />
+                      </div>
+                      <label for="auctionBody" class="form-label text-start">Body:</label>
+                      <textarea
+                          class="form-control mt-1 mb-3"
+                          placeholder="Add description"
+                          id="auctionBody"
+                          type="text"
+                          name="body"
+                          required
+                          rows="3"
+                      ></textarea>
+                      <label for="auctionEndsAt" class="form-label text-start">Ends At:</label>
+                      <div class="auctionEndsAt">
+                          <input
+                              type="datetime-local"
+                              class="form-control"
+                              id="auctionEndsAt"
+                              name="endsAt"
+                              required
+                          />
+                      </div>
+                      <label for="auctionTags" class="form-label text-start">Tags</label>
+                      <div class="auctionTags">
+                          <input
+                              type="text"
+                              class="form-control"
+                              id="auctionTags"
+                              name="tags"
+                              placeholder="Add Tags, use comma between tags"
+                          />
+                      </div>
+                      <label for="auctionMedia" class="form-label text-start">Image URL:</label>
+                      <div id="imageFieldsContainer">
+                        <div class="auctionMedia">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="auctionMedia"
+                                name="media"
+                                placeholder="Add Image"
+                                required
+                            />
+                        </div>
+                      </div>
+                      <button
+                      type="button"
+                      id="addImageButton"
+                      class="btn btn-secondary mt-2"
+                  >
+                      Add Image
+                  </button>
+                      <div class="modal-footer justify-content-around mt-2">
+                          <button
+                              type="submit"
+                              id="createAuctionButton"
+                              class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
+                          >
+                              Create Auction
+                          </button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>  
   </main>
 </body>
 <footer class="container-fluid bg-success bg-opacity-25 mt-1">

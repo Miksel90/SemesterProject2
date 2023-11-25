@@ -66,6 +66,19 @@ export function populateBids(json) {
 
     bidsInfo.appendChild(ul);
 
+    const bidAuctionCreated = document.createElement("p");
+    bidAuctionCreated.classList.add(
+      "fs-5",
+      "text-primary",
+      "text-decoration-underline",
+      "text-danger"
+    );
+
+    const createdAtDate = new Date(auction.listing.endsAt);
+    const createdDate = createdAtDate.toLocaleDateString();
+    bidAuctionCreated.textContent = "Auction Ends: " + createdDate;
+
+    bidsInfo.appendChild(bidAuctionCreated);
     profileBids.append(bidsInfo);
 
     profileBids.append(bidsContainer);
