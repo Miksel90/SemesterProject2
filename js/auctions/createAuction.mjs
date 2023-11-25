@@ -26,6 +26,8 @@ async function createAuction(url, newAuction) {
       document.getElementById("auctionTags").value = "";
       document.getElementById("auctionMedia").value = "";
 
+      alert("Auction has been posted!");
+
       window.location.reload();
     } else {
       console.log("Could not create new auction");
@@ -48,13 +50,12 @@ document
     const auctionTags = document.getElementById("auctionTags").value;
     const auctionMedia = document.getElementById("auctionMedia").value;
 
-    // Create an object based on the API request structure
     const newAuction = {
       title: auctionTitle,
-      description: auctionBody, // Assuming "body" corresponds to "description" in the API
-      endsAt: new Date(auctionEndsAt).toISOString(), // Convert to ISO string
-      tags: auctionTags.split(",").map((tag) => tag.trim()), // Convert to array
-      media: auctionMedia.split(",").map((media) => media.trim()), // Convert to array
+      description: auctionBody,
+      endsAt: new Date(auctionEndsAt).toISOString(),
+      tags: auctionTags.split(",").map((tag) => tag.trim()),
+      media: auctionMedia.split(",").map((media) => media.trim()),
     };
 
     const newAuctionURL = `${API_BASE_URL}${listing_endpoint}`;
