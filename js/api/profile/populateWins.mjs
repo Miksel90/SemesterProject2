@@ -95,6 +95,6 @@ export async function populateWins(json) {
 
     await Promise.all(fetchAllProfileWins);
   } else {
-    console.error("Invalid wins data");
+    console.error("Invalid data");
   }
 }
