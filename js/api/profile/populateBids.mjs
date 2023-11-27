@@ -7,7 +7,7 @@ export function populateBids(json) {
   json.forEach((auction) => {
     const bidsContainer = document.createElement("a");
     bidsContainer.href = `/feed/auctionSpecific.html?id=${auction.id}`;
-    bidsContainer.classList.add("text-decoration-none");
+    bidsContainer.classList.add("p-2", "text-decoration-none");
 
     const bidsInfo = document.createElement("div");
     bidsInfo.classList.add(
@@ -42,6 +42,7 @@ export function populateBids(json) {
       );
 
       bidsMedia.style.height = "150px";
+      bidsMedia.alt = "Auction main Image - Read description for more Info";
       bidsMedia.src = auction.listing.media[0];
 
       bidsInfo.appendChild(bidsMedia);

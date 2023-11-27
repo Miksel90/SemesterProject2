@@ -7,17 +7,13 @@ export function populateAuctions(json) {
   json.forEach((auction) => {
     const auctionContainer = document.createElement("a");
     auctionContainer.href = `/feed/auctionSpecific.html?id=${auction.id}`;
-    auctionContainer.classList.add(
-      "p-2",
-      "text-decoration-none",
-      "text-secondary"
-    );
+    auctionContainer.classList.add("p-3", "text-decoration-none");
 
     const auctionInfo = document.createElement("div");
     auctionInfo.classList.add(
       "card",
       "d-flex",
-      "p-4",
+      "p-3",
       "border",
       "border-secondary"
     );
@@ -52,6 +48,7 @@ export function populateAuctions(json) {
       );
 
       auctionMedia.style.height = "150px";
+      auctionMedia.alt = "Auction main Image - Read description for more Info";
       auctionMedia.src = auction.media[0];
 
       const auctionCreated = document.createElement("p");

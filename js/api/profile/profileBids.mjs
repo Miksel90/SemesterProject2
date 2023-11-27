@@ -4,7 +4,6 @@ import { populateBids } from "./populateBids.mjs";
 export async function createBids(url) {
   try {
     const token = localStorage.getItem("accessToken");
-    // console.log(token);
     const fetchProfileAuctions = {
       method: "GET",
       headers: {
@@ -18,7 +17,7 @@ export async function createBids(url) {
 
     populateBids(json);
 
-    console.log(json);
+    // console.log(json);
   } catch (error) {
     console.log(error);
   }

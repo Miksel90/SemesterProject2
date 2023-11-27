@@ -4,6 +4,7 @@ import { showLoader, hideLoader } from "../../utilities/loader.mjs";
 import { createAuctions } from "./profileAuctions.mjs";
 import { createBids } from "./profileBids.mjs";
 import { newProfileAvatarMedia } from "./updateProfilemedia.mjs";
+import { populateWins } from "./populateWins.mjs";
 
 newProfileAvatarMedia();
 
@@ -12,7 +13,6 @@ export async function createProfile(url) {
     showLoader();
 
     const token = localStorage.getItem("accessToken");
-    // console.log(token);
     const fetchProfileInfo = {
       method: "GET",
       headers: {
@@ -26,9 +26,10 @@ export async function createProfile(url) {
     createBids(json);
     createAuctions(json);
     populateProfile(json);
+    populateWins(json);
     hideLoader();
 
-    console.log(json);
+    // console.log(json);
   } catch (error) {
     console.log(error);
   }

@@ -22,12 +22,11 @@
    <script src="/js/api/profile/profileInfo.mjs" type="module"></script>
    <script src="/js/auctions/createAuction.mjs" type="module"></script>
   </head>
-</html>
 <body>
   <header class="navbar navbar-expand-lg sticky-top">
     <div class="container bg-primary">
       <a
-        href="/profile/index.html"
+        href="/index.html"
         id="redirectLink"
         class="navbar-brand d-flex align-items-center text-secondary brand-name fs-1"
         ><img
@@ -57,7 +56,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-secondary" href="/feed/listings.html">Auctions</a>
+            <a class="nav-link text-secondary" href="/feed/index.html">Auctions</a>
           </li>
           <li class="nav-item">
             <a id="logoutButton" class="nav-link text-secondary" href="index.html">Logout</a>
@@ -99,7 +98,7 @@
               <div class="profileBids d-flex flex-wrap"></div>
             </div>
             <div class="tab-pane fade" id="pills-won" role="tabpanel" aria-labelledby="won-tab" tabindex="0">
-              <div class="profileWins"></div>
+              <div class="profileWins d-flex flex-wrap"></div>
             </div>
           </div>
         </div>
