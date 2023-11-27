@@ -3,6 +3,9 @@ import { populateProfile } from "./populateProfileInfo.mjs";
 import { showLoader, hideLoader } from "../../utilities/loader.mjs";
 import { createAuctions } from "./profileAuctions.mjs";
 import { createBids } from "./profileBids.mjs";
+import { newProfileAvatarMedia } from "./updateProfilemedia.mjs";
+
+newProfileAvatarMedia();
 
 export async function createProfile(url) {
   try {
@@ -25,7 +28,7 @@ export async function createProfile(url) {
     populateProfile(json);
     hideLoader();
 
-    // console.log(json);
+    console.log(json);
   } catch (error) {
     console.log(error);
   }

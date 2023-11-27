@@ -60,7 +60,7 @@
             <a class="nav-link text-secondary" href="/feed/listings.html">Auctions</a>
           </li>
           <li class="nav-item">
-            <a id="logoutButton" class="nav-link text-secondary">Logout</a>
+            <a id="logoutButton" class="nav-link text-secondary" href="index.html">Logout</a>
           </li>
         </ul>
       </div>
@@ -98,10 +98,12 @@
             <div class="tab-pane fade" id="pills-bids" role="tabpanel" aria-labelledby="bids-tab" tabindex="0">
               <div class="profileBids d-flex flex-wrap"></div>
             </div>
-            <div class="tab-pane fade" id="pills-won" role="tabpanel" aria-labelledby="won-tab" tabindex="0">...</div>
+            <div class="tab-pane fade" id="pills-won" role="tabpanel" aria-labelledby="won-tab" tabindex="0">
+              <div class="profileWins"></div>
+            </div>
           </div>
         </div>
-      <div class="modal fade bg-dark bg-opacity-50  modal-fullscreen-sm-down" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade bg-dark bg-opacity-50  modal-fullscreen-sm-down" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content border border-3 border-secondary bg-info text-white">
             <div class="modal-header">
@@ -134,12 +136,6 @@
           </div>
         </div>
       </div>
-      <button
-      class="btn btn-lg btn-primary rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
-      id="back-to-up"
-    >
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    </button>
     </div>
     <div class="modal fade modal-lg bg-dark bg-opacity-50" id="createAuctionModal">
       <div class="modal-dialog ">
@@ -264,5 +260,11 @@
       <p class="text-center mt-1">Vintage$Brokers 2023</p>
     </div>
   </footer>
+  <button
+  class="btn btn-lg btn-primary rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+  id="back-to-up"
+>
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</button>
 </body>
 </html>
