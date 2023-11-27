@@ -94,7 +94,6 @@ async function createAuction(url, newAuction) {
     if (response.ok) {
       const json = await response.json();
 
-      // Reset values for all media inputs
       const mediaInputs = document.querySelectorAll(
         "#imageFieldsContainer input[name='media']"
       );
