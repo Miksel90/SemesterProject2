@@ -73,7 +73,7 @@ export function populateProfile(json) {
 
   const li2 = document.createElement("li");
   li2.classList.add("text-primary", "fs-4");
-  li2.innerText = "Current Listings: " + json._count.listings;
+  li2.innerText = "Listings: " + json._count.listings;
 
   const li3 = document.createElement("li");
   li3.classList.add("text-primary", "fs-4");
