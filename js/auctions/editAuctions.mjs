@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const auctionTitleInput = modal.querySelector("#auctionTitle");
   const auctionBodyInput = modal.querySelector("#auctionBody");
   const auctionTagsInput = modal.querySelector("#auctionTags");
+  const auctionMediaInputs = modal.querySelectorAll(".media-input");
 
   const editAuctionButton = document.getElementById("editAuctionButton");
 
@@ -13,7 +14,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     auctionId,
     auctionTitle,
     auctionDescription,
-    auctionTags
+    auctionTags,
+    auctionMedia
   ) {
     const token = localStorage.getItem("accessToken");
     const url = `${API_BASE_URL}${listing_endpoint}/${auctionId}`;
@@ -30,8 +32,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
           title: auctionTitle,
           description: auctionDescription,
           tags: Array.isArray(auctionTags) ? auctionTags : [auctionTags],
+          media: Array.from(auctionMedia).map((input) => input.value),
         }),
       });
+
+      console.log(response);
 
       if (response.ok) {
         modal.classList.remove("show");
@@ -53,12 +58,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const editedBody = auctionBodyInput.value;
     const editedTags = auctionTagsInput.value;
 
-    // const editedMedia = [];
-    // auctionMediaInputs.forEach((input) => editedMedia.push(input.value));
+    const auctionMediaInputs =
+      imageFieldsContainer.querySelectorAll(".form-control");
+    const editedMedia = Array.from(auctionMediaInputs);
 
     const auctionId = modal.getAttribute("data-auction-id");
     console.log("auction ID:", auctionId);
 
-    await editAuction(auctionId, editedTitle, editedBody, editedTags);
+    await editAuction(
+      auctionId,
+      editedTitle,
+      editedBody,
+      editedTags,
+      editedMedia
+    );
   });
 });

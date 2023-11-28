@@ -106,24 +106,17 @@ export function populateAuctions(json) {
         const auctionTitleInput = modal.querySelector("#auctionTitle");
         const auctionBodyInput = modal.querySelector("#auctionBody");
         const auctionTagsInput = modal.querySelector("#auctionTags");
-        // const auctionMediaInputs = modal.querySelectorAll(".media-input");
+        const auctionMediaInputs = modal.querySelectorAll(".media-input");
 
         auctionTitleInput.value = auction.title;
         auctionBodyInput.value = auction.description;
         auctionTagsInput.value = auction.tags;
-        // auctionMediaInputs.value = auction.media;
+        auctionMediaInputs.value = auction.media;
 
         const auctionEnds = modal.querySelector(".auctionEndsAt");
         auctionEnds.style.display = "none";
         const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");
         endsAtLabel.style.display = "none";
-
-        const auctionMedia = modal.querySelector(".auctionMedia");
-        auctionMedia.style.display = "none";
-        const auctionMediaLabel = modal.querySelector(
-          "label[for='auctionMedia']"
-        );
-        auctionMediaLabel.style.display = "none";
 
         modal.setAttribute("data-auction-id", auction.id);
 
