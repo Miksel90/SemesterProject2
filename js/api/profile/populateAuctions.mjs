@@ -94,6 +94,7 @@ export function populateAuctions(json) {
       openModal.style.width = "120px";
       openModal.style.fontSize = "16px";
 
+      editAuctionContainer.appendChild(openModal);
       const modal = document.getElementById("createAuctionModal");
 
       openModal.addEventListener("click", (e) => {
