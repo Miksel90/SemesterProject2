@@ -152,6 +152,14 @@ export function populateProfile(json) {
     createAuctionModal.classList.add("show");
     createAuctionModal.style.display = "block";
 
+    const auctionTitleInput = document.getElementById("auctionTitle");
+    const auctionBodyInput = document.getElementById("auctionBody");
+    const auctionTagsInput = document.getElementById("auctionTags");
+
+    auctionTitleInput.value = "";
+    auctionBodyInput.value = "";
+    auctionTagsInput.value = "";
+
     const editButton = document.getElementById("editAuctionButton");
     editButton.style.display = "none";
   });
@@ -164,9 +172,9 @@ export function populateProfile(json) {
     ) {
       closeCreateAuctionModal.classList.remove("show");
       closeCreateAuctionModal.style.display = "none";
+      const editButton = document.getElementById("editAuctionButton");
+      editButton.style.display = "block";
     }
-    const editButton = document.getElementById("editAuctionButton");
-    editButton.style.display = "block";
   });
 
   userInfoDetails.append(createButton);

@@ -163,19 +163,18 @@ export function populateAuctions(json) {
           if (deleteButton) {
             deleteButton.remove();
           }
+          const auctionEnds = modal.querySelector(".auctionEndsAt");
+          auctionEnds.style.display = "block";
+          const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");
+          endsAtLabel.style.display = "block";
+
+          const auctionMedia = modal.querySelector(".auctionMedia");
+          auctionMedia.style.display = "block";
+          const auctionMediaLabel = modal.querySelector(
+            "label[for='auctionMedia']"
+          );
+          auctionMediaLabel.style.display = "block";
         }
-
-        const auctionEnds = modal.querySelector(".auctionEndsAt");
-        auctionEnds.style.display = "block";
-        const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");
-        endsAtLabel.style.display = "block";
-
-        const auctionMedia = modal.querySelector(".auctionMedia");
-        auctionMedia.style.display = "block";
-        const auctionMediaLabel = modal.querySelector(
-          "label[for='auctionMedia']"
-        );
-        auctionMediaLabel.style.display = "block";
       });
 
       auctionInfo.appendChild(auctionMedia);
