@@ -1,13 +1,13 @@
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
+/**
+ * Event listener that runs when the DOM content is fully loaded.
+ * Then runs a delete request to delete the auction with the targeted auctionID
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("createAuctionModal");
 
-  /**
-   * Delete a post.
-   *
-   * @param {string} auctionId - The ID of the post to delete.
-   */
   async function deletePost(auctionId) {
     const token = localStorage.getItem("accessToken");
     const url = `${API_BASE_URL}${listing_endpoint}/${auctionId}`;
