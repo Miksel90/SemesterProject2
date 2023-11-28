@@ -21,6 +21,7 @@
    <script src="/js/api/auth/logout.mjs" type="module"></script>
    <script src="/js/api/profile/profileInfo.mjs" type="module"></script>
    <script src="/js/auctions/createAuction.mjs" type="module" defer></script>
+   <script src="/js/auctions/editAuctions.mjs" type="module" defer></script>
   </head>
 <body>
   <header class="navbar navbar-expand-lg sticky-top">
@@ -162,7 +163,7 @@
                               required
                           />
                       </div>
-                      <label for="auctionBody" class="form-label text-start">Body:</label>
+                      <label for="auctionBody" class="form-label text-start mt-2">Body:</label>
                       <textarea
                           class="form-control mt-1 mb-3"
                           placeholder="Add description"
@@ -172,7 +173,7 @@
                           required
                           rows="3"
                       ></textarea>
-                      <label for="auctionEndsAt" class="form-label text-start">Ends At:</label>
+                      <label for="auctionEndsAt" class=" form-label text-start mt-2">Ends At:</label>
                       <div class="auctionEndsAt">
                           <input
                               type="datetime-local"
@@ -182,7 +183,7 @@
                               required
                           />
                       </div>
-                      <label for="auctionTags" class="form-label text-start">Tags</label>
+                      <label for="auctionTags" class="form-label text-start mt-2">Tags</label>
                       <div class="auctionTags">
                           <input
                               type="text"
@@ -192,7 +193,7 @@
                               placeholder="Add Tags, use comma between tags"
                           />
                       </div>
-                      <label for="auctionMedia" class="form-label text-start">Image URL:</label>
+                      <label for="auctionMedia" class="form-label text-start mt-2">Image URL:</label>
                       <div id="imageFieldsContainer">
                         <div class="auctionMedia">
                           <input
@@ -220,13 +221,13 @@
                               Create Auction
                           </button>
                         </button>
-                            <!-- <button
+                            <button
                                 type="submit"
-                                id="deleteAuctionButton"
-                                class=" deleteButton btn btn-danger border border-primary btn-lg mt-2 ml-auto"
+                                id="editAuctionButton"
+                                class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
                             >
-                                Delete Auction
-                            </button> -->
+                                Edit
+                            </button>
                   </form>
               </div>
           </div>

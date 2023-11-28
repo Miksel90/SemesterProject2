@@ -99,22 +99,32 @@ export function populateAuctions(json) {
       openModal.addEventListener("click", (e) => {
         e.preventDefault();
 
+        const auctionButton = modal.querySelector(".mainButton");
+        auctionButton.style.display = "none";
+
         const auctionTitleInput = modal.querySelector("#auctionTitle");
         const auctionBodyInput = modal.querySelector("#auctionBody");
-        const auctionEndsInput = modal.querySelector("#auctionEndsAt");
         const auctionTagsInput = modal.querySelector("#auctionTags");
-        const auctionMediaInputs = modal.querySelectorAll(".media-input");
+        // const auctionMediaInputs = modal.querySelectorAll(".media-input");
 
         auctionTitleInput.value = auction.title;
         auctionBodyInput.value = auction.description;
-        auctionEndsInput.value = auction.endsAt;
         auctionTagsInput.value = auction.tags;
-        auctionMediaInputs.value = auction.media;
+        // auctionMediaInputs.value = auction.media;
+
+        const auctionEnds = modal.querySelector(".auctionEndsAt");
+        auctionEnds.style.display = "none";
+        const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");
+        endsAtLabel.style.display = "none";
+
+        const auctionMedia = modal.querySelector(".auctionMedia");
+        auctionMedia.style.display = "none";
+        const auctionMediaLabel = modal.querySelector(
+          "label[for='auctionMedia']"
+        );
+        auctionMediaLabel.style.display = "none";
 
         modal.setAttribute("data-auction-id", auction.id);
-
-        const mainButton = document.getElementById("createAuctionButton");
-        mainButton.textContent = "Edit Auction";
 
         modal.classList.add("show");
         modal.style.display = "block";
@@ -143,16 +153,29 @@ export function populateAuctions(json) {
           e.target === closeModal ||
           e.target.classList.contains("btn-close")
         ) {
-          const mainButton = document.getElementById("createAuctionButton");
-          mainButton.textContent = "Create Auction";
           closeModal.classList.remove("show");
           closeModal.style.display = "none";
+
+          const auctionButton = document.querySelector(".mainButton");
+          auctionButton.style.display = "block";
 
           const deleteButton = document.getElementById("deleteAuctionButton");
           if (deleteButton) {
             deleteButton.remove();
           }
         }
+
+        const auctionEnds = modal.querySelector(".auctionEndsAt");
+        auctionEnds.style.display = "block";
+        const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");
+        endsAtLabel.style.display = "block";
+
+        const auctionMedia = modal.querySelector(".auctionMedia");
+        auctionMedia.style.display = "block";
+        const auctionMediaLabel = modal.querySelector(
+          "label[for='auctionMedia']"
+        );
+        auctionMediaLabel.style.display = "block";
       });
 
       auctionInfo.appendChild(auctionMedia);

@@ -14,7 +14,7 @@ export function initializeImageForm() {
 
         const newImageInput = document.createElement("input");
         newImageInput.type = "text";
-        newImageInput.classList.add("form-control", "mt-2");
+        newImageInput.classList.add("form-control", "mt-2", "media-input");
         newImageInput.name = "media";
         newImageInput.placeholder = "Add Image";
         newImageInput.required = true;
