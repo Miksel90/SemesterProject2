@@ -161,13 +161,6 @@ export function populateAuctions(json) {
           auctionEnds.style.display = "block";
           const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");
           endsAtLabel.style.display = "block";
-
-          const auctionMedia = modal.querySelector(".auctionMedia");
-          auctionMedia.style.display = "block";
-          const auctionMediaLabel = modal.querySelector(
-            "label[for='auctionMedia']"
-          );
-          auctionMediaLabel.style.display = "block";
         }
       });
 

@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const auctionTitleInput = modal.querySelector("#auctionTitle");
   const auctionBodyInput = modal.querySelector("#auctionBody");
   const auctionTagsInput = modal.querySelector("#auctionTags");
-  const auctionMediaInputs = modal.querySelectorAll(".media-input");
+  const imageFieldsContainer = document.getElementById("imageFieldsContainer");
 
   const editAuctionButton = document.getElementById("editAuctionButton");
 
@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
           title: auctionTitle,
           description: auctionDescription,
           tags: Array.isArray(auctionTags) ? auctionTags : [auctionTags],
-          media: Array.from(auctionMedia).map((input) => input.value),
+          media: auctionMedia.map((input) => input.value),
         }),
       });
 
