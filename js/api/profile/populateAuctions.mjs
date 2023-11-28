@@ -70,9 +70,97 @@ export function populateAuctions(json) {
       );
       numberOfBids.textContent = "Bids: " + auction._count.bids;
 
+      const editAuctionContainer = document.createElement("div");
+      editAuctionContainer.classList.add(
+        "d-flex",
+        "flex-wrap",
+        "justify-content-center",
+        "align-items-center",
+        "mb-1"
+      );
+
+      const openModal = document.createElement("button");
+      openModal.id = `edit_${auction.id}`;
+      openModal.classList.add(
+        "btn",
+        "btn-primary",
+        "btn-sm",
+        "text-center",
+        "border",
+        "border-info",
+        "border-2"
+      );
+      openModal.textContent = "Edit auction";
+      openModal.style.width = "120px";
+      openModal.style.fontSize = "16px";
+
+      const modal = document.getElementById("createAuctionModal");
+
+      openModal.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const auctionTitleInput = modal.querySelector("#auctionTitle");
+        const auctionBodyInput = modal.querySelector("#auctionBody");
+        const auctionEndsInput = modal.querySelector("#auctionEndsAt");
+        const auctionTagsInput = modal.querySelector("#auctionTags");
+        const auctionMediaInputs = modal.querySelectorAll(".media-input");
+
+        auctionTitleInput.value = auction.title;
+        auctionBodyInput.value = auction.description;
+        auctionEndsInput.value = auction.endsAt;
+        auctionTagsInput.value = auction.tags;
+        auctionMediaInputs.value = auction.media;
+
+        modal.setAttribute("data-auction-id", auction.id);
+
+        const mainButton = document.getElementById("createAuctionButton");
+        mainButton.textContent = "Edit Auction";
+
+        modal.classList.add("show");
+        modal.style.display = "block";
+
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.id = "deleteAuctionButton";
+        deleteButton.classList.add(
+          "btn",
+          "btn-danger",
+          "border",
+          "border-primary",
+          "btn-lg",
+          "mt-2",
+          "ml-auto"
+        );
+        deleteButton.textContent = "Delete Auction";
+
+        const modalFooter = createAuctionModal.querySelector(".modal-footer");
+        modalFooter.appendChild(deleteButton);
+      });
+
+      const closeModal = document.getElementById("createAuctionModal");
+      closeModal.addEventListener("click", (e) => {
+        if (
+          e.target === closeModal ||
+          e.target.classList.contains("btn-close")
+        ) {
+          const mainButton = document.getElementById("createAuctionButton");
+          mainButton.textContent = "Create Auction";
+          closeModal.classList.remove("show");
+          closeModal.style.display = "none";
+
+          const deleteButton = document.getElementById("deleteAuctionButton");
+          if (deleteButton) {
+            deleteButton.remove();
+          }
+        }
+      });
+
       auctionInfo.appendChild(auctionMedia);
       auctionInfo.appendChild(auctionCreated);
       auctionInfo.appendChild(numberOfBids);
+
+      auctionContainer.appendChild(editAuctionContainer);
+      auctionInfo.appendChild(openModal);
     }
 
     auctionContainer.appendChild(auctionInfo);
