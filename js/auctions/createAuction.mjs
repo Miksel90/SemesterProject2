@@ -22,7 +22,7 @@ async function createAuction(url, newAuction) {
       const json = await response.json();
 
       const mediaInputs = document.querySelectorAll(
-        "#imageFieldsContainer input[name='media']"
+        "#mediaGallery input[name='media']"
       );
       mediaInputs.forEach((input) => (input.value = ""));
 
@@ -48,16 +48,21 @@ document
     const auctionTags = document.getElementById("auctionTags").value;
 
     const mediaInputs = document.querySelectorAll(
-      "#imageFieldsContainer input[name='media']"
+      "#mediaGallery input[name='media']"
     );
     const auctionMedia = Array.from(mediaInputs).map((input) => input.value);
+
+    if (auctionMedia.length === 0) {
+      console.log("Please add at least one image.");
+      return;
+    }
 
     const newAuction = {
       title: auctionTitle,
       description: auctionBody,
       endsAt: new Date(auctionEndsAt).toISOString(),
       tags: auctionTags.split(",").map((tag) => tag.trim()),
-      media: auctionMedia,
+      media: auctionMedia.length > 0 ? auctionMedia : [],
     };
 
     const newAuctionURL = `${API_BASE_URL}${listing_endpoint}`;
