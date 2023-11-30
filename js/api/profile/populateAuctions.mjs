@@ -2,6 +2,8 @@ import { profileAuctions } from "./profileAuctions.mjs";
 
 export function populateAuctions(json) {
   const profileAuctions = document.querySelector(".profileAuctions");
+  const mediaGallery = document.getElementById("mediaGallery");
+
   profileAuctions.innerHTML = "";
 
   json.forEach((auction) => {
@@ -106,12 +108,24 @@ export function populateAuctions(json) {
         const auctionTitleInput = modal.querySelector("#auctionTitle");
         const auctionBodyInput = modal.querySelector("#auctionBody");
         const auctionTagsInput = modal.querySelector("#auctionTags");
-        const auctionMediaInputs = modal.querySelectorAll(".media-input");
+
+        const medias = auction.media;
+        mediaGallery.innerHTML = "";
+        medias.forEach((input) => {
+          const inputContainer = document.createElement("div");
+          inputContainer.className = "auctionMedia";
+          const inputs = document.createElement("input");
+          inputs.classList.add("form-control", "mt-1");
+          inputs.type = "text";
+          inputContainer.append(inputs);
+          inputs.value = input;
+
+          mediaGallery.append(inputContainer);
+        });
 
         auctionTitleInput.value = auction.title;
         auctionBodyInput.value = auction.description;
         auctionTagsInput.value = auction.tags;
-        auctionMediaInputs.value = auction.media;
 
         const auctionEnds = modal.querySelector(".auctionEndsAt");
         auctionEnds.style.display = "none";
@@ -157,6 +171,14 @@ export function populateAuctions(json) {
           if (deleteButton) {
             deleteButton.remove();
           }
+
+          const auctionTitleInput = modal.querySelector("#auctionTitle");
+          const auctionBodyInput = modal.querySelector("#auctionBody");
+          const auctionTagsInput = modal.querySelector("#auctionTags");
+          auctionTitleInput.value = "";
+          auctionBodyInput.value = "";
+          auctionTagsInput.value = "";
+
           const auctionEnds = modal.querySelector(".auctionEndsAt");
           auctionEnds.style.display = "block";
           const endsAtLabel = modal.querySelector("label[for='auctionEndsAt']");

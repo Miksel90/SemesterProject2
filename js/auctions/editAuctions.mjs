@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const auctionTitleInput = modal.querySelector("#auctionTitle");
   const auctionBodyInput = modal.querySelector("#auctionBody");
   const auctionTagsInput = modal.querySelector("#auctionTags");
-  const imageFieldsContainer = document.getElementById("imageFieldsContainer");
+  const imageFieldsContainer = document.getElementById("mediaGallery");
 
   const editAuctionButton = document.getElementById("editAuctionButton");
 
