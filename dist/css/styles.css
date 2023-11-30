@@ -4,8 +4,7 @@
  * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Raleway:wght@100;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Hedvig+Letters+Sans&family=Playfair+Display:ital@0;1&family=Raleway:wght@100;400&family=Red+Rose:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
 :root,
 [data-bs-theme=light] {
