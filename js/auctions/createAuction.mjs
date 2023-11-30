@@ -26,7 +26,6 @@ async function createAuction(url, newAuction) {
       );
       mediaInputs.forEach((input) => (input.value = ""));
 
-      alert("Auction has been posted!");
       window.location.reload();
     } else {
       console.log("Could not create a new auction");
