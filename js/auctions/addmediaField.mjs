@@ -1,14 +1,12 @@
-export function initializeImageForm() {
+export async function initializeImageForm() {
   document.addEventListener("DOMContentLoaded", function () {
     const addImageButton = document.getElementById("addImageButton");
-    const imageFieldsContainer = document.getElementById(
-      "imageFieldsContainer"
-    );
+    const mediaGallery = document.getElementById("mediaGallery");
 
     const maxImageFields = 8;
 
     addImageButton.addEventListener("click", function () {
-      if (imageFieldsContainer.children.length < maxImageFields) {
+      if (mediaGallery.children.length < maxImageFields) {
         const newImageField = document.createElement("div");
         newImageField.classList.add("imageField");
 
@@ -17,10 +15,10 @@ export function initializeImageForm() {
         newImageInput.classList.add("form-control", "mt-2", "media-input");
         newImageInput.name = "media";
         newImageInput.placeholder = "Add Image";
-        newImageInput.required = true;
+        newImageInput.required = false;
 
         newImageField.appendChild(newImageInput);
-        imageFieldsContainer.appendChild(newImageField);
+        mediaGallery.appendChild(newImageField);
       } else {
         alert("You have reached the maximum limit of image fields (8).");
       }
