@@ -30,7 +30,7 @@ export function newProfileAvatarMedia() {
       if (response.ok) {
         const modal = document.getElementById("editAvatarModal");
         setTimeout(() => {
-          editProfileMediaButton.innerText = "You Look Stunning!";
+          editProfileMediaButton.innerText = "You Look Ravishing!";
           setTimeout(() => {
             window.location.reload();
             modal.classList.remove("show");
