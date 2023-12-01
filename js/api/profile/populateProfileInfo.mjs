@@ -109,7 +109,7 @@ export function populateProfile(json) {
 
   editButton.style.width = "100px";
   editButton.style.height = "50px";
-  editButton.innerText = "Edit Profile";
+  editButton.innerText = "Edit Avatar";
 
   editButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -151,17 +151,6 @@ export function populateProfile(json) {
     const createAuctionModal = document.getElementById("createAuctionModal");
     createAuctionModal.classList.add("show");
     createAuctionModal.style.display = "block";
-
-    const auctionTitleInput = document.getElementById("auctionTitle");
-    const auctionBodyInput = document.getElementById("auctionBody");
-    const auctionTagsInput = document.getElementById("auctionTags");
-
-    auctionTitleInput.value = "";
-    auctionBodyInput.value = "";
-    auctionTagsInput.value = "";
-
-    const editButton = document.getElementById("editAuctionButton");
-    editButton.style.display = "none";
   });
 
   const closeCreateAuctionModal = document.getElementById("createAuctionModal");
@@ -172,8 +161,6 @@ export function populateProfile(json) {
     ) {
       closeCreateAuctionModal.classList.remove("show");
       closeCreateAuctionModal.style.display = "none";
-      const editButton = document.getElementById("editAuctionButton");
-      editButton.style.display = "block";
     }
   });
 
