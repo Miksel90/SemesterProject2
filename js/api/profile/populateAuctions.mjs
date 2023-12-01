@@ -1,12 +1,15 @@
 import { profileAuctions } from "./profileAuctions.mjs";
+import { editIMediaInputs } from "../../auctions/addMediaField.mjs";
 
-export function populateAuctions(data) {
+editIMediaInputs();
+
+export function populateAuctions(json) {
   const profileAuctions = document.querySelector(".profileAuctions");
-  // const mediaGallery = document.getElementById("mediaGallery");
+  const editMediaGallery = document.getElementById("editMediaGallery");
 
   profileAuctions.innerHTML = "";
 
-  data.forEach((auction) => {
+  json.forEach((auction) => {
     const auctionContainer = document.createElement("a");
     auctionContainer.href = `/feed/auctionSpecific.html?id=${auction.id}`;
     auctionContainer.classList.add("p-3", "text-decoration-none");
@@ -82,7 +85,7 @@ export function populateAuctions(data) {
       );
 
       const editAuctionButton = document.createElement("button");
-      editAuctionButton.id = `${auction.id}`;
+      editAuctionButton.id = `editAuctionButton-${auction.id}`;
       editAuctionButton.classList.add(
         "btn",
         "btn-primary",
@@ -98,35 +101,38 @@ export function populateAuctions(data) {
 
       editAuctionContainer.appendChild(editAuctionButton);
 
+      const editAuctionModal = document.getElementById("editAuctionModal");
       editAuctionButton.addEventListener("click", (e) => {
         e.preventDefault();
 
-        const editModal = document.getElementById("editAuctionModal");
-        editModal.classList.add("show");
-        editModal.style.display = "block";
-        // const auctionTitleInput = modal.querySelector("#editAuctionTitle");
-        // const auctionBodyInput = modal.querySelector("#editAuctionBody");
-        // const auctionTagsInput = modal.querySelector("#editAuctionTags");
+        editAuctionModal.classList.add("show");
+        editAuctionModal.style.display = "block";
+        const auctionTitleInput =
+          editAuctionModal.querySelector("#editAuctionTitle");
+        const auctionBodyInput =
+          editAuctionModal.querySelector("#editAuctionBody");
+        const auctionTagsInput =
+          editAuctionModal.querySelector("#editAuctionTags");
 
-        // const medias = auction.media;
-        // mediaGallery.innerHTML = "";
-        // medias.forEach((input) => {
-        //   const inputContainer = document.createElement("div");
-        //   inputContainer.className = "auctionMedia";
-        //   const inputs = document.createElement("input");
-        //   inputs.classList.add("form-control", "mt-1");
-        //   inputs.type = "text";
-        //   inputContainer.append(inputs);
-        //   inputs.value = input;
+        const medias = auction.media;
+        editMediaGallery.innerHTML = "";
+        medias.forEach((input) => {
+          const inputContainer = document.createElement("div");
+          inputContainer.className = "auctionMedia";
+          const inputs = document.createElement("input");
+          inputs.classList.add("form-control", "mt-1");
+          inputs.type = "text";
+          inputContainer.append(inputs);
+          inputs.value = input;
 
-        //   mediaGallery.append(inputContainer);
-        // });
+          editMediaGallery.append(inputContainer);
+        });
 
-        // auctionTitleInput.value = auction.title;
-        // auctionBodyInput.value = auction.description;
-        // auctionTagsInput.value = auction.tags;
+        auctionTitleInput.value = auction.title;
+        auctionBodyInput.value = auction.description;
+        auctionTagsInput.value = auction.tags;
 
-        // modal.setAttribute("data-auction-id", auction.id);
+        editAuctionModal.setAttribute("data-auction-id", auction.id);
       });
 
       const closeEditAuctionModal = document.getElementById("editAuctionModal");
@@ -149,6 +155,7 @@ export function populateAuctions(data) {
     }
 
     auctionContainer.appendChild(auctionInfo);
+    profileAuctions.appendChild(editAuctionModal);
     profileAuctions.append(auctionContainer);
   });
 }

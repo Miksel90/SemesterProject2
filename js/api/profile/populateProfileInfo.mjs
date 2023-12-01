@@ -96,8 +96,8 @@ export function populateProfile(json) {
     "gap-3"
   );
 
-  const editButton = document.createElement("button");
-  editButton.classList.add(
+  const editAvatarButton = document.createElement("button");
+  editAvatarButton.classList.add(
     "btn",
     "btn-primary",
     "border",
@@ -107,19 +107,19 @@ export function populateProfile(json) {
     "rounded"
   );
 
-  editButton.style.width = "100px";
-  editButton.style.height = "50px";
-  editButton.innerText = "Edit Avatar";
+  editAvatarButton.style.width = "100px";
+  editAvatarButton.style.height = "50px";
+  editAvatarButton.innerText = "Edit Avatar";
 
-  editButton.addEventListener("click", (e) => {
+  editAvatarButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const editModal = document.getElementById("editModal");
+    const editModal = document.getElementById("editAvatarModal");
     editModal.classList.add("show");
     editModal.style.display = "block";
   });
 
-  const closeEditModal = document.getElementById("editModal");
+  const closeEditModal = document.getElementById("editAvatarModal");
   closeEditModal.addEventListener("click", (e) => {
     if (
       e.target === closeEditModal ||
@@ -130,8 +130,8 @@ export function populateProfile(json) {
     }
   });
 
-  const createButton = document.createElement("button");
-  createButton.classList.add(
+  const createAuctionButton = document.createElement("button");
+  createAuctionButton.classList.add(
     "btn",
     "btn-primary",
     "border",
@@ -141,14 +141,13 @@ export function populateProfile(json) {
     "rounded"
   );
 
-  createButton.style.width = "100px";
-  createButton.style.height = "50px";
-  createButton.innerText = "Create Auction";
+  createAuctionButton.style.width = "100px";
+  createAuctionButton.style.height = "50px";
+  createAuctionButton.innerText = "Create Auction";
 
-  createButton.addEventListener("click", (e) => {
+  const createAuctionModal = document.getElementById("createAuctionModal");
+  createAuctionButton.addEventListener("click", (e) => {
     e.preventDefault();
-
-    const createAuctionModal = document.getElementById("createAuctionModal");
     createAuctionModal.classList.add("show");
     createAuctionModal.style.display = "block";
   });
@@ -164,8 +163,8 @@ export function populateProfile(json) {
     }
   });
 
-  userInfoDetails.append(createButton);
-  userInfoDetails.append(editButton);
+  userInfoDetails.append(createAuctionButton);
+  userInfoDetails.append(editAvatarButton);
 
   profileContainer.appendChild(userInfoDetails);
 

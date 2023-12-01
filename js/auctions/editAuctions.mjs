@@ -5,7 +5,7 @@ const modalForm = modal.querySelector("#editAuctionForm");
 const auctionTitleInput = modal.querySelector("#editAuctionTitle");
 const auctionBodyInput = modal.querySelector("#editAuctionBody");
 const auctionTagsInput = modal.querySelector("#editAuctionTags");
-const imageFieldsContainer = document.getElementById("mediaGallery");
+const imageFieldsContainer = document.getElementById("editMediaGallery");
 
 const editAuctionButton = document.getElementById("editAuctionButton");
 
