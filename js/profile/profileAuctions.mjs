@@ -1,4 +1,4 @@
-import { API_BASE_URL, profileURL, userName } from "../../consts/consts.mjs";
+import { API_BASE_URL, profileURL, userName } from "../consts/consts.mjs";
 import { populateAuctions } from "./populateAuctions.mjs";
 
 export async function createAuctions(url) {

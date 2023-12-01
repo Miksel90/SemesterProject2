@@ -1,5 +1,5 @@
 import { profileAuctions } from "./profileAuctions.mjs";
-import { editIMediaInputs } from "../../auctions/addMediaField.mjs";
+import { editIMediaInputs } from "../auctions/addMediaField.mjs";
 const { addImageButton, removeImageButton } = editIMediaInputs();
 
 removeImageButton.addEventListener("click", function () {

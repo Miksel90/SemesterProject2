@@ -1,8 +1,4 @@
-import {
-  API_BASE_URL,
-  authURL,
-  register_endpoint,
-} from "../../consts/consts.mjs";
+import { API_BASE_URL, authURL, register_endpoint } from "../consts/consts.mjs";
 
 export async function registerUser(url, userData) {
   const registerButton = document.getElementById("registerButton");

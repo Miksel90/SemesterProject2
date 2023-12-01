@@ -1,4 +1,4 @@
-import { API_BASE_URL, listing_endpoint } from "../../consts/consts.mjs";
+import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
 export async function populateWins(json) {
   const profileWins = document.querySelector(".profileWins");

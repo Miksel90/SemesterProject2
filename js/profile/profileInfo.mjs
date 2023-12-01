@@ -1,9 +1,9 @@
-import { API_BASE_URL, profileURL, userName } from "../../consts/consts.mjs";
+import { API_BASE_URL, profileURL, userName } from "../consts/consts.mjs";
 import { populateProfile } from "./populateProfileInfo.mjs";
-import { showLoader, hideLoader } from "../../utilities/loader.mjs";
+import { showLoader, hideLoader } from "../utilities/loader.mjs";
 import { createAuctions } from "./profileAuctions.mjs";
 import { createBids } from "./profileBids.mjs";
-import { newProfileAvatarMedia } from "./updateProfilemedia.mjs";
+import { newProfileAvatarMedia } from "./updateProfileMedia.mjs";
 import { populateWins } from "./populateWins.mjs";
 
 newProfileAvatarMedia();

@@ -1,8 +1,5 @@
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
-// Remove the line importing DOM content
-// import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
-
 const modal = document.getElementById("editAuctionModal");
 
 async function deletePost(auctionId) {

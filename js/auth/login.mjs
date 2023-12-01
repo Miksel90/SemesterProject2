@@ -1,4 +1,4 @@
-import { API_BASE_URL, authURL, login_endpoint } from "../../consts/consts.mjs";
+import { API_BASE_URL, authURL, login_endpoint } from "../consts/consts.mjs";
 
 async function loginUser(url, userData) {
   try {

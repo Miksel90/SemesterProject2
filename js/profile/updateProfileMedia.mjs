@@ -1,4 +1,4 @@
-import { API_BASE_URL, profileURL } from "../../consts/consts.mjs";
+import { API_BASE_URL, profileURL } from "../consts/consts.mjs";
 
 export function newProfileAvatarMedia() {
   const profileMediaForm = document.getElementById("updateProfileMediaForm");
