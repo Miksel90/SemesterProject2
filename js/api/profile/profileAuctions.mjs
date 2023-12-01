@@ -18,11 +18,10 @@ export async function createAuctions(url) {
 
     populateAuctions(json);
 
-    console.log(json);
+    // console.log(json);
   } catch (error) {
     console.log(error);
   }
 }
 
 export const profileAuctions = `${API_BASE_URL}${profileURL}${userName}/listings?_active=true`;
-// createAuctions();

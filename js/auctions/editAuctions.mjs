@@ -35,19 +35,26 @@ async function editAuction(
       }),
     });
 
+    editAuctionButton.innerText = "Uploading...";
+    editAuctionButton.disabled = true;
+
     console.log(response);
 
     if (response.ok) {
-      modal.classList.remove("show");
-      modal.style.display = "none";
-
-      window.location.reload();
+      setTimeout(() => {
+        editAuctionButton.innerText = "Auction Created";
+        setTimeout(() => {
+          window.location.reload();
+          modal.classList.remove("show");
+          modal.style.display = "none";
+        }, 1200);
+      }, 1200);
     } else {
-      console.error("Failed to edit the post.");
+      console.error("Failed to edit Auction.");
     }
   } catch (error) {
     console.error(error);
-    console.error("failed to edit post:", error);
+    console.error("failed to edit Auction:", error);
   }
 }
 

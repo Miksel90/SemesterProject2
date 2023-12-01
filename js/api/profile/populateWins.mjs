@@ -23,8 +23,6 @@ export async function populateWins(json) {
         );
         const winData = await response.json();
 
-        // console.log(`Data for win ID ${winId}:`, winData);
-
         const winContainer = document.createElement("a");
         winContainer.href = `/feed/auctionSpecific.html?id=${winId}`;
         winContainer.classList.add("p-3", "text-decoration-none");

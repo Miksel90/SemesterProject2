@@ -1,7 +1,16 @@
 import { profileAuctions } from "./profileAuctions.mjs";
 import { editIMediaInputs } from "../../auctions/addMediaField.mjs";
+const { addImageButton, removeImageButton } = editIMediaInputs();
 
-editIMediaInputs();
+removeImageButton.addEventListener("click", function () {
+  const existingMediaContainer = document.getElementById("editMediaGallery");
+  const mediaFields =
+    existingMediaContainer.getElementsByClassName("editAuctionMedia");
+
+  if (mediaFields.length > 0) {
+    existingMediaContainer.removeChild(mediaFields[mediaFields.length - 1]);
+  }
+});
 
 export function populateAuctions(json) {
   const profileAuctions = document.querySelector(".profileAuctions");
@@ -118,9 +127,9 @@ export function populateAuctions(json) {
         editMediaGallery.innerHTML = "";
         medias.forEach((input) => {
           const inputContainer = document.createElement("div");
-          inputContainer.className = "auctionMedia";
+          inputContainer.className = "editAuctionMedia";
           const inputs = document.createElement("input");
-          inputs.classList.add("form-control", "mt-1");
+          inputs.classList.add("form-control", "mt-1", "media-input");
           inputs.type = "text";
           inputContainer.append(inputs);
           inputs.value = input;

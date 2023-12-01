@@ -35,11 +35,11 @@ export function initializeImageForm() {
 export function editIMediaInputs() {
   const addImageButton = document.getElementById("editAddImageButton");
   const removeImageButton = document.getElementById("editRemoveImageButton");
-  const imageFieldsContainer = document.getElementById("editMediaGallery");
+  const imageEditMediaGallery = document.getElementById("editMediaGallery");
   const maxImageFields = 8;
 
   addImageButton.addEventListener("click", function () {
-    if (imageFieldsContainer.children.length < maxImageFields) {
+    if (imageEditMediaGallery.children.length < maxImageFields) {
       const newImageField = document.createElement("div");
       newImageField.classList.add("imageField");
 
@@ -51,7 +51,7 @@ export function editIMediaInputs() {
       newImageInput.required = false;
 
       newImageField.appendChild(newImageInput);
-      imageFieldsContainer.appendChild(newImageField);
+      imageEditMediaGallery.appendChild(newImageField);
     } else {
       alert("You have reached the maximum limit of image fields (8).");
     }
@@ -59,9 +59,11 @@ export function editIMediaInputs() {
 
   removeImageButton.addEventListener("click", function () {
     const imageFields =
-      imageFieldsContainer.getElementsByClassName("imageField");
+      imageEditMediaGallery.getElementsByClassName("imageField");
     if (imageFields.length > 0) {
-      imageFieldsContainer.removeChild(imageFields[imageFields.length - 1]);
+      imageEditMediaGallery.removeChild(imageFields[imageFields.length - 1]);
     }
   });
+
+  return { addImageButton, removeImageButton };
 }

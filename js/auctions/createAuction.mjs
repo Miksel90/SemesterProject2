@@ -2,6 +2,7 @@ import { initializeImageForm } from "./addMediaField.mjs";
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
 const token = localStorage.getItem("accessToken");
+const createAuctionButton = document.getElementById("createAuctionButton");
 
 initializeImageForm();
 
@@ -16,7 +17,7 @@ async function createAuction(url, newAuction) {
       body: JSON.stringify(newAuction),
     };
     const response = await fetch(url, auctionData);
-    console.log(response);
+    // console.log(response);
 
     if (response.ok) {
       const json = await response.json();
@@ -26,7 +27,17 @@ async function createAuction(url, newAuction) {
       );
       mediaInputs.forEach((input) => (input.value = ""));
 
-      window.location.reload();
+      createAuctionButton.innerText = "Posting...";
+      createAuctionButton.disabled = true;
+
+      setTimeout(() => {
+        createAuctionButton.innerText = "Auction Created";
+        setTimeout(() => {
+          window.location.reload();
+          modal.classList.remove("show");
+          modal.style.display = "none";
+        }, 1200);
+      }, 1200);
     } else {
       console.log("Could not create a new auction");
     }
