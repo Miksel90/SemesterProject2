@@ -18,7 +18,7 @@ export async function createAuctions(url) {
 
     populateAuctions(json);
 
-    // console.log(json);
+    console.log(json);
   } catch (error) {
     console.log(error);
   }

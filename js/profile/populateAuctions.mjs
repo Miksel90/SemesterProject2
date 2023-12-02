@@ -31,6 +31,8 @@ export function populateAuctions(json) {
       "border",
       "border-secondary"
     );
+    auctionInfo.style.maxwidth = "300px";
+    auctionInfo.style.minWidth = "300px";
 
     const auctionTitle = document.createElement("p");
     auctionTitle.classList.add(
@@ -61,28 +63,35 @@ export function populateAuctions(json) {
         "d-block"
       );
 
-      auctionMedia.style.height = "150px";
+      auctionMedia.style.height = "200px";
       auctionMedia.alt = "Auction main Image - Read description for more Info";
       auctionMedia.src = auction.media[0];
 
-      const auctionCreated = document.createElement("p");
-      auctionCreated.classList.add(
-        "text-primary",
-        "fs-5",
-        "justify-content-start"
-      );
+      const ul = document.createElement("ul");
+      ul.classList.add("list-unstyled", "fs-6");
+
+      const li1 = document.createElement("li");
+      li1.classList.add("text-primary");
       const endsAtDate = new Date(auction.endsAt);
       const formattedDate = endsAtDate.toLocaleDateString();
 
-      auctionCreated.textContent = "End date: " + formattedDate;
+      const dateSpan = document.createElement("div");
+      dateSpan.classList.add("fw-bold", "fs-4");
+      dateSpan.textContent = formattedDate;
 
-      const numberOfBids = document.createElement("p");
-      numberOfBids.classList.add(
-        "text-primary",
-        "fs-5",
-        "justify-content-start"
-      );
-      numberOfBids.textContent = "Bids: " + auction._count.bids;
+      li1.innerHTML = "Auction ends: " + dateSpan.outerHTML;
+
+      const li2 = document.createElement("li");
+      li2.classList.add("text-primary", "mt-2");
+
+      const bidSPan = document.createElement("div");
+      bidSPan.classList.add("fw-bold", "fs-5");
+      bidSPan.textContent = auction._count.bids;
+
+      li2.innerHTML = "Bids: " + bidSPan.outerHTML;
+
+      ul.appendChild(li1);
+      ul.appendChild(li2);
 
       const editAuctionContainer = document.createElement("div");
       editAuctionContainer.classList.add(
@@ -156,8 +165,8 @@ export function populateAuctions(json) {
       });
 
       auctionInfo.appendChild(auctionMedia);
-      auctionInfo.appendChild(auctionCreated);
-      auctionInfo.appendChild(numberOfBids);
+
+      auctionInfo.appendChild(ul);
 
       auctionContainer.appendChild(editAuctionContainer);
       auctionInfo.appendChild(editAuctionButton);
