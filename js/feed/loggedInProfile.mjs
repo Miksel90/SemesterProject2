@@ -18,12 +18,11 @@ export function loggedInUser(data) {
   profileAvatar.classList.add(
     "img-fluid",
     "rounded-circle",
-    "p-2",
     "border",
     "border-2",
     "border-secondary"
   );
-  profileAvatar.style.width = "100px";
+  profileAvatar.style.width = "120px";
 
   if (data.avatar && data.avatar.trim() !== "") {
     profileAvatar.src = data.avatar;

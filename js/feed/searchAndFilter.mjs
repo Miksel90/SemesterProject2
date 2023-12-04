@@ -12,16 +12,24 @@ async function searchAuctions() {
     const auctionTitleElement = auction.querySelector(".auctionTitle");
     const auctionBidderElement = auction.querySelector(".auctionBidder");
     const auctionSellerElement = auction.querySelector(".auctionSeller");
+    const auctionTagElement = auction.querySelector(".auctionTag");
 
-    if (auctionTitleElement && auctionBidderElement && auctionSellerElement) {
+    if (
+      auctionTitleElement &&
+      auctionBidderElement &&
+      auctionSellerElement &&
+      auctionTagElement
+    ) {
       const auctionTitle = auctionTitleElement.textContent.toLowerCase();
       const auctionBidder = auctionBidderElement.textContent.toLowerCase();
       const auctionSeller = auctionSellerElement.textContent.toLowerCase();
+      const auctionTag = auctionTagElement.textContent.toLowerCase();
 
       if (
         auctionTitle.includes(searchInput) ||
         auctionBidder.includes(searchInput) ||
-        auctionSeller.includes(searchInput)
+        auctionSeller.includes(searchInput) ||
+        auctionTag.includes(searchInput)
       ) {
         auction.style.display = "block";
       } else {

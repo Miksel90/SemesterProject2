@@ -12,19 +12,32 @@ export function populateAllAuctions(data) {
       typeof auction.media[0] === "string" &&
       auction.media[0].trim() !== ""
     ) {
-      const auctionContainer = document.createElement("a");
-      auctionContainer.href = `/feed/auctionSpecific.html?id=${auction.id}`;
-      auctionContainer.classList.add("p-3", "text-decoration-none");
+      const auctionLinkContainer = document.createElement("a");
+      auctionLinkContainer.href = `/feed/auctionSpecific.html?id=${auction.id}`;
+      auctionLinkContainer.classList.add(
+        "p-3",
+        "text-decoration-none",
+        "card",
+        "mt-4",
+        "border",
+        "border-secondary"
+      );
 
       const auctionInfo = document.createElement("div");
-      auctionInfo.classList.add("card", "p-3", "border", "border-secondary");
-      auctionInfo.style.maxWidth = "300px";
-      auctionInfo.style.height = "600px";
+      auctionInfo.classList.add(
+        "p-1",
+        "d-flex",
+        "flex-column",
+        "align-items-center"
+      );
+      auctionInfo.style.width = "300px";
+      auctionInfo.style.height = "680px";
+      //   auctionInfo.style.overflow = "hidden";
 
       const auctionTitle = document.createElement("p");
       auctionTitle.classList.add(
         "fw-bold",
-        "fs-4",
+        "fs-2",
         "text-primary",
         "text-center",
         "auctionTitle"
@@ -32,7 +45,9 @@ export function populateAllAuctions(data) {
       auctionTitle.textContent = auction.title;
 
       const auctionMedia = document.createElement("img");
-      auctionMedia.classList.add("img-fluid", "rounded", "mt-1", "mb-3");
+      auctionMedia.classList.add("cover", "rounded", "mt-1", "mb-3");
+      auctionMedia.style.height = "200px";
+      auctionMedia.style.width = "250px";
 
       auctionMedia.alt = "Auction main Image - Read description for more Info";
       auctionMedia.src = auction.media[0];
@@ -113,8 +128,36 @@ export function populateAllAuctions(data) {
 
       auctionInfo.appendChild(ul);
 
-      auctionContainer.appendChild(auctionInfo);
-      allAuctionsContainer.appendChild(auctionContainer);
+      const tagContainer = document.createElement("div");
+      tagContainer.classList.add(
+        "d-flex",
+        "flex-wrap",
+        "justify-content-start",
+        "mt-3",
+        "gap-2"
+      );
+
+      if (auction.tags && Array.isArray(auction.tags)) {
+        auction.tags.forEach((tag) => {
+          const tagText = document.createElement("p");
+          tagText.classList.add(
+            "text-white",
+            "bg-primary",
+            "p-2",
+            "rounded-4",
+            "auctionTag"
+          );
+          tagText.textContent = " " + tag;
+
+          tagContainer.appendChild(tagText);
+        });
+      }
+
+      auctionInfo.appendChild(tagContainer);
+
+      auctionLinkContainer.appendChild(auctionInfo);
+
+      allAuctionsContainer.appendChild(auctionLinkContainer);
     }
   });
 }
