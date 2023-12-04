@@ -14,7 +14,7 @@ export function initializeImageForm() {
       newImageInput.classList.add("form-control", "mt-2", "media-input");
       newImageInput.name = "media";
       newImageInput.placeholder = "Add Image";
-      newImageInput.required = false;
+      newImageInput.required = true;
 
       newImageField.appendChild(newImageInput);
       imageFieldsContainer.appendChild(newImageField);
@@ -48,7 +48,7 @@ export function editIMediaInputs() {
       newImageInput.classList.add("form-control", "mt-2", "media-input");
       newImageInput.name = "media";
       newImageInput.placeholder = "Add Image";
-      newImageInput.required = false;
+      newImageInput.required = true;
 
       newImageField.appendChild(newImageInput);
       imageEditMediaGallery.appendChild(newImageField);

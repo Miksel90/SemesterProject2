@@ -27,7 +27,6 @@ export async function createProfile(url) {
     createAuctions(json);
     populateProfile(json);
     populateWins(json);
-    // loggedInUser(data);
     hideLoader();
 
     // console.log(json);

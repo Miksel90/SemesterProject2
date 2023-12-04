@@ -33,8 +33,7 @@ export async function populateWins(json) {
           "d-flex",
           "p-3",
           "border",
-          "border-secondary",
-          "bg-primary"
+          "border-secondary"
         );
 
         const winTitle = document.createElement("p");

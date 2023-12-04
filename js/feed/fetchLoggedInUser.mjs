@@ -4,10 +4,13 @@ import {
   userName,
   token,
 } from "../consts/consts.mjs";
-import { loggedInUser } from "./loggedInState.mjs";
+import { loggedInUser } from "./loggedInProfile.mjs";
+import { showLoader, hideLoader } from "../utilities/loader.mjs";
 
 async function fetchLoggedInUser(url) {
   try {
+    showLoader();
+
     if (token) {
       const fetchProfileInfo = {
         method: "GET",
@@ -18,15 +21,15 @@ async function fetchLoggedInUser(url) {
       };
 
       const response = await fetch(url, fetchProfileInfo);
-      const json = await response.json();
+      const data = await response.json();
 
-      console.log(json);
+      loggedInUser(data);
 
-      loggedInUser(json);
+      hideLoader();
     } else {
       const loggedInBox = document.querySelector(".loggedInBox");
       loggedInBox.classList.add("text-danger", "fs-2", "p-2");
-      loggedInBox.innerHTML = "You Need To Log in to bid on Auctions";
+      loggedInBox.innerHTML = "You need to log in to bid on auctions!";
     }
   } catch (error) {
     console.log(error);
