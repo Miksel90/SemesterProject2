@@ -162,14 +162,22 @@ export function populateSingleAuction(data) {
 
   newBidButton.style.width = "150px";
   newBidButton.style.height = "70px";
-  newBidButton.innerText = "Bid Here!";
+  newBidButton.innerText = "Log in to Bid!";
 
-  const openBidOnAuctionModal = document.getElementById("bidOnAuctionModal");
-  newBidButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    openBidOnAuctionModal.classList.add("show");
-    openBidOnAuctionModal.style.display = "block";
-  });
+  const token = localStorage.getItem("accessToken");
+
+  if (token) {
+    newBidButton.innerText = "Bid Here!";
+    newBidButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const openBidOnAuctionModal =
+        document.getElementById("bidOnAuctionModal");
+      openBidOnAuctionModal.classList.add("show");
+      openBidOnAuctionModal.style.display = "block";
+    });
+  } else {
+    newBidButton.disabled = true;
+  }
 
   const closeBidAuctionModal = document.getElementById("bidOnAuctionModal");
   closeBidAuctionModal.addEventListener("click", (e) => {
@@ -181,7 +189,6 @@ export function populateSingleAuction(data) {
       closeBidAuctionModal.style.display = "none";
     }
   });
-
   bidBox.appendChild(newBidText);
   bidBox.appendChild(newBidButton);
   bidBox.appendChild(bidOnAuction);

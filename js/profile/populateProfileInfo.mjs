@@ -21,11 +21,17 @@ export function populateProfile(json) {
   const profileAvatar = document.createElement("img");
   profileAvatar.classList.add(
     "img-fluid",
-    "img-thumbnail",
+    "object-fit-cover",
+    "rounded-circle",
+    "border",
+    "border-2",
+    "border-secondary",
     "d-none",
-    "d-md-block"
+    "d-md-block",
+    "p-0",
+    "mt-2"
   );
-  profileAvatar.style.width = "300px";
+  profileAvatar.style.width = "200px";
 
   if (json.avatar && json.avatar.trim() !== "") {
     profileAvatar.src = json.avatar;
