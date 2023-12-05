@@ -18,10 +18,12 @@ export async function populateWins(json) {
         };
 
         const response = await fetch(
-          `${API_BASE_URL}${listing_endpoint}/${winId}`,
+          `${API_BASE_URL}${listing_endpoint}/${winId}?_bids=true`,
           fetchProfileWins
         );
         const winData = await response.json();
+
+        console.log(winData);
 
         const winContainer = document.createElement("a");
         winContainer.href = `/feed/auctionSpecific.html?id=${winId}`;
@@ -37,12 +39,7 @@ export async function populateWins(json) {
         );
 
         const winTitle = document.createElement("p");
-        winTitle.classList.add(
-          "fs-4",
-          "text-secondary",
-          "text-center",
-          "fw-bold"
-        );
+        winTitle.classList.add("fs-3", "fw-bold", "mt-2", "text-center");
         winTitle.textContent = `${winData.title}`;
 
         winInfo.appendChild(winTitle);
@@ -51,15 +48,17 @@ export async function populateWins(json) {
           winData.media.forEach((mediaUrl) => {
             const winMedia = document.createElement("img");
             winMedia.classList.add(
-              "img-fluid",
-              "object-fit-contain",
+              "cover",
+              "img-thumbnail",
+              "bg-secondary",
               "rounded",
               "mb-1",
               "mx-auto",
               "d-block"
             );
 
-            winMedia.style.height = "150px";
+            winMedia.style.height = "200px";
+            winMedia.style.width = "250px";
             winMedia.src = mediaUrl;
             winMedia.alt =
               "Auction main Image - Read description for more Info";
@@ -68,15 +67,34 @@ export async function populateWins(json) {
           });
         }
 
+        const winningBid = document.createElement("p");
+        winningBid.classList.add(
+          "text-primary",
+          "mt-2",
+          "auctionBidder",
+          "fs-5",
+          "text-center"
+        );
+        const highestBidSpan = document.createElement("div");
+        highestBidSpan.classList.add("fw-bold", "fs-3", "text-center");
+        if (winData.bids.length > 0) {
+          const lastBid = winData.bids[winData.bids.length - 1];
+          highestBidSpan.textContent = lastBid.amount + " Credits";
+        } else {
+          highestBidSpan.textContent = "No bids yet";
+        }
+
+        winningBid.innerHTML = "Winning Bid: " + highestBidSpan.outerHTML;
+
+        winInfo.appendChild(winningBid);
+
         const endsAtDate = new Date(winData.endsAt);
         const formattedEndDate = endsAtDate.toLocaleDateString();
 
         const auctionEndsAt = document.createElement("p");
         auctionEndsAt.classList.add(
-          "text-secondary",
-          "border",
-          "border-primary",
-          "fs-5",
+          "text-primary",
+          "fs-3",
           "justify-content-start",
           "p-2"
         );

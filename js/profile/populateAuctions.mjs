@@ -54,8 +54,9 @@ export function populateAuctions(json) {
     ) {
       const auctionMedia = document.createElement("img");
       auctionMedia.classList.add(
-        "img-fluid",
-        "object-fit-contain",
+        "cover",
+        "img-thumbnail",
+        "bg-secondary",
         "rounded",
         "mt-2",
         "mb-3",
@@ -64,6 +65,7 @@ export function populateAuctions(json) {
       );
 
       auctionMedia.style.height = "200px";
+      auctionMedia.style.width = "200px";
       auctionMedia.alt = "Auction main Image - Read description for more Info";
       auctionMedia.src = auction.media[0];
 
@@ -72,12 +74,32 @@ export function populateAuctions(json) {
 
       const li1 = document.createElement("li");
       li1.classList.add("text-primary");
+
       const endsAtDate = new Date(auction.endsAt);
-      const formattedDate = endsAtDate.toLocaleDateString();
 
       const dateSpan = document.createElement("div");
       dateSpan.classList.add("fw-bold", "fs-4");
-      dateSpan.textContent = formattedDate;
+
+      function updateCountdown() {
+        const currentDate = new Date();
+        const timeRemaining = endsAtDate - currentDate;
+
+        if (timeRemaining > 0) {
+          const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+          );
+
+          dateSpan.textContent = `${days}d ${hours}h ${minutes}m`;
+        } else {
+          dateSpan.textContent = "Auction has ended";
+        }
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
 
       li1.innerHTML = "Auction ends: " + dateSpan.outerHTML;
 
@@ -92,6 +114,32 @@ export function populateAuctions(json) {
 
       ul.appendChild(li1);
       ul.appendChild(li2);
+
+      const tagContainer = document.createElement("div");
+      tagContainer.classList.add(
+        "d-flex",
+        "flex-wrap",
+        "justify-content-start",
+        "mt-3",
+        "gap-2"
+      );
+
+      if (auction.tags && Array.isArray(auction.tags)) {
+        auction.tags.forEach((tag) => {
+          const tagText = document.createElement("p");
+          tagText.classList.add(
+            "text-white",
+            "bg-primary",
+            "p-2",
+            "rounded-4",
+            "fs-6",
+            "auctionTag"
+          );
+          tagText.textContent = " " + tag;
+
+          tagContainer.appendChild(tagText);
+        });
+      }
 
       const editAuctionContainer = document.createElement("div");
       editAuctionContainer.classList.add(
@@ -111,7 +159,8 @@ export function populateAuctions(json) {
         "text-center",
         "border",
         "border-info",
-        "border-2"
+        "border-2",
+        "mt-3"
       );
       editAuctionButton.textContent = "Edit auction";
       editAuctionButton.style.width = "120px";
@@ -165,8 +214,8 @@ export function populateAuctions(json) {
       });
 
       auctionInfo.appendChild(auctionMedia);
-
       auctionInfo.appendChild(ul);
+      auctionInfo.appendChild(tagContainer);
 
       auctionContainer.appendChild(editAuctionContainer);
       auctionInfo.appendChild(editAuctionButton);

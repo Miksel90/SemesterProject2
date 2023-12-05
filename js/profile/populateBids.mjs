@@ -6,14 +6,14 @@ export function populateBids(json) {
 
   json.forEach((auction) => {
     const bidsContainer = document.createElement("a");
-    bidsContainer.href = `/feed/auctionSpecific.html?id=${auction.id}`;
-    bidsContainer.classList.add("p-2", "text-decoration-none");
+    bidsContainer.href = `/feed/auctionSpecific.html?id=${auction.listing.id}`;
+    bidsContainer.classList.add("p-3", "text-decoration-none");
 
     const bidsInfo = document.createElement("div");
     bidsInfo.classList.add(
       "card",
       "d-flex",
-      "p-2",
+      "p-3",
       "border",
       "border-secondary"
     );
@@ -33,15 +33,16 @@ export function populateBids(json) {
     ) {
       const bidsMedia = document.createElement("img");
       bidsMedia.classList.add(
-        "img-fluid",
-        "object-fit-contain",
+        "cover",
         "rounded",
         "mb-1",
         "mx-auto",
-        "d-block"
+        "img-thumbnail",
+        "bg-secondary"
       );
 
-      bidsMedia.style.height = "150px";
+      bidsMedia.style.height = "200px";
+      bidsMedia.style.width = "200px";
       bidsMedia.alt = "Auction main Image - Read description for more Info";
       bidsMedia.src = auction.listing.media[0];
 
@@ -53,34 +54,64 @@ export function populateBids(json) {
 
     const li1 = document.createElement("li");
     li1.classList.add("text-primary", "text-start");
-    li1.textContent = " My bid: " + auction.amount;
+
+    const bidSpan = document.createElement("div");
+    bidSpan.classList.add("fw-bold", "fs-5");
+    bidSpan.textContent = auction.amount;
+
+    li1.innerHTML = " My bid: " + bidSpan.outerHTML;
 
     const li2 = document.createElement("li");
     li2.classList.add("text-primary");
 
     const bidAtDate = new Date(auction.created);
     const bidsDate = bidAtDate.toLocaleDateString();
-    li2.textContent = "Bidded on: " + bidsDate;
+    const bidAtDateSpan = document.createElement("div");
+    bidAtDateSpan.classList.add("fw-bold", "fs-5");
+    bidAtDateSpan.textContent = bidsDate;
+
+    li2.innerHTML = "Bidded on: " + bidAtDateSpan.outerHTML;
 
     ul.appendChild(li1);
     ul.appendChild(li2);
 
     bidsInfo.appendChild(ul);
 
-    const bidAuctionCreated = document.createElement("p");
-    bidAuctionCreated.classList.add(
-      "fs-5",
-      "text-primary",
-      "text-decoration-underline",
-      "text-danger"
-    );
+    const auctionEnds = document.createElement("p");
+    auctionEnds.classList.add("text-primary", "fs-6");
 
-    const createdAtDate = new Date(auction.listing.endsAt);
-    const createdDate = createdAtDate.toLocaleDateString();
-    bidAuctionCreated.textContent = "Auction Ends: " + createdDate;
+    const endsAtDate = new Date(auction.endsAt);
 
-    bidsInfo.appendChild(bidAuctionCreated);
+    const dateSpan = document.createElement("div");
+    dateSpan.classList.add("fw-bold", "fs-4");
+
+    function updateCountdown() {
+      const currentDate = new Date();
+      const timeRemaining = endsAtDate - currentDate;
+
+      if (timeRemaining > 0) {
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+        );
+
+        dateSpan.textContent = `${days}d ${hours}h ${minutes}m`;
+      } else {
+        dateSpan.textContent = "Auction has ended";
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    auctionEnds.innerHTML = "Auction ends: " + dateSpan.outerHTML;
+
+    bidsInfo.appendChild(auctionEnds);
     profileBids.append(bidsInfo);
+
+    bidsContainer.appendChild(bidsInfo);
 
     profileBids.append(bidsContainer);
   });

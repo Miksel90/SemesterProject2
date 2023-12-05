@@ -1,6 +1,7 @@
 import { setupScrollBehavior } from "./backToTop.mjs";
+import { hideProfileNavItem } from "./hideProfile.mjs";
 setupScrollBehavior();
-
+hideProfileNavItem();
 const redirectLink = document.getElementById("redirectLink");
 const accessToken = localStorage.getItem("accessToken");
 

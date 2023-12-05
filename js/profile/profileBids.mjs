@@ -24,4 +24,3 @@ export async function createBids(url) {
 }
 
 export const profileBids = `${API_BASE_URL}${profileURL}${userName}/bids?_listings=true`;
-// createBids();
