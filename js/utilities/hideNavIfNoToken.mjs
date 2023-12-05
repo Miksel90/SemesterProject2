@@ -1,6 +1,6 @@
 import { token } from "../consts/consts.mjs";
 
-export function hideProfileNavItem() {
+export function hideProfileNavItem(token) {
   const profileNavItem = document.getElementById("profileNavText");
 
   if (!token) {

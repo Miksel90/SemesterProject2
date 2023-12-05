@@ -1,6 +1,6 @@
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 import { showLoader, hideLoader } from "../utilities/loader.mjs";
-import { populateSingleAuction } from "./populateSingleAuction.mjs";
+import { populateSingleAuction } from "./populateSpecificAuction.mjs";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

@@ -57,9 +57,8 @@ export function populateSingleAuction(data) {
   auctionTitle.classList.add(
     "fw-bold",
     "fs-1",
-    "mt-2",
+    "mt-4",
     "text-primary",
-    "text-center",
     "auctionTitle"
   );
   auctionTitle.textContent = data.title;
@@ -68,6 +67,7 @@ export function populateSingleAuction(data) {
   auctionDescription.classList.add(
     "text-primary",
     "fs-4",
+    "mt-3",
     "border-bottom",
     "border-secondary",
     "border-2"
@@ -81,12 +81,12 @@ export function populateSingleAuction(data) {
   auctionInfo.classList.add("list-unstyled");
 
   const li1 = document.createElement("li");
-  li1.classList.add("text-primary", "fs-4");
+  li1.classList.add("text-primary", "fs-6");
 
   const endsAtDate = new Date(data.endsAt);
 
   const dateSpan = document.createElement("div");
-  dateSpan.classList.add("fw-bold", "fs-2");
+  dateSpan.classList.add("fw-bold", "fs-4");
 
   function updateCountdown() {
     const currentDate = new Date();
@@ -112,9 +112,9 @@ export function populateSingleAuction(data) {
   li1.innerHTML = "Auction ends: " + dateSpan.outerHTML;
 
   const li2 = document.createElement("li");
-  li2.classList.add("text-primary", "mt-2", "auctionBidder", "fs-4");
+  li2.classList.add("text-primary", "mt-2", "auctionBidder", "fs-6");
   const highestBidSpan = document.createElement("div");
-  highestBidSpan.classList.add("fw-bold", "fs-2");
+  highestBidSpan.classList.add("fw-bold", "fs-4");
   if (data.bids.length > 0) {
     const lastBid = data.bids[data.bids.length - 1];
     highestBidSpan.textContent =
@@ -123,12 +123,12 @@ export function populateSingleAuction(data) {
     highestBidSpan.textContent = "No bids yet";
   }
 
-  li2.innerHTML = "Highest bid " + highestBidSpan.outerHTML;
+  li2.innerHTML = " Current Bid " + highestBidSpan.outerHTML;
 
   const li4 = document.createElement("li");
-  li4.classList.add("text-primary", "mt-1", "auctionSeller", "fs-4");
+  li4.classList.add("text-primary", "mt-1", "auctionSeller", "fs-6");
   const sellerName = document.createElement("div");
-  sellerName.classList.add("fs-2", "fw-bold");
+  sellerName.classList.add("fs-4", "fw-bold");
   sellerName.textContent = data.seller.name;
 
   li4.innerHTML = "Seller" + sellerName.outerHTML;
@@ -139,8 +139,55 @@ export function populateSingleAuction(data) {
 
   auctionContainer.appendChild(auctionInfo);
 
+  const bidBox = document.createElement("div");
+  bidBox.classList.add("row");
+
+  const bidOnAuction = document.createElement("div");
+  bidOnAuction.classList.add("col-md-4");
+
+  const newBidText = document.createElement("p");
+  newBidText.classList.add("text-primary", "fs-3");
+  newBidText.textContent = "Want to have this for yourself? Bid today!";
+
+  const newBidButton = document.createElement("button");
+  newBidButton.classList.add(
+    "btn",
+    "btn-primary",
+    "border",
+    "border-secondary",
+    "text-white",
+    "btn-sm",
+    "rounded"
+  );
+
+  newBidButton.style.width = "150px";
+  newBidButton.style.height = "70px";
+  newBidButton.innerText = "Bid Here!";
+
+  const openBidOnAuctionModal = document.getElementById("bidOnAuctionModal");
+  newBidButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    openBidOnAuctionModal.classList.add("show");
+    openBidOnAuctionModal.style.display = "block";
+  });
+
+  const closeBidAuctionModal = document.getElementById("bidOnAuctionModal");
+  closeBidAuctionModal.addEventListener("click", (e) => {
+    if (
+      e.target === closeBidAuctionModal ||
+      e.target.classList.contains("btn-close")
+    ) {
+      closeBidAuctionModal.classList.remove("show");
+      closeBidAuctionModal.style.display = "none";
+    }
+  });
+
+  bidBox.appendChild(newBidText);
+  bidBox.appendChild(newBidButton);
+  bidBox.appendChild(bidOnAuction);
+
   const bidHistoryBox = document.createElement("div");
-  bidHistoryBox.classList.add("container");
+  bidHistoryBox.classList.add("col-md-12");
 
   const bidHistoryButton = document.createElement("button");
   bidHistoryButton.classList.add(
@@ -200,11 +247,12 @@ export function populateSingleAuction(data) {
     const media = document.createElement("img");
     media.classList.add(
       "cover",
-      "mt-2",
+      "mt-5",
       "img-thumbnail",
       "bg-secondary",
       "border",
-      "border-secondary"
+      "border-secondary",
+      "mb-5"
     );
     media.style.height = "250px";
     media.style.width = "250px";
@@ -217,9 +265,11 @@ export function populateSingleAuction(data) {
   bidHistoryCollapse.appendChild(bidHistoryList);
   bidHistoryBox.appendChild(bidHistoryButton);
   bidHistoryBox.appendChild(bidHistoryCollapse);
-  auctionContainer.appendChild(bidHistoryBox);
+  bidBox.appendChild(bidOnAuction);
+  auctionContainer.appendChild(bidBox);
 
   auctionContainer.appendChild(mediaGallery);
+  auctionContainer.appendChild(bidHistoryBox);
 
   auctionBox.append(auctionContainer);
 }
