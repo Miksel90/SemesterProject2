@@ -1,3 +1,8 @@
+import { token } from "../consts/consts.mjs";
+import { hideProfileNavItem } from "../utilities/hideNavIfNoToken.mjs";
+
+hideProfileNavItem(token);
+
 function logoutUser() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userName");
