@@ -22,7 +22,7 @@
     <script src="/js/auctions/createAuction.mjs" type="module" defer></script>
     <script src="/js/feed/fetchAllAuctions.mjs" type="module" defer></script>
     <script src="/js/feed/fetchLoggedInUser.mjs" type="module" defer></script>
-    <script src="/js/feed/searchAndFilter.mjs" type="module" defer></script>
+    <script src="/js/feed/search.mjs" type="module" defer></script>
   </head>
 </html>
 <body>
@@ -89,7 +89,7 @@
             />
           </form>
             <select class="sortAuctions" name="filter" id="sortAuctions">
-              <option value="">Sort by</option>
+              <option class ="border-secondary rounded" value="">Sort by:</option>
               <option value="priceHtoL">Price: High - low</option>
               <option value="priceLtoH">Price: Low - High</option>
               <option value="ending">Auction Ending</option>

@@ -17,7 +17,6 @@ async function fetchAllAuctions(url) {
     const response = await fetch(url, fetchAllAuctions);
 
     const data = await response.json();
-    console.log(data);
 
     hideLoader();
     allAuctionResults = data;

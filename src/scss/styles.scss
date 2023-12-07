@@ -16,7 +16,21 @@ $success: #a39191;
 }
 
 .sortAuctions {
-  font-size: 100px;
+  border-style: solid;
+  border-color: #d4af37;
+  font-size: 22px;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+.sortAuctions option {
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.sortAuctions option:checked {
+  border-style: solid;
+  border-color: #d4af37;
 }
 
 body {
