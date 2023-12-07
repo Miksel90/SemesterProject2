@@ -11864,9 +11864,10 @@ textarea.form-control-lg {
 .sortAuctions {
   border-style: solid;
   border-color: #d4af37;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bolder;
   padding: 10px;
+  border-radius: 5px;
 }
 
 .sortAuctions option {
@@ -12013,6 +12014,12 @@ body {
   background-position: center;
   opacity: 0.5;
   z-index: -1;
+}
+
+.allAuctionMedia {
+  height: 200px;
+  width: 250px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */

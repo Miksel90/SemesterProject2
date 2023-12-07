@@ -47,19 +47,23 @@ export function populateAllAuctions(data) {
           "border",
           "border-secondary"
         );
+        auctionLinkContainer.style.width = "300px";
+        auctionLinkContainer.style.overflow = "hidden";
 
         const auctionInfo = document.createElement("div");
         auctionInfo.classList.add(
           "p-1",
           "d-flex",
           "flex-column",
-          "align-items-center"
+          "align-items-center",
+          "justify-content-center"
         );
-        auctionInfo.style.width = "300px";
-        auctionInfo.style.height = "680px";
-        auctionInfo.style.overflow = "hidden";
 
-        const auctionTitle = document.createElement("p");
+        const auctionTitleWrapper = document.createElement("div");
+        auctionTitleWrapper.classList.add("text-wrap");
+        auctionTitleWrapper.style.width = "100px";
+
+        const auctionTitle = document.createElement("h3");
         auctionTitle.classList.add(
           "fw-bold",
           "fs-2",
@@ -68,15 +72,27 @@ export function populateAllAuctions(data) {
           "auctionTitle"
         );
         auctionTitle.textContent = auction.title;
+        const auctionImageContainer = document.createElement("div");
+        auctionImageContainer.classList.add(
+          "container",
+          "justify-content-center",
+          "align-items-center",
+          "d-flex",
+          "mb-3"
+        );
+
+        auctionTitleWrapper.appendChild(auctionTitle);
+        auctionInfo.appendChild(auctionTitleWrapper);
 
         const auctionMedia = document.createElement("img");
-        auctionMedia.classList.add("cover", "rounded", "mt-1", "mb-3");
-        auctionMedia.style.height = "200px";
-        auctionMedia.style.width = "250px";
+        auctionMedia.classList.add("allAuctionMedia");
 
         auctionMedia.alt =
           "Auction main Image - Read description for more Info";
         auctionMedia.src = auction.media[0];
+
+        auctionImageContainer.appendChild(auctionMedia);
+        auctionInfo.appendChild(auctionImageContainer);
 
         const ul = document.createElement("ul");
         ul.classList.add("list-unstyled", "fs-6");
@@ -148,9 +164,6 @@ export function populateAllAuctions(data) {
         ul.appendChild(li2);
         ul.appendChild(li3);
         ul.appendChild(li4);
-
-        auctionInfo.appendChild(auctionMedia);
-        auctionInfo.appendChild(auctionTitle);
 
         auctionInfo.appendChild(ul);
 
