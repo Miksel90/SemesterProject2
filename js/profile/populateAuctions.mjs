@@ -1,16 +1,7 @@
 import { profileAuctions } from "./profileAuctions.mjs";
 import { editIMediaInputs } from "../auctions/addMediaField.mjs";
-const { addImageButton, removeImageButton } = editIMediaInputs();
 
-removeImageButton.addEventListener("click", function () {
-  const existingMediaContainer = document.getElementById("editMediaGallery");
-  const mediaFields =
-    existingMediaContainer.getElementsByClassName("editAuctionMedia");
-
-  if (mediaFields.length > 0) {
-    existingMediaContainer.removeChild(mediaFields[mediaFields.length - 1]);
-  }
-});
+editIMediaInputs();
 
 export function populateAuctions(json) {
   const profileAuctions = document.querySelector(".profileAuctions");

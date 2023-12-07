@@ -62,23 +62,6 @@
                 <a class="nav-link text-secondary text-decoration-underline fw-bold active" href="/feed/listings.html">Auctions</a>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link text-secondary"
-                  href="/register.html"
-                  >Register</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-secondary "
-                  href="about.html"
-                  >About</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-secondary" href="contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
                 <a id="logoutButton" class="nav-link text-secondary" href="/index.html">Login</a>
               </li>
             </ul>
@@ -105,15 +88,12 @@
               aria-label="search"
             />
           </form>
-          <div class="dropdown col-md-4 mt-lg-3 mt-3 flex-end ">
-            <button type="button" class="btn btn-lg btn-primary border border-secondary text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter by
-            </button>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item">Price</li>
-              <li class="dropdown-item">Auction Created</li>
-              <li class="dropdown-item">Auction Ending</li>
-            </ul>
+            <select class="sortAuctions" name="filter" id="sortAuctions">
+              <option value="">Sort by</option>
+              <option value="priceHtoL">Price: High - low</option>
+              <option value="priceLtoH">Price: Low - High</option>
+              <option value="ending">Auction Ending</option>
+            </select>
           </div>
         </div>
         <div class="allAuctions d-flex flex-wrap justify-content-evenly">

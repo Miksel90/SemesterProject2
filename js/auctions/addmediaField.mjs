@@ -41,17 +41,20 @@ export function editIMediaInputs() {
   addImageButton.addEventListener("click", function () {
     if (imageEditMediaGallery.children.length < maxImageFields) {
       const newImageField = document.createElement("div");
-      newImageField.classList.add("imageField");
+      newImageField.classList.add("editAuctionMedia");
 
       const newImageInput = document.createElement("input");
       newImageInput.type = "text";
       newImageInput.classList.add("form-control", "mt-2", "media-input");
       newImageInput.name = "media";
       newImageInput.placeholder = "Add Image";
+      newImageField.value = "";
       newImageInput.required = true;
 
       newImageField.appendChild(newImageInput);
       imageEditMediaGallery.appendChild(newImageField);
+
+      console.log(newImageField.length);
     } else {
       alert("You have reached the maximum limit of image fields (8).");
     }
@@ -59,11 +62,9 @@ export function editIMediaInputs() {
 
   removeImageButton.addEventListener("click", function () {
     const imageFields =
-      imageEditMediaGallery.getElementsByClassName("imageField");
-    if (imageFields.length > 0) {
+      imageEditMediaGallery.getElementsByClassName("editAuctionMedia");
+    if (imageFields.length > 1) {
       imageEditMediaGallery.removeChild(imageFields[imageFields.length - 1]);
     }
   });
-
-  return { addImageButton, removeImageButton };
 }
