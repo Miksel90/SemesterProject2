@@ -6,6 +6,8 @@ import { createBids } from "./profileBids.mjs";
 import { newProfileAvatarMedia } from "./updateProfileMedia.mjs";
 import { populateWins } from "./populateWins.mjs";
 
+export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
+
 newProfileAvatarMedia();
 
 export async function createProfile(url) {
@@ -35,5 +37,4 @@ export async function createProfile(url) {
   }
 }
 
-export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
 createProfile(profileInfo);

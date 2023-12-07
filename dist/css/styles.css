@@ -11885,6 +11885,11 @@ textarea.form-control-lg {
   border-color: #d4af37;
 }
 
+.option {
+  border-style: solid;
+  border-color: #d4af37;
+}
+
 body {
   font-family: "Raleway", sans-serif;
 }

@@ -2,7 +2,7 @@ import { initializeImageForm } from "./addMediaField.mjs";
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
 const token = localStorage.getItem("accessToken");
-// const modal = document.getElementById("createAuctionModal");
+const modal = document.getElementById("createAuctionModal");
 const createAuctionButton = document.getElementById("createAuctionButton");
 
 initializeImageForm();
@@ -34,14 +34,9 @@ async function createAuction(url, newAuction) {
       setTimeout(() => {
         createAuctionButton.innerText = "Auction Created";
         setTimeout(() => {
-          // Construct the URL of the newly created auction
-          const auctionId = json.auctionId; // Update with the actual field name
-          const auctionDetailsURL = `/feed/auctionSpecific.html?id=${auctionId}`;
-
-          // Navigate to the new auction details page
-          window.location.href = auctionDetailsURL;
-          // modal.classList.remove("show");
-          // modal.style.display = "none";
+          window.location.reload();
+          modal.classList.remove("show");
+          modal.style.display = "none";
         }, 1200);
       }, 1200);
     } else {

@@ -6,6 +6,9 @@ import {
 } from "../consts/consts.mjs";
 import { loggedInUser } from "./loggedInProfile.mjs";
 import { showLoader, hideLoader } from "../utilities/loader.mjs";
+import { allAuctions } from "./fetchAllAuctions.mjs";
+
+export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
 
 async function fetchLoggedInUser(url) {
   try {
@@ -36,5 +39,4 @@ async function fetchLoggedInUser(url) {
   }
 }
 
-export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
 fetchLoggedInUser(profileInfo);
