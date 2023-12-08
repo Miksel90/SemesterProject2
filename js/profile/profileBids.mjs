@@ -18,8 +18,6 @@ export async function createBids(url) {
     const json = await response.json();
 
     populateBids(json);
-
-    // console.log(json);
   } catch (error) {
     console.log(error);
   }
