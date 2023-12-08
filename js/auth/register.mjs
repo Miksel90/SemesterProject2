@@ -48,6 +48,27 @@ document
     const userEmail = document.getElementById("userEmail").value;
     const userPassword = document.getElementById("userPassword").value;
 
+    if (!userName) {
+      document.getElementById("userNameFeedback").style.display = "block";
+      return;
+    } else {
+      document.getElementById("userNameFeedback").style.display = "none";
+    }
+
+    if (!userEmail || !isValidEmail(userEmail)) {
+      document.getElementById("userEmailFeedback").style.display = "block";
+      return;
+    } else {
+      document.getElementById("userEmailFeedback").style.display = "none";
+    }
+
+    if (!userPassword || userPassword.length < 8) {
+      document.getElementById("userPasswordFeedback").style.display = "block";
+      return;
+    } else {
+      document.getElementById("userPasswordFeedback").style.display = "none";
+    }
+
     const userData = {
       name: userName,
       email: userEmail,
@@ -56,4 +77,10 @@ document
 
     const registerUrl = `${API_BASE_URL}${authURL}${register_endpoint}`;
     await registerUser(registerUrl, userData);
+
+    function isValidEmail(email) {
+      const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const noroffEmailReg = /@noroff\.no$/;
+      return emailReg.test(email) && noroffEmailReg.test(email);
+    }
   });

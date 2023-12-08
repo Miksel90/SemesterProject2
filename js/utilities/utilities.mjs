@@ -14,16 +14,6 @@ redirectLink.addEventListener("click", function (event) {
   }
 });
 
-document
-  .getElementById("loginAnchor")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-
-    document.getElementById("loginForm").scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-
 let loginAnchor = document.getElementById("loginAnchor");
 
 if (loginAnchor) {

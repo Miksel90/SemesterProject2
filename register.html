@@ -104,7 +104,9 @@
                   name="name"
                   required
                 />
-                <div class="invalid-feedback">Please enter a username.</div>
+                <div class="invalid-feedback" id="userNameFeedback">
+                  Please enter a username.
+                </div>
               </div>
               <div class="mb-3 fs-4">
                 <label for="userEmail" class="form-label wider-border"
@@ -119,9 +121,9 @@
                   required
                 />
                 <div id="emailHelp" class="form-text fs-6">
-                  Noroff email required.
+                  Noroff.no email required.
                 </div>
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" id="userEmailFeedback">
                   Please enter a valid email address.
                 </div>
               </div>
@@ -137,7 +139,7 @@
                   minlength="8"
                   required
                 />
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" id="userPasswordFeedback">
                   Password must be at least 8 characters long.
                 </div>
               </div>

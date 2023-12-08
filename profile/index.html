@@ -146,7 +146,7 @@
                   <button type="button" class="btn-close" id="createAuctionModal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <form id="createNewAuctionForm">
+                  <form id="createNewAuctionForm" class="needs-validation">
                       <label for="auctionTitle" class="form-label text-start">Title</label>
                       <div class="auctionTitle">
                           <input
@@ -158,6 +158,9 @@
                               maxlength="25"
                               required
                           />
+                          <div class="invalid-feedback text-danger">
+                            The Auction must have a title
+                          </div>
                       </div>
                       <label for="auctionBody" class="form-label text-start mt-2">Description:</label>
                       <textarea
@@ -170,6 +173,9 @@
                           required
                           rows="10"
                       ></textarea>
+                      <div class="invalid-feedback text-danger">
+                        The Auction must have a description
+                      </div>
                       <label for="auctionEndsAt" class=" form-label text-start mt-2">Ends At:</label>
                       <div class="auctionEndsAt">
                           <input
@@ -179,6 +185,9 @@
                               name="endsAt"
                               required
                           />
+                          <div class="invalid-feedback text-danger">
+                            The Auction must have an end date
+                          </div>
                       </div>
                       <label for="auctionTags" class="form-label text-start mt-2">Tags</label>
                       <div class="auctionTags">
@@ -200,6 +209,9 @@
                             placeholder="Add Image"
                             required
                           />
+                          <div class="invalid-feedback text-danger">
+                            The Auction must have at least one image
+                          </div>
                         </div>
                       </div>
                       <button
@@ -236,7 +248,7 @@
                 <button type="button" class="btn-close" id="editAuctionModal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editAuctionForm">
+                <form id="editAuctionForm" class="needs-validation">
                     <label for="editAuctionTitle" class="form-label text-start">Title</label>
                     <div class="auctionTitle">
                         <input
@@ -247,6 +259,9 @@
                             placeholder="Change Title"
                             required
                         />
+                        <div class="invalid-feedback text-danger">
+                          The Auction must have a title
+                        </div>
                     </div>
                     <label for="auctionBody" class="form-label text-start mt-2">Body:</label>
                 <div class="editAuctionBody">
@@ -259,6 +274,9 @@
                         required
                         rows="3"
                     ></textarea>
+                    <div class="invalid-feedback text-danger">
+                      The Auction must have a description.
+                    </div>
                     </div>
                     <label for="editAuctionTags" class="form-label text-start mt-2">Tags</label>
                     <div class="editAuctionTags">
@@ -280,6 +298,9 @@
                           placeholder="Add Image"
                           required
                         />
+                        <div class="invalid-feedback text-danger">
+                          The Auction must have at least one image.
+                        </div>
                       </div>
                     </div>
                     <button
