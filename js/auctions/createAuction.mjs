@@ -2,6 +2,7 @@ import { initializeImageForm } from "./addMediaField.mjs";
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
 const token = localStorage.getItem("accessToken");
+const modal = document.getElementById("createAuctionModal");
 const createAuctionButton = document.getElementById("createAuctionButton");
 
 initializeImageForm();

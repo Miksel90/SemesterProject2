@@ -8,6 +8,8 @@ export function populateBids(json) {
     const bidsContainer = document.createElement("a");
     bidsContainer.href = `/feed/auctionSpecific.html?id=${auction.listing.id}`;
     bidsContainer.classList.add("p-3", "text-decoration-none");
+    bidsContainer.style.minWidth = "300px";
+    bidsContainer.style.maxWidth = "300px";
 
     const bidsInfo = document.createElement("div");
     bidsInfo.classList.add(
@@ -18,19 +20,33 @@ export function populateBids(json) {
       "border-secondary"
     );
 
-    const bidsTitle = document.createElement("p");
-    bidsTitle.classList.add("fs-4", "text-primary", "text-center");
+    const bidsTitleWrapper = document.createElement("div");
+    bidsTitleWrapper.classList.add("text-wrap");
+
+    const bidsTitle = document.createElement("h3");
+    bidsTitle.classList.add(
+      "fw-bold",
+      "fs-4",
+      "p-1",
+      "text-primary",
+      "text-center",
+      "auctionTitle"
+    );
     bidsTitle.textContent = auction.listing.title;
 
-    bidsInfo.appendChild(bidsTitle);
+    if (auction.listing.title.length > 20) {
+      bidsTitle.textContent = auction.listing.title.slice(0, 20) + "...";
+    } else {
+      bidsTitle.textContent = auction.listing.title;
+    }
 
-    if (
-      auction.listing.media &&
-      Array.isArray(auction.listing.media) &&
-      auction.listing.media.length > 0 &&
-      typeof auction.listing.media[0] === "string" &&
-      auction.listing.media[0].trim() !== ""
-    ) {
+    bidsTitleWrapper.appendChild(bidsTitle);
+    bidsInfo.appendChild(bidsTitleWrapper);
+
+    if (auction.listing.media && auction.listing.media.length > 0) {
+      const bidsMediaContainer = document.createElement("div");
+      bidsMediaContainer.classList.add("allAuctionMedia");
+
       const bidsMedia = document.createElement("img");
       bidsMedia.classList.add(
         "cover",

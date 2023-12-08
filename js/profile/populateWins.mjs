@@ -36,11 +36,33 @@ export async function populateWins(json) {
           "border-secondary"
         );
 
-        const winTitle = document.createElement("p");
-        winTitle.classList.add("fs-3", "fw-bold", "mt-2", "text-center");
+        // const winTitle = document.createElement("hs");
+        // winTitle.classList.add("fs-3", "fw-bold", "mt-2", "text-center");
+        // winTitle.textContent = `${winData.title}`;
+
+        // winInfo.appendChild(winTitle);
+
+        const winTitleWrapper = document.createElement("div");
+        winTitleWrapper.classList.add("text-wrap");
+
+        const winTitle = document.createElement("h3");
+        winTitle.classList.add(
+          "fw-bold",
+          "fs-2",
+          "text-primary",
+          "text-center",
+          "auctionTitle"
+        );
         winTitle.textContent = `${winData.title}`;
 
-        winInfo.appendChild(winTitle);
+        if (winData.title.length > 20) {
+          winTitle.textContent = winData.title.slice(0, 20) + "...";
+        } else {
+          winTitle.textContent = `${winData.title}`;
+        }
+
+        winTitleWrapper.appendChild(winTitle);
+        winInfo.appendChild(winTitleWrapper);
 
         if (Array.isArray(winData.media)) {
           winData.media.forEach((mediaUrl) => {
@@ -93,10 +115,15 @@ export async function populateWins(json) {
         auctionEndsAt.classList.add(
           "text-primary",
           "fs-3",
-          "justify-content-start",
-          "p-2"
+          "p-2",
+          "text-center"
         );
-        auctionEndsAt.textContent = `Auction Ended: ${formattedEndDate}`;
+
+        const auctionEndsAtSpan = document.createElement("div");
+        auctionEndsAtSpan.classList.add("fw-bold", "fs-3", "text-center");
+        auctionEndsAtSpan.textContent = `${formattedEndDate}`;
+
+        auctionEndsAt.innerHTML = "Auction Ended" + auctionEndsAtSpan.outerHTML;
 
         winInfo.appendChild(auctionEndsAt);
         winContainer.appendChild(winInfo);

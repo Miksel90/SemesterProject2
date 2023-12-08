@@ -10,13 +10,20 @@ export function populateProfile(json) {
     "border-secondary",
     "row",
     "justify-content-evenly",
-    "bg-success",
-    "bg-opacity-25"
+    "profileBanner"
   );
   profileContainer.id = profileInfo.id;
 
   const profileDetails = document.createElement("div");
   profileDetails.classList.add("col-md-6");
+
+  const profileAvatarContainer = document.createElement("div");
+  profileAvatarContainer.classList.add(
+    "col-md-6",
+    "d-flex",
+    "justify-content-center",
+    "align-items-center"
+  );
 
   const profileAvatar = document.createElement("img");
   profileAvatar.classList.add(
@@ -28,7 +35,6 @@ export function populateProfile(json) {
     "border-secondary",
     "d-none",
     "d-md-block",
-    "p-0",
     "mt-2"
   );
   profileAvatar.style.width = "200px";
@@ -41,8 +47,8 @@ export function populateProfile(json) {
     profileAvatar.alt = "Profile image of " + json.name;
   }
 
-  profileContainer.append(profileAvatar);
-  profileContainer.appendChild(profileDetails);
+  profileAvatarContainer.appendChild(profileAvatar);
+  profileContainer.append(profileAvatarContainer);
 
   const profileBody = document.createElement("div");
   profileBody.classList.add(
@@ -56,7 +62,7 @@ export function populateProfile(json) {
   );
 
   const profileName = document.createElement("p");
-  profileName.classList.add("text-primary", "bolder", "fs-1");
+  profileName.classList.add("text-white", "bolder", "fs-1", "custom-text");
   const capitalizedFirstName =
     json.name.charAt(0).toUpperCase() + json.name.slice(1);
 
@@ -70,19 +76,21 @@ export function populateProfile(json) {
     "fs-5",
     "ms-md-5",
     "p-1",
-    "d-block"
+    "d-block",
+    "text-white",
+    "custom-text"
   );
 
   const li1 = document.createElement("li");
-  li1.classList.add("text-primary", "fs-4");
+  li1.classList.add("fs-4");
   li1.innerText = "Credits: " + parseInt(json.credits, 10);
 
   const li2 = document.createElement("li");
-  li2.classList.add("text-primary", "fs-4");
+  li2.classList.add("fs-4");
   li2.innerText = "Listings: " + json._count.listings;
 
   const li3 = document.createElement("li");
-  li3.classList.add("text-primary", "fs-4");
+  li3.classList.add("fs-4");
   li3.innerText = "Auctions Won: " + json.wins.length;
 
   ul.appendChild(li1);
@@ -92,6 +100,8 @@ export function populateProfile(json) {
   profileBody.appendChild(ul);
 
   profileDetails.appendChild(profileBody);
+
+  profileContainer.appendChild(profileDetails);
 
   const userInfoDetails = document.createElement("div");
   userInfoDetails.classList.add(
@@ -107,7 +117,7 @@ export function populateProfile(json) {
     "btn",
     "btn-primary",
     "border",
-    "border-info",
+    "border-secondary",
     "text-white",
     "btn-sm",
     "rounded"
@@ -141,7 +151,7 @@ export function populateProfile(json) {
     "btn",
     "btn-primary",
     "border",
-    "border-info",
+    "border-secondary",
     "text-white",
     "btn-sm",
     "rounded"

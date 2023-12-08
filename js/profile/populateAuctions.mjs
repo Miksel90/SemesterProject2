@@ -25,24 +25,29 @@ export function populateAuctions(json) {
     auctionInfo.style.maxwidth = "300px";
     auctionInfo.style.minWidth = "300px";
 
-    const auctionTitle = document.createElement("p");
+    const auctionTitleWrapper = document.createElement("div");
+    auctionTitleWrapper.classList.add("text-wrap");
+
+    const auctionTitle = document.createElement("h3");
     auctionTitle.classList.add(
       "fw-bold",
       "fs-4",
       "text-primary",
-      "text-center"
+      "text-center",
+      "auctionTitle"
     );
     auctionTitle.textContent = auction.title;
 
-    auctionInfo.appendChild(auctionTitle);
+    if (auction.title.length > 20) {
+      auctionTitle.textContent = auction.title.slice(0, 20) + "...";
+    } else {
+      auctionTitle.textContent = auction.title;
+    }
 
-    if (
-      auction.media &&
-      Array.isArray(auction.media) &&
-      auction.media.length > 0 &&
-      typeof auction.media[0] === "string" &&
-      auction.media[0].trim() !== ""
-    ) {
+    auctionTitleWrapper.appendChild(auctionTitle);
+    auctionInfo.appendChild(auctionTitleWrapper);
+
+    if (auction.media && auction.media.length > 0) {
       const auctionMedia = document.createElement("img");
       auctionMedia.classList.add(
         "cover",
@@ -120,7 +125,7 @@ export function populateAuctions(json) {
           const tagText = document.createElement("p");
           tagText.classList.add(
             "text-white",
-            "bg-primary",
+            "bg-info",
             "p-2",
             "rounded-4",
             "fs-6",
@@ -149,7 +154,7 @@ export function populateAuctions(json) {
         "btn-sm",
         "text-center",
         "border",
-        "border-info",
+        "border-secondary",
         "border-2",
         "mt-3"
       );

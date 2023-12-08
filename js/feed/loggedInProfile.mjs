@@ -33,14 +33,24 @@ export function loggedInUser(data) {
   }
 
   const profileName = document.createElement("p");
-  profileName.classList.add("text-primary", "fs-3", "margin-unset");
+  profileName.classList.add(
+    "text-white",
+    "fs-3",
+    "margin-unset",
+    "custom-text"
+  );
   const capitalizedFirstName =
     data.name.charAt(0).toUpperCase() + data.name.slice(1);
 
   profileName.innerText = capitalizedFirstName;
 
   const profileCredits = document.createElement("p");
-  profileCredits.classList.add("text-primary", "fs-3", "margin-unset");
+  profileCredits.classList.add(
+    "text-white",
+    "fs-3",
+    "margin-unset",
+    "custom-text"
+  );
   profileCredits.innerText = "Credits: " + parseInt(data.credits, 10);
 
   const createAuctionButton = document.createElement("button");
@@ -48,7 +58,7 @@ export function loggedInUser(data) {
     "btn",
     "btn-primary",
     "border",
-    "border-info",
+    "border-secondary",
     "text-white",
     "rounded",
     "p-2",

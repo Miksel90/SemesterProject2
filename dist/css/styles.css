@@ -11857,8 +11857,14 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.brand-name {
+.brand-name,
+.auctionTitle {
   font-family: "Playfair Display", serif;
+}
+
+.option {
+  border-style: solid;
+  border-color: #d4af37;
 }
 
 body {
@@ -11990,11 +11996,87 @@ body {
   bottom: 0;
   left: 0;
   background-image: url(/images/Masthead.jpg);
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.5;
   z-index: -1;
+}
+
+.custom-text {
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.profileBanner {
+  position: relative;
+}
+
+.profileBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(/images/profilebanner2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.profileBanner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.75;
+  z-index: -2;
+}
+
+.allAuctionMedia {
+  height: 200px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.sortAuctions {
+  border-style: solid;
+  border-color: #d4af37;
+  font-size: 25px;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sortAuctions option {
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.sortAuctions option:checked {
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.sortAuctions:focus {
+  border-style: solid;
+  border-color: #d4af37;
+  outline: none;
+}
+
+.allAuctions {
+  background-image: url(/images/profilebanner.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 1000px;
 }
 
 /*# sourceMappingURL=styles.css.map */
