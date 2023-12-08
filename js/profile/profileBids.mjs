@@ -1,6 +1,8 @@
 import { API_BASE_URL, profileURL, userName } from "../consts/consts.mjs";
 import { populateBids } from "./populateBids.mjs";
 
+export const profileBids = `${API_BASE_URL}${profileURL}${userName}/bids?_listings=true`;
+
 export async function createBids(url) {
   try {
     const token = localStorage.getItem("accessToken");
@@ -22,5 +24,3 @@ export async function createBids(url) {
     console.log(error);
   }
 }
-
-export const profileBids = `${API_BASE_URL}${profileURL}${userName}/bids?_listings=true`;

@@ -61,7 +61,6 @@ export function populateAllAuctions(data) {
 
         const auctionTitleWrapper = document.createElement("div");
         auctionTitleWrapper.classList.add("text-wrap");
-        auctionTitleWrapper.style.width = "100px";
 
         const auctionTitle = document.createElement("h3");
         auctionTitle.classList.add(
@@ -72,6 +71,16 @@ export function populateAllAuctions(data) {
           "auctionTitle"
         );
         auctionTitle.textContent = auction.title;
+
+        if (auction.title.length > 20) {
+          auctionTitle.textContent = auction.title.slice(0, 20) + "...";
+        } else {
+          auctionTitle.textContent = auction.title;
+        }
+
+        auctionTitleWrapper.appendChild(auctionTitle);
+        auctionInfo.appendChild(auctionTitleWrapper);
+
         const auctionImageContainer = document.createElement("div");
         auctionImageContainer.classList.add(
           "container",
@@ -80,9 +89,6 @@ export function populateAllAuctions(data) {
           "d-flex",
           "mb-3"
         );
-
-        auctionTitleWrapper.appendChild(auctionTitle);
-        auctionInfo.appendChild(auctionTitleWrapper);
 
         const auctionMedia = document.createElement("img");
         auctionMedia.classList.add("allAuctionMedia");

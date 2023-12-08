@@ -11,32 +11,9 @@ $success: #a39191;
 @import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Hedvig+Letters+Sans&family=Playfair+Display:ital@0;1&family=Raleway:wght@100;400&family=Red+Rose:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
 
-.brand-name {
+.brand-name,
+.auctionTitle {
   font-family: "Playfair Display", serif;
-}
-
-.sortAuctions {
-  border-style: solid;
-  border-color: #d4af37;
-  font-size: 25px;
-  font-weight: bolder;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.sortAuctions option {
-  border-style: solid;
-  border-color: #d4af37;
-}
-
-.sortAuctions option:checked {
-  border-style: solid;
-  border-color: #d4af37;
-}
-
-.sortAuctions:focus {
-  border-style: solid;
-  border-color: #d4af37;
 }
 
 .option {
@@ -195,10 +172,70 @@ body {
   z-index: -1;
 }
 
-// ALl auctions //
+// All auctions //
+
+.custom-text {
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.profileBanner {
+  position: relative;
+}
+
+.profileBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(/images/profilebanner2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.profileBanner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.75;
+  z-index: -2;
+}
 
 .allAuctionMedia {
   height: 200px;
   width: 250px;
   object-fit: cover;
+}
+
+.sortAuctions {
+  border-style: solid;
+  border-color: #d4af37;
+  font-size: 25px;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sortAuctions option {
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.sortAuctions option:checked {
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.sortAuctions:focus {
+  border-style: solid;
+  border-color: #d4af37;
+  outline: none;
 }
