@@ -31,7 +31,7 @@ async function fetchLoggedInUser(url) {
       hideLoader();
     } else {
       const loggedInBox = document.querySelector(".loggedInBox");
-      loggedInBox.classList.add("text-danger", "fs-2", "p-2");
+      loggedInBox.classList.add("text-white", "fs-2", "p-2");
       loggedInBox.innerHTML = "You need to log in to bid on auctions!";
     }
   } catch (error) {

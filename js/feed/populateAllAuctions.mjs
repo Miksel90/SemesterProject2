@@ -68,12 +68,13 @@ export function populateAllAuctions(data) {
           "fs-2",
           "text-primary",
           "text-center",
-          "auctionTitle"
+          "auctionTitle",
+          "mb-4"
         );
         auctionTitle.textContent = auction.title;
 
         if (auction.title.length > 20) {
-          auctionTitle.textContent = auction.title.slice(0, 20) + "...";
+          auctionTitle.textContent = auction.title.slice(0, 15) + "...";
         } else {
           auctionTitle.textContent = auction.title;
         }

@@ -13,3 +13,13 @@ redirectLink.addEventListener("click", function (event) {
     window.location.href = "/index.html";
   }
 });
+
+document
+  .getElementById("loginAnchor")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    document.getElementById("loginForm").scrollIntoView({
+      behavior: "smooth",
+    });
+  });

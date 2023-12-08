@@ -3,5 +3,6 @@ export function hideProfileNavItem(token) {
 
   if (!token) {
     profileNavItem.style.display = "none";
+    logoutButton.innerHTML = "Login";
   }
 }
