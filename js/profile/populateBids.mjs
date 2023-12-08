@@ -9,7 +9,6 @@ export function populateBids(json) {
     bidsContainer.href = `/feed/auctionSpecific.html?id=${auction.listing.id}`;
     bidsContainer.classList.add("p-3", "text-decoration-none");
     bidsContainer.style.minWidth = "300px";
-    bidsContainer.style.maxWidth = "300px";
 
     const bidsInfo = document.createElement("div");
     bidsInfo.classList.add(
