@@ -2,11 +2,11 @@ export function populateSingleAuction(data) {
   document.title = data.title + " | " + data.seller.name;
 
   const auctionBox = document.querySelector(".auctionBox");
-  auctionBox.classList.add("bg-success", "bg-opacity-50");
   auctionBox.innerHTML = "";
+  auctionBox.classList.add("bg-success", "bg-opacity-50");
 
   const auctionContainer = document.createElement("div");
-  auctionContainer.classList.add("p-3", "container");
+  auctionContainer.classList.add("container");
 
   const sellerBox = document.createElement("div");
   sellerBox.classList.add(
@@ -140,14 +140,14 @@ export function populateSingleAuction(data) {
   auctionContainer.appendChild(auctionInfo);
 
   const bidBox = document.createElement("div");
-  bidBox.classList.add("row");
+  bidBox.classList.add("row", "p-2");
 
   const bidOnAuction = document.createElement("div");
   bidOnAuction.classList.add("col-md-4");
 
   const newBidText = document.createElement("p");
   newBidText.classList.add("text-primary", "fs-3");
-  newBidText.textContent = "Want to have this for yourself? Bid today!";
+  newBidText.textContent = "Get yours today!";
 
   const newBidButton = document.createElement("button");
   newBidButton.classList.add(
@@ -194,7 +194,7 @@ export function populateSingleAuction(data) {
   bidBox.appendChild(bidOnAuction);
 
   const bidHistoryBox = document.createElement("div");
-  bidHistoryBox.classList.add("col-md-12");
+  bidHistoryBox.classList.add("col-md-12", "p-0");
 
   const bidHistoryButton = document.createElement("button");
   bidHistoryButton.classList.add(
@@ -205,7 +205,8 @@ export function populateSingleAuction(data) {
     "border-secondary",
     "d-flex",
     "justify-content-end",
-    "mb-2"
+    "mb-2",
+    "mt-3"
   );
   bidHistoryButton.setAttribute("type", "button");
   bidHistoryButton.setAttribute("data-bs-toggle", "collapse");
@@ -245,38 +246,43 @@ export function populateSingleAuction(data) {
     bidHistoryList.appendChild(listItem);
   });
 
-  const mediaGallery = document.createElement("div");
-  mediaGallery.classList.add("container", "d-flex", "flex-wrap", "gap-2");
-
-  const auctionMedia = data.media;
-
-  auctionMedia.forEach((image, index) => {
-    const media = document.createElement("img");
-    media.classList.add(
-      "cover",
-      "mt-5",
-      "img-thumbnail",
-      "bg-secondary",
-      "border",
-      "border-secondary",
-      "mb-5"
-    );
-    media.style.height = "250px";
-    media.style.width = "250px";
-    media.src = image;
-    media.alt = "hello ";
-
-    mediaGallery.appendChild(media);
-  });
-
   bidHistoryCollapse.appendChild(bidHistoryList);
   bidHistoryBox.appendChild(bidHistoryButton);
   bidHistoryBox.appendChild(bidHistoryCollapse);
   bidBox.appendChild(bidOnAuction);
   auctionContainer.appendChild(bidBox);
 
+  auctionInfo.appendChild(bidHistoryBox);
+
+  const mediaGallery = document.createElement("div");
+  mediaGallery.classList.add(
+    "imageGallery",
+    "bg-primary",
+    "bg-opacity-75",
+    "border",
+    "border-secondary",
+    "border-3",
+    "p-3",
+    "gap-3",
+    "mt-5",
+    "d-flex",
+    "flex-column",
+    "d-md-grid",
+    "grid-cols-md-4"
+  );
+
+  const auctionMedia = data.media;
+
+  auctionMedia.forEach((image, index) => {
+    const media = document.createElement("img");
+
+    media.src = image;
+    media.alt = "Images of the Auction ";
+
+    mediaGallery.appendChild(media);
+  });
+
   auctionContainer.appendChild(mediaGallery);
-  auctionContainer.appendChild(bidHistoryBox);
 
   auctionBox.append(auctionContainer);
 }

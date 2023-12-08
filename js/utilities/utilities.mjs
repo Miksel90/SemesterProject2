@@ -23,3 +23,19 @@ document
       behavior: "smooth",
     });
   });
+
+let loginAnchor = document.getElementById("loginAnchor");
+
+if (loginAnchor) {
+  loginAnchor.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let loginForm = document.getElementById("loginForm");
+
+    if (loginForm) {
+      loginForm.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  });
+}

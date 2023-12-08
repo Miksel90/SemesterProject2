@@ -36,12 +36,6 @@ export async function populateWins(json) {
           "border-secondary"
         );
 
-        // const winTitle = document.createElement("hs");
-        // winTitle.classList.add("fs-3", "fw-bold", "mt-2", "text-center");
-        // winTitle.textContent = `${winData.title}`;
-
-        // winInfo.appendChild(winTitle);
-
         const winTitleWrapper = document.createElement("div");
         winTitleWrapper.classList.add("text-wrap");
 
