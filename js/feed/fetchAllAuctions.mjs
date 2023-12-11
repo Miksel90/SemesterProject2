@@ -5,6 +5,15 @@ import { populateAllAuctions } from "./populateAllAuctions.mjs";
 const allAuctions = `${API_BASE_URL}${listing_endpoint}?&_seller=true&_bids=true&_count=true&_active=true`;
 let allAuctionResults = "";
 
+/**
+ * Asynchronously fetches all auctions from the specified URL.
+ * @async
+ * @function
+ * @name fetchAllAuctions
+ * @param {string} url - The URL for fetching all auctions.
+ * @returns {Promise<Array>} A promise that resolves to an array of auction data.
+ * @throws {Error} If there is an error fetching the auctions.
+ */
 async function fetchAllAuctions(url) {
   try {
     showLoader();
@@ -26,6 +35,12 @@ async function fetchAllAuctions(url) {
   }
 }
 
+/**
+ * Asynchronously generates the page by fetching all auctions and populating the UI.
+ * @async
+ * @function
+ * @name generatePage
+ */
 async function generatePage() {
   const data = await fetchAllAuctions(allAuctions);
   populateAllAuctions(data);

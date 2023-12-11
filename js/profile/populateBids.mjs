@@ -1,5 +1,11 @@
 import { profileBids } from "./profileBids.mjs";
 
+/**
+ * Populate the user's profile with bid information based on the provided JSON data.
+ * @param {Object[]} json - The JSON data containing information about the user's bids.
+ * @throws {Error} If there is an issue with populating the user's profile with bid information.
+ * @returns {void}
+ */
 export function populateBids(json) {
   const profileBids = document.querySelector(".profileBids");
   profileBids.innerHTML = "";

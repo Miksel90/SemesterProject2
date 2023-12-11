@@ -7,6 +7,21 @@ const createAuctionButton = document.getElementById("createAuctionButton");
 
 initializeImageForm();
 
+/**
+ * Asynchronously creates a new auction by making a POST request to the specified URL.
+ * @async
+ * @function
+ * @name createAuction
+ * @param {string} url - The URL for creating a new auction.
+ * @param {Object} newAuction - The data for the new auction.
+ * @property {string} newAuction.title - The title of the auction.
+ * @property {string} newAuction.description - The description of the auction.
+ * @property {number} newAuction.startingPrice - The starting price of the auction.
+ * @property {Date} newAuction.startDate - The start date and time of the auction.
+ * @property {Date} newAuction.endDate - The end date and time of the auction.
+ * @property {string[]} newAuction.media - The array of media URLs for the auction.
+ * @throws {Error} If the auction creation fails.
+ */
 async function createAuction(url, newAuction) {
   try {
     const auctionData = {

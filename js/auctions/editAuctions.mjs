@@ -6,9 +6,21 @@ const auctionTitleInput = modal.querySelector("#editAuctionTitle");
 const auctionBodyInput = modal.querySelector("#editAuctionBody");
 const auctionTagsInput = modal.querySelector("#editAuctionTags");
 const imageFieldsContainer = document.getElementById("editMediaGallery");
-
 const editAuctionButton = document.getElementById("editAuctionButton");
 
+/**
+ * Asynchronously edits an auction by making a PUT request to the specified URL.
+ * @async
+ * @function
+ * @name editAuction
+ * @param {string} url - The URL for editing the auction.
+ * @param {string} auctionId - The ID of the auction to be edited.
+ * @param {string} auctionTitle - The edited title of the auction.
+ * @param {string} auctionDescription - The edited description of the auction.
+ * @param {(string|string[])} auctionTags - The edited tags of the auction.
+ * @param {HTMLInputElement[]} auctionMedia - The array of edited media input elements.
+ * @throws {Error} If the auction edit fails.
+ */
 async function editAuction(
   auctionId,
   auctionTitle,

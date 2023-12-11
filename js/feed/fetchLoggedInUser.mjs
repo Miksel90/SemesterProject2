@@ -6,10 +6,18 @@ import {
 } from "../consts/consts.mjs";
 import { loggedInUser } from "./loggedInProfile.mjs";
 import { showLoader, hideLoader } from "../utilities/loader.mjs";
-import { allAuctions } from "./fetchAllAuctions.mjs";
+// import { allAuctions } from "./fetchAllAuctions.mjs";
 
 export const profileInfo = `${API_BASE_URL}${profileURL}${userName}`;
 
+/**
+ * Asynchronously fetches the logged-in user's profile information.
+ * @function
+ * @name fetchLoggedInUser
+ * @param {string} url - The URL for fetching the logged-in user's profile information.
+ * @returns {Promise<void>}
+ * @throws {Error} - If an error occurs during the fetch operation.
+ */
 async function fetchLoggedInUser(url) {
   try {
     showLoader();

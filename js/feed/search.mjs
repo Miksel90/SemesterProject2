@@ -1,7 +1,12 @@
 import { fetchAllAuctions, allAuctions } from "./fetchAllAuctions.mjs";
 
 /**
- * Search posts based on the search input.
+ * Search auctions based on the input provided in the search bar and filter the displayed results.
+ * @async
+ * @function
+ * @name searchAuctions
+ * @throws {Error} If there is an issue with searching and filtering auctions.
+ * @returns {Promise<void>} A promise that resolves once the search and filter operation is complete.
  */
 async function searchAuctions() {
   const searchInput = document.getElementById("searchBar").value.toLowerCase();

@@ -3,6 +3,13 @@ import { editIMediaInputs } from "../auctions/addMediaField.mjs";
 
 editIMediaInputs();
 
+/**
+ * Populate the user's profile with auction cards based on the provided JSON data.
+ * Additionally, users can edit an auction by clicking the "Edit auction" button.
+ * @param {Object[]} json - The JSON data containing information about the user's auctions.
+ * @throws {Error} If there is an issue with populating the user's profile with auction cards.
+ * @returns {void}
+ */
 export function populateAuctions(json) {
   const profileAuctions = document.querySelector(".profileAuctions");
   const editMediaGallery = document.getElementById("editMediaGallery");

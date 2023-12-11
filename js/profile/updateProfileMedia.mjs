@@ -1,5 +1,12 @@
 import { API_BASE_URL, profileURL } from "../consts/consts.mjs";
 
+/**
+ * Initializes the functionality for updating the user's profile avatar media.
+ * It includes event listeners for the profile media form submission and handles
+ * the asynchronous upload of the new profile avatar using the provided media.
+ * @throws {Error} If there is an issue uploading the profile avatar or handling UI updates.
+ * @returns {void}
+ */
 export function newProfileAvatarMedia() {
   const profileMediaForm = document.getElementById("updateProfileMediaForm");
   const inputElement = document.getElementById("updateProfileMedia");
@@ -7,6 +14,14 @@ export function newProfileAvatarMedia() {
     "editProfileMediaButton"
   );
 
+  /**
+   * Uploads the user's profile avatar by sending a PUT request to the server.
+   * The function includes the user's access token and the image data in the request body.
+   * It updates the avatar using the specified URL and handles the UI updates accordingly.
+   * @param {string} postMedia - Image data of the new profile avatar.
+   * @throws {Error} If there is an issue uploading the profile avatar or handling UI updates.
+   * @returns {void}
+   */
   async function uploadProfileAvatar(postMedia) {
     const token = localStorage.getItem("accessToken");
     const userName = localStorage.getItem("userName");

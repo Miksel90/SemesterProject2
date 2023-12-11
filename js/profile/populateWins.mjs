@@ -1,5 +1,12 @@
 import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
+/**
+ * Populate the user's profile with information about auctions they have won.
+ * Fetches data for each win using the provided JSON array of win IDs and displays relevant information.
+ * @param {Object} json - The JSON data containing an array of win IDs.
+ * @throws {Error} If there is an issue with populating the user's wins.
+ * @returns {void}
+ */
 export async function populateWins(json) {
   const profileWins = document.querySelector(".profileWins");
   profileWins.innerHTML = "";

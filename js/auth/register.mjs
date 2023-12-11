@@ -1,5 +1,17 @@
 import { API_BASE_URL, authURL, register_endpoint } from "../consts/consts.mjs";
 
+/**
+ * Asynchronously registers a new user by making a POST request to the specified URL.
+ * @async
+ * @function
+ * @name registerUser
+ * @param {string} url - The URL for registering the user.
+ * @param {Object} userData - The user data for registration.
+ * @property {string} userData.username - The desired username for registration.
+ * @property {string} userData.email - The user's email for registration.
+ * @property {string} userData.password - The user's password for registration.
+ * @throws {Error} If the user registration fails.
+ */
 export async function registerUser(url, userData) {
   const registerButton = document.getElementById("registerButton");
 

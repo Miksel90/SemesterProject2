@@ -1,3 +1,18 @@
+/**
+ * Populates the UI with details of a single auction.
+ * @function
+ * @name populateSingleAuction
+ * @param {Object} data - The auction data to be displayed.
+ * @property {string} data.title - The title of the auction.
+ * @property {string} data.description - The description of the auction.
+ * @property {Object} data.seller - The seller information.
+ * @property {string} data.seller.name - The name of the seller.
+ * @property {string} data.seller.avatar - The avatar URL of the seller.
+ * @property {Array} data.media - An array of URLs representing auction media (images).
+ * @property {string} data.endsAt - The end date and time of the auction.
+ * @property {Array} data.bids - An array of bids made on the auction.
+ * @throws {Error} If there is an issue populating the UI with auction data.
+ */
 export function populateSingleAuction(data) {
   document.title = data.title + " | " + data.seller.name;
 

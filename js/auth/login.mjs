@@ -1,5 +1,16 @@
 import { API_BASE_URL, authURL, login_endpoint } from "../consts/consts.mjs";
 
+/**
+ * Asynchronously logs in a user by making a POST request to the specified URL.
+ * @async
+ * @function
+ * @name loginUser
+ * @param {string} url - The URL for logging in the user.
+ * @param {Object} userData - The user data for login.
+ * @property {string} userData.email - The user's email for login.
+ * @property {string} userData.password - The user's password for login.
+ * @throws {Error} If the login attempt fails.
+ */
 async function loginUser(url, userData) {
   try {
     const postData = {

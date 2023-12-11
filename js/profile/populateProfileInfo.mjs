@@ -1,5 +1,12 @@
 import { profileInfo } from "./profileInfo.mjs";
 
+/**
+ * Populate the user's profile with information based on the provided JSON data.
+ * Users can click on buttons to edit their avatar or create a new auction.
+ * @param {Object} json - The JSON data containing information about the user's profile.
+ * @throws {Error} If there is an issue with populating the user's profile.
+ * @returns {void}
+ */
 export function populateProfile(json) {
   const profileBox = document.querySelector(".profileBox");
 

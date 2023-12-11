@@ -1,3 +1,8 @@
+/**
+ * Function to initialize the image form by handling the addition and removal of image input fields.
+ * @function
+ * @name initializeImageForm
+ */
 export function initializeImageForm() {
   const addImageButton = document.querySelector(".addImageButton");
   const removeImageButton = document.querySelector(".removeImageButton");
@@ -32,6 +37,12 @@ export function initializeImageForm() {
   });
 }
 
+/**
+ * Function to handle the addition and removal of image input fields in the edit media form.
+ * @function
+ * @name editIMediaInputs
+ * @throws {Error} If any unexpected error occurs.
+ */
 export function editIMediaInputs() {
   const addImageButton = document.getElementById("editAddImageButton");
   const removeImageButton = document.getElementById("editRemoveImageButton");

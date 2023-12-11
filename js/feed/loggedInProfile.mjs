@@ -1,5 +1,15 @@
 import { profileInfo } from "./fetchLoggedInUser.mjs";
 
+/**
+ * Updates the UI with information for the logged-in user.
+ * @function
+ * @name loggedInUser
+ * @param {Object} data - The user data for the logged-in user.
+ * @property {string} data.avatar - The URL of the user's avatar image.
+ * @property {string} data.name - The name of the user.
+ * @property {number} data.credits - The number of credits associated with the user.
+ * @throws {Error} If there is an issue updating the UI with the user data.
+ */
 export function loggedInUser(data) {
   const loggedInBox = document.querySelector(".loggedInBox");
   loggedInBox.innerHTML = "";

@@ -1,3 +1,7 @@
+/**
+ * Displays the loader by removing the "visually-hidden" class from the loader container.
+ * @returns {void}
+ */
 export function showLoader() {
   const loaderContainer = document.getElementById("loaderContainer");
   if (loaderContainer) {
@@ -5,6 +9,10 @@ export function showLoader() {
   }
 }
 
+/**
+ * Hides the loader by adding the "visually-hidden" class to the loader container.
+ * @returns {void}
+ */
 export function hideLoader() {
   const loaderContainer = document.getElementById("loaderContainer");
   if (loaderContainer) {

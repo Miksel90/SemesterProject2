@@ -2,6 +2,14 @@ import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
 const modal = document.getElementById("editAuctionModal");
 
+/**
+ * Asynchronously deletes an auction by making a DELETE request to the specified URL.
+ * @async
+ * @function
+ * @name deletePost
+ * @param {string} auctionId - The ID of the auction to be deleted.
+ * @throws {Error} If the post deletion fails.
+ */
 async function deletePost(auctionId) {
   const token = localStorage.getItem("accessToken");
   const url = `${API_BASE_URL}${listing_endpoint}/${auctionId}`;

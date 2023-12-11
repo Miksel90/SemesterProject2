@@ -1,5 +1,19 @@
 import { allAuctions } from "./fetchAllAuctions.mjs";
 
+/**
+ * Populates the UI with a list of auctions based on the provided data.
+ * @function
+ * @name populateAllAuctions
+ * @param {Array} data - An array of auction data to be displayed.
+ * @property {string} data.id - The unique identifier for each auction.
+ * @property {string} data.title - The title of the auction.
+ * @property {Array} data.media - An array of URLs representing auction media (images).
+ * @property {string} data.endsAt - The end date and time of the auction.
+ * @property {Array} data.bids - An array of bids made on the auction.
+ * @property {Object} data._count - An object containing counts related to the auction (e.g., bids count).
+ * @property {Array} data.tags - An array of tags associated with the auction.
+ * @throws {Error} If there is an issue populating the UI with auction data.
+ */
 export function populateAllAuctions(data) {
   const allAuctionsContainer = document.querySelector(".allAuctions");
   allAuctionsContainer.innerHTML = "";

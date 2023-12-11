@@ -2,10 +2,24 @@ import { API_BASE_URL, listing_endpoint } from "../consts/consts.mjs";
 
 const createBidButton = document.getElementById("createBidButton");
 
+/**
+ * Retrieves the auction ID from the URL query parameters.
+ * @type {string|null}
+ */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const auctionId = urlParams.get("id");
 
+/**
+ * Function to submit a bid on an auction.
+ * @async
+ * @function
+ * @name bidOnAuction
+ * @param {string} auctionId - The ID of the auction.
+ * @param {Object} userData - The user data for the bid.
+ * @property {number} userData.amount - The bid amount.
+ * @throws {Error} If the bid submission fails.
+ */
 export async function bidOnAuction(auctionId, userData) {
   const token = localStorage.getItem("accessToken");
   const url = `${API_BASE_URL}${listing_endpoint}/${auctionId}/bids`;

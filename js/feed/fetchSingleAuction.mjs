@@ -6,6 +6,13 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const auctionId = urlParams.get("id");
 
+/**
+ * Asynchronously fetches details for a single auction from the specified URL.
+ * @async
+ * @function
+ * @name fetchSingleAuction
+ * @throws {Error} If there is an error fetching the single auction.
+ */
 async function fetchSingleAuction() {
   try {
     showLoader();
