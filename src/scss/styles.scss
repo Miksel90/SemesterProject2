@@ -16,14 +16,14 @@ $success: #a39191;
   font-family: "Playfair Display", serif;
 }
 
-.option {
-  border-style: solid;
-  border-color: #d4af37;
-}
-
 body {
   font-family: "Raleway", sans-serif;
 }
+
+// .option {
+//   border-style: solid;
+//   border-color: #d4af37;
+// }
 
 //navigation
 .navbar-toggler .navbar-toggler-icon {
@@ -245,7 +245,6 @@ body {
   font-weight: bolder;
   padding: 10px;
   border-radius: 5px;
-  background-color: #000000;
 }
 
 .sortAuctions option {
@@ -262,11 +261,10 @@ body {
   border-style: solid;
   border-color: #d4af37;
   outline: none;
-  background-color: #000000;
 }
 
 .allAuctions {
-  background-image: url(/images/profilebanner.jpg);
+  background-image: url(/images/auctionParallex.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

@@ -11862,11 +11862,6 @@ textarea.form-control-lg {
   font-family: "Playfair Display", serif;
 }
 
-.option {
-  border-style: solid;
-  border-color: #d4af37;
-}
-
 body {
   font-family: "Raleway", sans-serif;
 }
@@ -12093,7 +12088,7 @@ body {
 }
 
 .allAuctions {
-  background-image: url(/images/profilebanner.jpg);
+  background-image: url(/images/auctionParallex.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
