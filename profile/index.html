@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Mikael Even Selstad" />
-    <meta name="title" content="Vintage Brokers - Your Gateway to Refined Luxury" />
-    <meta name="description" content="Explore a curated collection of opulent watches, fashion, and furniture at Vintage Brokers. Step into a world of timeless elegance, where each piece embodies craftsmanship, history, and enduring style." />
-    <meta name="keywords" content="Vintage Brokers, luxury watches, opulent fashion, refined furniture, vintage auction, enduring elegance" />    
+    <meta
+      name="title"
+      content="Vintage Brokers - Your Gateway to Refined Luxury"
+    />
+    <meta
+      name="description"
+      content="Explore a curated collection of opulent watches, fashion, and furniture at Vintage Brokers. Step into a world of timeless elegance, where each piece embodies craftsmanship, history, and enduring style."
+    />
+    <meta
+      name="keywords"
+      content="Vintage Brokers, luxury watches, opulent fashion, refined furniture, vintage auction, enduring elegance"
+    />
     <title>Vintag$Brokers | Profile</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
@@ -18,118 +27,342 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/utilities/utilities.mjs" type="module"></script>
-   <script src="/js/auth/logout.mjs" type="module"></script>
-   <script src="/js/profile/profileInfo.mjs" type="module"></script>
-   <script src="/js/auctions/createAuction.mjs" type="module"></script>
-   <script src="/js/auctions/editAuctions.mjs" type="module"></script>
-   <script src="/js/auctions/deleteAuction.mjs" type="module"></script>
+    <script src="/js/auth/logout.mjs" type="module"></script>
+    <script src="/js/profile/profileInfo.mjs" type="module"></script>
+    <script src="/js/auctions/createAuction.mjs" type="module"></script>
+    <script src="/js/auctions/editAuctions.mjs" type="module"></script>
+    <script src="/js/auctions/deleteAuction.mjs" type="module"></script>
   </head>
-<body>
-  <header class="navbar navbar-expand-lg sticky-top p-0">
-    <div class="container bg-primary">
-      <a
-        href="/index.html"
-        id="redirectLink"
-        class="navbar-brand d-flex align-items-center text-secondary brand-name fs-1"
-        ><img
-          src="/images/Vintagebrokers.logo.jpg"
-          alt="VintageBrokers Logo"
-          width="100"
-          class="rounded-circle p-1"
-        />
-        <span class="d-sm-inline d-none ms-2">Vintage$Brokers</span></a
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target=".navbar-collapse"
-        aria-label="Toggle Navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto me-1-sm float-end fs-5">
-          <li class="nav-item">
-            <a
-              class="nav-link text-secondary text-decoration-underline fw-bold"
-              href="/profile/index.html"
-              >Profile</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-secondary" href="/feed/auctions.html">Auctions</a>
-          </li>
-          <li class="nav-item">
-            <a id="logoutButton" class="nav-link text-secondary" href="/index.html">Logout</a>
-          </li>
-        </ul>
+  <body>
+    <header class="navbar navbar-expand-lg sticky-top p-0">
+      <div class="container bg-primary">
+        <a
+          href="/index.html"
+          id="redirectLink"
+          class="navbar-brand d-flex align-items-center text-secondary brand-name fs-1"
+          ><img
+            src="/images/Vintagebrokers.logo.jpg"
+            alt="VintageBrokers Logo"
+            width="100"
+            class="rounded-circle p-1"
+          />
+          <span class="d-sm-inline d-none ms-2">Vintage$Brokers</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse"
+          aria-label="Toggle Navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto me-1-sm float-end fs-5">
+            <li class="nav-item">
+              <a
+                class="nav-link text-secondary text-decoration-underline fw-bold"
+                href="/profile/index.html"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" href="/feed/auctions.html"
+                >Auctions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                id="logoutButton"
+                class="nav-link text-secondary"
+                href="/index.html"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </header>
-  <main>
-    <h1 class="visually-hidden">Profile</h1>
-    <div class="container mt-2 mx-auto">
-      <div class=" d-block justify-content-evenly">
-          <div class=" profileBox">
-          <div class="d-flex justify-content-center align-items-center text-info p-5 visually-hidden" id="loaderContainer">
-            <div class="spinner-border" role="status"></div>
+    </header>
+    <main>
+      <h1 class="visually-hidden">Profile</h1>
+      <div class="container mt-2 mx-auto">
+        <div class="d-block justify-content-evenly">
+          <div class="profileBox">
+            <div
+              class="d-flex justify-content-center align-items-center text-info p-5 visually-hidden"
+              id="loaderContainer"
+            >
+              <div class="spinner-border" role="status"></div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary visually-hidden"
+              data-bs-toggle="modal"
+              data-bs-target="#editModal"
+            >
+              Open Edit Modal
+            </button>
           </div>
-          <button type="button" class="btn btn-primary visually-hidden " data-bs-toggle="modal" data-bs-target="#editModal">
-          Open Edit Modal
-          </button>      
-          </div>
-      </div>  
-        <div class="container fs-4 ">
-          <ul class="nav mb-3 gap-1 border-secondary border border-2 border-top-0 rounded-bottom justify-content-evenly" id="auction-tab" role="tablist">
+        </div>
+        <div class="container fs-4">
+          <ul
+            class="nav mb-3 gap-1 border-secondary border border-2 border-top-0 rounded-bottom justify-content-evenly"
+            id="auction-tab"
+            role="tablist"
+          >
             <li class="nav-item" role="presentation">
-              <button class="nav-link tab-link active" id="auction-tab" data-bs-toggle="pill" data-bs-target="#pills-auction" type="button" role="tab" aria-controls="pills-auction" aria-selected="true">My Auctions</button>
+              <button
+                class="nav-link tab-link active"
+                id="auction-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-auction"
+                type="button"
+                role="tab"
+                aria-controls="pills-auction"
+                aria-selected="true"
+              >
+                My Auctions
+              </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link tab-link " id="bids-tab" data-bs-toggle="pill" data-bs-target="#pills-bids" type="button" role="tab" aria-controls="pills-bids" aria-selected="false">My Bids</button>
+              <button
+                class="nav-link tab-link"
+                id="bids-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-bids"
+                type="button"
+                role="tab"
+                aria-controls="pills-bids"
+                aria-selected="false"
+              >
+                My Bids
+              </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link tab-link" id="won-tab" data-bs-toggle="pill" data-bs-target="#pills-won" type="button" role="tab" aria-controls="pills-won" aria-selected="false">My Wins</button>
+              <button
+                class="nav-link tab-link"
+                id="won-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-won"
+                type="button"
+                role="tab"
+                aria-controls="pills-won"
+                aria-selected="false"
+              >
+                My Wins
+              </button>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-auction" role="tabpanel" aria-labelledby="auction-tab" tabindex="0">
-              <div class="profileAuctions  d-flex flex-wrap justify-content-evenly align-items-center"></div>
+            <div
+              class="tab-pane fade show active"
+              id="pills-auction"
+              role="tabpanel"
+              aria-labelledby="auction-tab"
+              tabindex="0"
+            >
+              <div
+                class="profileAuctions d-flex flex-wrap justify-content-evenly align-items-center"
+              ></div>
             </div>
-            <div class="tab-pane fade" id="pills-bids" role="tabpanel" aria-labelledby="bids-tab" tabindex="0">
-              <div class="profileBids d-flex flex-wrap justify-content-evenly align-items-center"></div>
+            <div
+              class="tab-pane fade"
+              id="pills-bids"
+              role="tabpanel"
+              aria-labelledby="bids-tab"
+              tabindex="0"
+            >
+              <div
+                class="profileBids d-flex flex-wrap justify-content-evenly align-items-center"
+              ></div>
             </div>
-            <div class="tab-pane fade" id="pills-won" role="tabpanel" aria-labelledby="won-tab" tabindex="0">
-              <div class="profileWins d-flex flex-wrap justify-content-evenly align-items-center"></div>
+            <div
+              class="tab-pane fade"
+              id="pills-won"
+              role="tabpanel"
+              aria-labelledby="won-tab"
+              tabindex="0"
+            >
+              <div
+                class="profileWins d-flex flex-wrap justify-content-evenly align-items-center"
+              ></div>
             </div>
           </div>
         </div>
-      <div class="modal fade bg-dark bg-opacity-50  modal-fullscreen-sm-down" id="editAvatarModal" tabindex="-1" aria-labelledby="editAvatarModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content border border-3 border-secondary bg-info text-white">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editProfileImage">Edit Profile Image</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div
+          class="modal fade bg-dark bg-opacity-50 modal-fullscreen-sm-down"
+          id="editAvatarModal"
+          tabindex="-1"
+          aria-labelledby="editAvatarModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div
+              class="modal-content border border-3 border-secondary bg-info text-white"
+            >
+              <div class="modal-header">
+                <h5 class="modal-title" id="editProfileImage">
+                  Edit Profile Image
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="updateProfileMediaForm">
+                  <label for="updateProfileMedia" class="form-label text-start"
+                    >Edit Avatar</label
+                  >
+                  <div class="updateProfileMedia">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="updateProfileMedia"
+                      name="avatar"
+                      placeholder="New image url"
+                    />
+                  </div>
+                  <div class="modal-footer justify-content-around mt-2">
+                    <button
+                      type="submit"
+                      id="editProfileMediaButton"
+                      class="btn btn-info btn-lg mt-2 ml-auto btn-dark"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade modal-lg bg-dark bg-opacity-50"
+        id="createAuctionModal"
+        tabindex="-1"
+        aria-labelledby="createAuctionModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div
+            class="modal-content border border-3 border-secondary bg-info text-white"
+          >
+            <div class="modal-header" id="createAuctionModal-header">
+              <h4 class="modal-title">Create New Auction</h4>
+              <button
+                type="button"
+                class="btn-close"
+                id="createAuctionModal-btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
-              <form id="updateProfileMediaForm">
-                <label for="updateProfileMedia" class="form-label text-start">Edit Avatar</label>
-                <div class="updateProfileMedia">
+              <form id="createNewAuctionForm" class="needs-validation">
+                <label for="auctionTitle" class="form-label text-start"
+                  >Title</label
+                >
+                <div class="auctionTitle">
                   <input
                     type="text"
                     class="form-control"
-                    id="updateProfileMedia"
-                    name="avatar"
-                    placeholder="New image url"
+                    id="auctionTitle"
+                    name="title"
+                    placeholder="Change Title"
+                    maxlength="25"
+                    required
+                  />
+                  <div class="invalid-feedback text-danger">
+                    The Auction must have a title
+                  </div>
+                </div>
+                <label for="auctionBody" class="form-label text-start mt-2"
+                  >Description:</label
+                >
+                <textarea
+                  class="form-control mt-1 mb-3"
+                  placeholder="Add description"
+                  id="auctionBody"
+                  type="text"
+                  name="body"
+                  maxlength="200"
+                  required
+                  rows="10"
+                ></textarea>
+                <div class="invalid-feedback text-danger">
+                  The Auction must have a description
+                </div>
+                <label for="auctionEndsAt" class="form-label text-start mt-2"
+                  >Ends At:</label
+                >
+                <div class="auctionEndsAt">
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="auctionEndsAt"
+                    name="endsAt"
+                    required
+                  />
+                  <div class="invalid-feedback text-danger">
+                    The Auction must have an end date
+                  </div>
+                </div>
+                <label for="auctionTags" class="form-label text-start mt-2"
+                  >Tags</label
+                >
+                <div class="auctionTags">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="auctionTags"
+                    name="tags"
+                    placeholder="Add Tags, use comma between tags"
                   />
                 </div>
+                <label for="auctionMedia" class="form-label text-start mt-2"
+                  >Image URL:</label
+                >
+                <div id="mediaGallery">
+                  <div class="auctionMedia">
+                    <input
+                      type="text"
+                      id="auctionMedia"
+                      class="form-control"
+                      name="media"
+                      placeholder="Add Image"
+                      required
+                    />
+                    <div class="invalid-feedback text-danger">
+                      The Auction must have at least one image
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="addImageButton btn btn-secondary mt-2"
+                  aria-label="Add Image Field"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button
+                  type="button"
+                  class="removeImageButton btn btn-secondary mt-2"
+                  aria-label="Remove Image fields"
+                >
+                  <i class="fa-solid fa-minus"></i>
+                </button>
                 <div class="modal-footer justify-content-around mt-2">
                   <button
                     type="submit"
-                    id="editProfileMediaButton"
-                    class="btn btn-info btn-lg mt-2 ml-auto btn-dark"
+                    id="createAuctionButton"
+                    aria-label="Create Auction"
+                    class="mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
                   >
-                    Update
+                    Create Auction
                   </button>
                 </div>
               </form>
@@ -137,254 +370,168 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="modal fade modal-lg bg-dark bg-opacity-50" id="createAuctionModal" tabindex="-1" aria-labelledby="createAuctionModal" aria-hidden="true">
-      <div class="modal-dialog ">
-          <div class="modal-content border border-3 border-secondary bg-info text-white">
-            <div class="modal-header" id="createAuctionModal-header">
-                  <h4 class="modal-title">Create New Auction</h4>
-                  <button type="button" class="btn-close" id="createAuctionModal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <form id="createNewAuctionForm" class="needs-validation">
-                      <label for="auctionTitle" class="form-label text-start">Title</label>
-                      <div class="auctionTitle">
-                          <input
-                              type="text"
-                              class="form-control"
-                              id="auctionTitle"
-                              name="title"
-                              placeholder="Change Title"
-                              maxlength="25"
-                              required
-                          />
-                          <div class="invalid-feedback text-danger">
-                            The Auction must have a title
-                          </div>
-                      </div>
-                      <label for="auctionBody" class="form-label text-start mt-2">Description:</label>
-                      <textarea
-                          class="form-control mt-1 mb-3"
-                          placeholder="Add description"
-                          id="auctionBody"
-                          type="text"
-                          name="body"
-                          maxlength="200"
-                          required
-                          rows="10"
-                      ></textarea>
-                      <div class="invalid-feedback text-danger">
-                        The Auction must have a description
-                      </div>
-                      <label for="auctionEndsAt" class=" form-label text-start mt-2">Ends At:</label>
-                      <div class="auctionEndsAt">
-                          <input
-                              type="datetime-local"
-                              class="form-control"
-                              id="auctionEndsAt"
-                              name="endsAt"
-                              required
-                          />
-                          <div class="invalid-feedback text-danger">
-                            The Auction must have an end date
-                          </div>
-                      </div>
-                      <label for="auctionTags" class="form-label text-start mt-2">Tags</label>
-                      <div class="auctionTags">
-                          <input
-                              type="text"
-                              class="form-control"
-                              id="auctionTags"
-                              name="tags"
-                              placeholder="Add Tags, use comma between tags"
-                          />
-                      </div>
-                      <label for="auctionMedia" class="form-label text-start mt-2">Image URL:</label>
-                      <div id="mediaGallery">
-                        <div class="auctionMedia">
-                          <input
-                            type="text"
-                            id="auctionMedia"
-                            class="form-control"
-                            name="media"
-                            placeholder="Add Image"
-                            required
-                          />
-                          <div class="invalid-feedback text-danger">
-                            The Auction must have at least one image
-                          </div>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        class=" addImageButton btn btn-secondary mt-2"
-                        aria-label="Add Image Field"
-                      >
-                      <i class="fa-solid fa-plus"></i>
-                      </button>
-                      <button
-                        type="button"
-                        class=" removeImageButton btn btn-secondary mt-2"
-                        aria-label="Remove Image fields"
-                      >
-                      <i class="fa-solid fa-minus"></i>
-                      </button>
-                      <div class="modal-footer justify-content-around mt-2">
-                      <button
-                          type="submit"
-                          id="createAuctionButton"
-                          aria-label="Create Auction"
-                          class=" mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
-                      >
-                          Create Auction
-                      </button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>  
-  <div class="modal fade modal-lg bg-dark bg-opacity-50" id="editAuctionModal" tabindex="-1" aria-labelledby="editAuctionModal" aria-hidden="true">
-    <div class="modal-dialog ">
-        <div class="modal-content border border-3 border-secondary bg-info text-white">
-          <div class="modal-header" id="editAuctionModal-header">
-                <h4 class="modal-title">Edit Auction</h4>
-                <button type="button" class="btn-close" id="editAuctionModal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div
+        class="modal fade modal-lg bg-dark bg-opacity-50"
+        id="editAuctionModal"
+        tabindex="-1"
+        aria-labelledby="editAuctionModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div
+            class="modal-content border border-3 border-secondary bg-info text-white"
+          >
+            <div class="modal-header" id="editAuctionModal-header">
+              <h4 class="modal-title">Edit Auction</h4>
+              <button
+                type="button"
+                class="btn-close"
+                id="editAuctionModal-btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
-                <form id="editAuctionForm" class="needs-validation">
-                    <label for="editAuctionTitle" class="form-label text-start">Title</label>
-                    <div class="auctionTitle">
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="editAuctionTitle"
-                            name="title"
-                            placeholder="Change Title"
-                            required
-                        />
-                        <div class="invalid-feedback text-danger">
-                          The Auction must have a title
-                        </div>
-                    </div>
-                    <label for="editAuctionBody" class="form-label text-start mt-2">Body:</label>
+              <form id="editAuctionForm" class="needs-validation">
+                <label for="editAuctionTitle" class="form-label text-start"
+                  >Title</label
+                >
+                <div class="auctionTitle">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editAuctionTitle"
+                    name="title"
+                    placeholder="Change Title"
+                    required
+                  />
+                  <div class="invalid-feedback text-danger">
+                    The Auction must have a title
+                  </div>
+                </div>
+                <label for="editAuctionBody" class="form-label text-start mt-2"
+                  >Body:</label
+                >
                 <div class="editAuctionBody">
-                    <textarea
-                        class="form-control mt-1 mb-3"
-                        placeholder="Add description"
-                        id="editAuctionBody"
-                        type="text"
-                        name="body"
-                        required
-                        rows="3"
-                    ></textarea>
+                  <textarea
+                    class="form-control mt-1 mb-3"
+                    placeholder="Add description"
+                    id="editAuctionBody"
+                    type="text"
+                    name="body"
+                    required
+                    rows="3"
+                  ></textarea>
+                  <div class="invalid-feedback text-danger">
+                    The Auction must have a description.
+                  </div>
+                </div>
+                <label for="editAuctionTags" class="form-label text-start mt-2"
+                  >Tags</label
+                >
+                <div class="editAuctionTags">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editAuctionTags"
+                    name="tags"
+                    placeholder="Add Tags, use comma between tags"
+                  />
+                </div>
+                <label for="editAuctionMedia" class="form-label text-start mt-2"
+                  >Image URL:</label
+                >
+                <div id="editMediaGallery">
+                  <div class="editAuctionMedia">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="media"
+                      id="editAuctionMedia"
+                      placeholder="Add Image"
+                      required
+                    />
                     <div class="invalid-feedback text-danger">
-                      The Auction must have a description.
+                      The Auction must have at least one image.
                     </div>
-                    </div>
-                    <label for="editAuctionTags" class="form-label text-start mt-2">Tags</label>
-                    <div class="editAuctionTags">
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="editAuctionTags"
-                            name="tags"
-                            placeholder="Add Tags, use comma between tags"
-                        />
-                    </div>
-                    <label for="editAuctionMedia" class="form-label text-start mt-2">Image URL:</label>
-                    <div id="editMediaGallery">
-                      <div class="editAuctionMedia">
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="media"
-                          id="editAuctionMedia"
-                          placeholder="Add Image"
-                          required
-                        />
-                        <div class="invalid-feedback text-danger">
-                          The Auction must have at least one image.
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      id="editAddImageButton"
-                      class="addImageButton btn btn-secondary mt-2"
-                      aria-label="add number of image fields"
-                    >
-                    <i class="fa-solid fa-plus"></i>
-                    </button>
-                    <button
-                      type="button"
-                      aria-label="remove number of image fields"
-                      id="editRemoveImageButton"
-                      class=" removeImageButton btn btn-secondary mt-2"
-                    >
-                    <i class="fa-solid fa-minus"></i>
-                    </button>
-                    <div class="modal-footer justify-content-around mt-2">
-                        <button
-                            type="submit"
-                            id="editAuctionButton"
-                            class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
-                            aria-label="Edit Auction"
-                        >
-                            Save
-                        </button>
-                      <button
-                          type="submit"
-                          id="deleteAuctionButton"
-                          class="btn btn-danger border border-primary btn-lg mt-2 ml-auto"
-                      >
-                          Delete
-                      </button>
-                    </div>
-                </form>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  id="editAddImageButton"
+                  class="addImageButton btn btn-secondary mt-2"
+                  aria-label="add number of image fields"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button
+                  type="button"
+                  aria-label="remove number of image fields"
+                  id="editRemoveImageButton"
+                  class="removeImageButton btn btn-secondary mt-2"
+                >
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <div class="modal-footer justify-content-around mt-2">
+                  <button
+                    type="submit"
+                    id="editAuctionButton"
+                    class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
+                    aria-label="Edit Auction"
+                  >
+                    Save
+                  </button>
+                  <button
+                    type="submit"
+                    id="deleteAuctionButton"
+                    class="btn btn-danger border border-primary btn-lg mt-2 ml-auto"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </form>
             </div>
-        </div>
-    </div>
-</div>  
-  </main>
-</body>
-<footer class="container-fluid bg-success bg-opacity-25 mt-1">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid justify-content-evenly fs-4 p-3">
-            <ul class="navbar-nav">
-              <li class="nav-item mx-5">
-                <a class="nav-link" href="/register.html">Register</a>
-              </li>
-              <li class="nav-item mx-5">
-                <a class="nav-link" href="/about.html">About Us</a>
-              </li>
-              <li class="nav-item mx-5">
-                <a class="nav-link" href="/contact.html">Contact</a>
-              </li>
-            </ul>
           </div>
-        </nav>
-      </div>
-      <div class="col-md-6 mt-3">
-        <p class="fs-4 text-center">Get Social With US</p>
-        <div class="d-flex flex-row justify-content-center gap-5">
-          <i class="fa-brands fa-facebook fs-1 text-info"></i>
-          <i class="fa-brands fa-square-instagram text-danger fs-1"></i>
-          <i class="fa-brands fa-twitter fs-1 text-info"></i>
-          <i class="fa-brands fa-linkedin fs-1 text-dark"></i>
         </div>
       </div>
-      <p class="text-center mt-1">Vintage$Brokers 2023</p>
-    </div>
-  </footer>
-  <button
-  class="btn btn-lg btn-primary rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
-  id="back-to-up"
-  aria-label="Scroll to top"
->
-  <i class="fa fa-arrow-up" aria-hidden="true"></i>
-</button>
-</body>
+    </main>
+    <footer class="container-fluid bg-success bg-opacity-25 mt-1">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid justify-content-evenly fs-4 p-3">
+              <ul class="navbar-nav">
+                <li class="nav-item mx-5">
+                  <a class="nav-link" href="/register.html">Register</a>
+                </li>
+                <li class="nav-item mx-5">
+                  <a class="nav-link" href="/about.html">About Us</a>
+                </li>
+                <li class="nav-item mx-5">
+                  <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="col-md-6 mt-3">
+          <p class="fs-4 text-center">Get Social With US</p>
+          <div class="d-flex flex-row justify-content-center gap-5">
+            <i class="fa-brands fa-facebook fs-1 text-info"></i>
+            <i class="fa-brands fa-square-instagram text-danger fs-1"></i>
+            <i class="fa-brands fa-twitter fs-1 text-info"></i>
+            <i class="fa-brands fa-linkedin fs-1 text-dark"></i>
+          </div>
+        </div>
+        <p class="text-center mt-1">Vintage$Brokers 2023</p>
+      </div>
+    </footer>
+    <button
+      class="btn btn-lg btn-primary rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+      id="back-to-up"
+      aria-label="Scroll to top"
+    >
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+  </body>
 </html>
