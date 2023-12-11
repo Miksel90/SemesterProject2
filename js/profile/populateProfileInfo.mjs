@@ -61,8 +61,15 @@ export function populateProfile(json) {
     "mt-3"
   );
 
-  const profileName = document.createElement("p");
-  profileName.classList.add("text-white", "bolder", "fs-1", "custom-text");
+  const profileName = document.createElement("h1");
+  profileName.classList.add(
+    "text-white",
+    "bolder",
+    "fs-1",
+    "custom-text",
+    "bg-dark",
+    "bg-opacity-10"
+  );
   const capitalizedFirstName =
     json.name.charAt(0).toUpperCase() + json.name.slice(1);
 
@@ -78,7 +85,9 @@ export function populateProfile(json) {
     "p-1",
     "d-block",
     "text-white",
-    "custom-text"
+    "custom-text",
+    "bg-dark",
+    "bg-opacity-10"
   );
 
   const li1 = document.createElement("li");

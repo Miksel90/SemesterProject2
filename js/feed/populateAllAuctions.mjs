@@ -62,7 +62,7 @@ export function populateAllAuctions(data) {
         const auctionTitleWrapper = document.createElement("div");
         auctionTitleWrapper.classList.add("text-wrap");
 
-        const auctionTitle = document.createElement("h3");
+        const auctionTitle = document.createElement("h2");
         auctionTitle.classList.add(
           "fw-bold",
           "fs-2",

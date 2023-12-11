@@ -59,7 +59,7 @@
                 >
               </li>
               <li class="nav-item" id="profileNavText">
-                <a class="nav-link text-secondary text-decoration-underline fw-bold active" href="/feed/listings.html">Auctions</a>
+                <a class="nav-link text-secondary text-decoration-underline fw-bold active" href="/feed/auctions.html">Auctions</a>
               </li>
               <li class="nav-item ">
                 <a id="logoutButton" class="nav-link text-secondary" href="/index.html">Logout</a>
@@ -138,6 +138,7 @@
                                 type="text"
                                 class="form-control"
                                 name="media"
+                                id="auctionMedia"
                                 placeholder="Add Image"
                                 required
                               />
@@ -146,12 +147,14 @@
                           <button
                             type="button"
                             class=" addImageButton btn btn-secondary mt-2"
+                            aria-label="add number of image fields"
                           >
                           <i class="fa-solid fa-plus"></i>
                           </button>
                           <button
                             type="button"
                             class=" removeImageButton btn btn-secondary mt-2"
+                            aria-label="Remove number of image fields"
                           >
                           <i class="fa-solid fa-minus"></i>
                           </button>
@@ -170,14 +173,14 @@
           </div>
       </div> 
     </div>
-    <div class="modal fade modal-md bg-dark bg-opacity-50 " id="bidOnAuctionModal" tabindex="-1" aria-labelledby="bidOnAuctionModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content border border-3 border-secondary bg-info text-white">
-            <div class="modal-header" id="bidOnAuctionModal-header">
-                  <h4 class="modal-title">New Bid</h4>
+    <div class="modal fade modal-md  bg-dark bg-opacity-50 " id="bidOnAuctionModal" tabindex="-1" aria-labelledby="bidOnAuctionModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content modal-background border border-2 border-secondary text-white">
+            <div class="modal-header text-center bg-dark bg-opacity-50" id="bidOnAuctionModal-header">
+                  <h4 class="modal-title custom-text fs-1">New Bid</h4>
                   <button type="button" class="btn-close" id="bidOnAuctionModal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body text-center  bg-dark bg-opacity-50">
                     <form id="bidOnAuctionForm">
                       <div class="amount">
                         <input
@@ -188,13 +191,13 @@
                             placeholder="Place Bid"
                             required
                         />
-                        <label for="amount" class="form-label text-white bg-primary p-2 rounded fs-6 mt-2">NB! All bids are binding</label>
+                        <label for="amount" class="form-label visually-hidden">NB! All bids are binding</label>
                       </div>
                       <div id="errorMessage" class="text-danger mt-2 fs-4"></div>
                       <button
                           type="submit"
                           id="createBidButton"
-                          class="btn btn-lg btn-secondary border border-primary btn-md mt-2"
+                          class="btn btn-lg btn-primary text-white border border-secondary  mt-2"
                       >
                           Bid Now
                       </button>

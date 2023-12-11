@@ -53,7 +53,7 @@ export function populateSingleAuction(data) {
 
   auctionContainer.appendChild(sellerBox);
 
-  const auctionTitle = document.createElement("h2");
+  const auctionTitle = document.createElement("h1");
   auctionTitle.classList.add(
     "fw-bold",
     "fs-1",
@@ -63,7 +63,7 @@ export function populateSingleAuction(data) {
   );
   auctionTitle.textContent = data.title;
 
-  const auctionDescription = document.createElement("p");
+  const auctionDescription = document.createElement("h2");
   auctionDescription.classList.add(
     "text-primary",
     "fs-4",
@@ -140,14 +140,7 @@ export function populateSingleAuction(data) {
   auctionContainer.appendChild(auctionInfo);
 
   const bidBox = document.createElement("div");
-  bidBox.classList.add("row", "p-2");
-
-  const bidOnAuction = document.createElement("div");
-  bidOnAuction.classList.add("col-md-4");
-
-  const newBidText = document.createElement("p");
-  newBidText.classList.add("text-primary", "fs-3");
-  newBidText.textContent = "Get yours today!";
+  bidBox.classList.add("row");
 
   const newBidButton = document.createElement("button");
   newBidButton.classList.add(
@@ -156,12 +149,13 @@ export function populateSingleAuction(data) {
     "border",
     "border-secondary",
     "text-white",
-    "btn-sm",
-    "rounded"
+    "rounded",
+    "fs-3",
+    "col-md-2",
+    "mt-3",
+    "mx-auto"
   );
 
-  newBidButton.style.width = "150px";
-  newBidButton.style.height = "70px";
   newBidButton.innerText = "Log in to Bid!";
 
   const token = localStorage.getItem("accessToken");
@@ -189,9 +183,8 @@ export function populateSingleAuction(data) {
       closeBidAuctionModal.style.display = "none";
     }
   });
-  bidBox.appendChild(newBidText);
+
   bidBox.appendChild(newBidButton);
-  bidBox.appendChild(bidOnAuction);
 
   const bidHistoryBox = document.createElement("div");
   bidHistoryBox.classList.add("col-md-12", "p-0");
@@ -249,7 +242,6 @@ export function populateSingleAuction(data) {
   bidHistoryCollapse.appendChild(bidHistoryList);
   bidHistoryBox.appendChild(bidHistoryButton);
   bidHistoryBox.appendChild(bidHistoryCollapse);
-  bidBox.appendChild(bidOnAuction);
   auctionContainer.appendChild(bidBox);
 
   auctionInfo.appendChild(bidHistoryBox);

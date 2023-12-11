@@ -32,7 +32,7 @@ export function loggedInUser(data) {
     profileAvatar.alt = "Profile image of " + data.name;
   }
 
-  const profileName = document.createElement("p");
+  const profileName = document.createElement("h3");
   profileName.classList.add(
     "text-white",
     "fs-3",

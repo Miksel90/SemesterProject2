@@ -113,8 +113,8 @@
             </div>
             <div class="modal-body">
               <form id="updateProfileMediaForm">
-                <label for="UpdateProfileMedia" class="form-label text-start">Edit Avatar</label>
-                <div class="UpdateProfileMedia">
+                <label for="updateProfileMedia" class="form-label text-start">Edit Avatar</label>
+                <div class="updateProfileMedia">
                   <input
                     type="text"
                     class="form-control"
@@ -204,6 +204,7 @@
                         <div class="auctionMedia">
                           <input
                             type="text"
+                            id="auctionMedia"
                             class="form-control"
                             name="media"
                             placeholder="Add Image"
@@ -217,12 +218,14 @@
                       <button
                         type="button"
                         class=" addImageButton btn btn-secondary mt-2"
+                        aria-label="Add Image Field"
                       >
                       <i class="fa-solid fa-plus"></i>
                       </button>
                       <button
                         type="button"
                         class=" removeImageButton btn btn-secondary mt-2"
+                        aria-label="Remove Image fields"
                       >
                       <i class="fa-solid fa-minus"></i>
                       </button>
@@ -230,6 +233,7 @@
                           <button
                               type="submit"
                               id="createAuctionButton"
+                              aria-label="Create Auction"
                               class=" mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
                           >
                               Create Auction
@@ -263,7 +267,7 @@
                           The Auction must have a title
                         </div>
                     </div>
-                    <label for="auctionBody" class="form-label text-start mt-2">Body:</label>
+                    <label for="editAuctionBody" class="form-label text-start mt-2">Body:</label>
                 <div class="editAuctionBody">
                     <textarea
                         class="form-control mt-1 mb-3"
@@ -295,6 +299,7 @@
                           type="text"
                           class="form-control"
                           name="media"
+                          id="editAuctionMedia"
                           placeholder="Add Image"
                           required
                         />
@@ -307,11 +312,13 @@
                       type="button"
                       id="editAddImageButton"
                       class="addImageButton btn btn-secondary mt-2"
+                      aria-label="add number of image fields"
                     >
                     <i class="fa-solid fa-plus"></i>
                     </button>
                     <button
                       type="button"
+                      aria-label="remove number of image fields"
                       id="editRemoveImageButton"
                       class=" removeImageButton btn btn-secondary mt-2"
                     >
@@ -322,6 +329,7 @@
                             type="submit"
                             id="editAuctionButton"
                             class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
+                            aria-label="Edit Auction"
                         >
                             Save
                         </button>
