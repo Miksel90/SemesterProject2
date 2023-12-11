@@ -1,6 +1,6 @@
 # SemesterProject2 - Vintage$Brokers
 
-![readme-img](C:\Users\mikae\Documents\GitHub\SemesterProject2\images\ReadMeImg.PNG)
+![readme-img]()
 
 This is the repository for my semester project 2 at Noroff for Christmas 2023. the task was to use the skills we had learned over the past three semesters an create an auction site.
 
@@ -25,9 +25,15 @@ Our Auction site had to fulfill some specific user stories:
 ### Design Choices
 
 We could design the site as we wanted, but had to remember what we had learned about user accessability and UX design the previous semesters.
-After some brainstorming, the style I was aiming for was a vintage luxurious site, that specialized in expensive vintage clothes and jewelry. I wanted the site te feel classic and luxurious so I went for black, gold and kings blue. I had to change my gold color from the design to the browser, because it did not feel gold enough.
+After some brainstorming, the style I was aiming for was a vintage luxurious site, that specialized in expensive vintage clothes and jewelry. I wanted the site te feel classic and luxurious so I went for black, gold and kings blue. It was difficult to work with the gold color, since i could no get it to look gold enough, as it looked more yellow than gold.
 
-You can look through my Style guide and prototype here:
+#### Images
+
+All images are made by Bing Image AI
+
+#### Style Guide
+
+You can look through my Style guide and Figma prototype here:
 
 - https://www.figma.com/file/NnSpGExZnpgSxMMiXRO8v1/Vintage%24Broker?type=design&node-id=16%3A319&mode=design&t=JamyyPCSUfS0AZBm-1
 
