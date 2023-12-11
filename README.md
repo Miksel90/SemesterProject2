@@ -6,7 +6,7 @@ This is the repository for my semester project 2 at Noroff for Christmas 2023. t
 
 ## Description
 
-This is my end of the third semester project at Noroff. We had five weeks to plan our approach with a Gannt chart & a Kanban project board, design a prototype in Figma and then build an auction site using the Noroff Auction API. We also had to use a CCS Framework, so I chose Bootstrap since we had worked with that previously. The content is dynamically built by fetching data from the API. The API is a bit limited so some things are handled a bit creative, like fetching all the user auction wins.
+This is my end of the third semester project at Noroff. We had five weeks to plan our approach with a Gannt chart & a Kanban project board, design a prototype in Figma and then build an auction site using the Noroff Auction API. We also had to use a CCS Framework, so I chose Bootstrap since we had worked with that previously. The content is dynamically built by fetching data from the API. The API is a bit limited so some things are handled a bit creative, like fetching all the specific profile auction wins.
 
 ### User Stories
 
@@ -25,7 +25,9 @@ Our Auction site had to fulfill some specific user stories:
 ### Design Choices
 
 We could design the site as we wanted, but had to remember what we had learned about user accessability and UX design the previous semesters.
-After some brainstorming, the style I was aiming for was a vintage luxurious site, that specialized in expensive vintage clothes and jewelry. I wanted the site te feel classic and luxurious so I went for black, gold and kings blue. It was difficult to work with the gold color, since i could no get it to look gold enough, as it looked more yellow than gold.
+After some brainstorming, the style I was aiming for was a vintage luxurious site, that specialized in expensive vintage clothes and jewelry. I wanted the site te feel classic and luxurious so I went for black, gold and kings blue. It was difficult to work with the gold color, since I could no get it to look gold enough, as it looked more yellow than gold. I went with "Playfair display" as my header font as it displayed large text quite nicely. for my body i first used "Comfortaa" but it actually made all my text look like a mess, especially with large text parts. therefore I switched to "Raleway".  
+
+I wanted to play around some with boostrap so I added an image carousel to the main page for estheic purposes. If I had more time i would probably do something more with it like dynamically build from tags in auctions. The profile pages got a bit long when i had all the different sections flexing like a column, so I decided to add tabs to easliy switch between different sections. I also added some parallex scrolling on my auctions site. I wanted to work with modals so the pages looked cleaner without a lot of input fields. 
 
 #### Images
 
@@ -39,11 +41,42 @@ You can look through my Style guide and Figma prototype here:
 
 ##Built With
 
+- HTML
+- CSS/SASS/SCSS
+- Javascript
+
+### FrameWorks
+
+- Bootstrap 5.3.1
+
 ##Innstalling
+
+This is a simple website for school. You can simply clone the repo, open it and install some minor dependencies. 
+
 
 ### Running
 
+Initialize git
+
+```
+git init
+```
+
+Install dependencies
+
+```
+npm i
+```
+
+Build SASS
+
+```
+npm run build
+```
+
 ##Contributing
+
+Open a pull request so code can be reviewed.
 
 ## Contact
 
@@ -52,3 +85,5 @@ My LinkedIn page
 - linkedin.com/in/mikael-selstad-921251279
 
 ## Acknowledgments
+
+I would like to thank my peers for constant feedback and help with code, and a special thanks to Hans AKA Spookyrumble for always lending a helping hand!
