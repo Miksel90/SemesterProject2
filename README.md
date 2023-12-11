@@ -1,6 +1,6 @@
 # SemesterProject2 - Vintage$Brokers
 
-![readme-img]()
+![readme-img](https://github.com/Miksel90/Miksel90/blob/main/images/VintageBrokers.PNG)
 
 This is the repository for my semester project 2 at Noroff for Christmas 2023. the task was to use the skills we had learned over the past three semesters an create an auction site.
 
