@@ -78,23 +78,23 @@
         <div class="container p-3">
           <h1 class="text-center p-3 fs-1">Auctions</h1>
           <div class=" justify-content-between align-items-center gap-3 d-flex flex-column flex-sm-row ">
-          <form class="col-md-6 border border-secondary border-5 border-top-0 border-end-0 border-start-0">
-            <input
-              id="searchBar"
-              class="form-control p-2 custom-input shadow-none fw-bold fs-3 border-0 text-primary"
-              type="search"
-              placeholder="Search..."
-              aria-label="search"
-            />
-          </form>
-          <label for="sortAuctions" class="
-          visually-hidden ">Sort Auctions</label>
-            <select class="sortAuctions" name="sortAuctions" id="sortAuctions">
-              <option value="">SORT BY:</option>
-              <option value="priceHtoL">Price: High - low</option>
-              <option value="priceLtoH">Price: Low - High</option>
-              <option value="ending">Auction Ending</option>
-            </select>
+            <form class="col-md-6 border border-secondary border-5 border-top-0 border-end-0 border-start-0">
+              <input
+                id="searchBar"
+                class="form-control p-2 custom-input shadow-none fw-bold fs-3 border-0 text-primary"
+                type="search"
+                placeholder="Search..."
+                aria-label="search"
+              />
+            </form>
+            <label for="sortAuctions" class="
+            visually-hidden ">Sort Auctions</label>
+              <select class="sortAuctions" name="sortAuctions" id="sortAuctions">
+                <option value="">SORT BY:</option>
+                <option value="priceHtoL">Price: High - low</option>
+                <option value="priceLtoH">Price: Low - High</option>
+                <option value="ending">Auction Ending</option>
+              </select>
           </div>
         </div>
         <div class="allAuctions container d-flex flex-wrap gap-3 justify-content-evenly">
@@ -102,7 +102,6 @@
             <div class="d-flex justify-content-center align-items-center text-info p-5 visually-hidden" id="loaderContainer">
               <div class="spinner-border" role="status"></div>
             </div>
-          </div>
           <div class="modal fade modal-lg bg-dark bg-opacity-50" id="createAuctionModal" tabindex="-1" aria-labelledby="createAuctionModal" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content border border-3 border-secondary bg-info text-white">
