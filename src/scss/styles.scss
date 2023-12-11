@@ -1,5 +1,4 @@
-// Color Variables
-
+// Color Variables //
 $primary: #000000;
 $secondary: #d4af37;
 $info: #2f4ba1;
@@ -7,7 +6,7 @@ $success: #a39191;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-//Fonts
+// Fonts //
 @import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Comfortaa:wght@300;400&family=Hedvig+Letters+Sans&family=Playfair+Display:ital@0;1&family=Raleway:wght@100;400&family=Red+Rose:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@100;400&display=swap");
 
@@ -20,12 +19,7 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-// .option {
-//   border-style: solid;
-//   border-color: #d4af37;
-// }
-
-//navigation
+// Navigation //
 .navbar-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 180, 65, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
