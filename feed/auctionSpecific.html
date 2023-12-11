@@ -179,7 +179,6 @@
               </div>
               <div class="modal-body">
                     <form id="bidOnAuctionForm">
-                    <label for="amount" class="form-label text-danger bg-primary p-2 rounded fs-6">NB! All bids are binding</label>
                       <div class="amount">
                         <input
                             type="number"
@@ -189,12 +188,13 @@
                             placeholder="Place Bid"
                             required
                         />
+                        <label for="amount" class="form-label text-white bg-primary p-2 rounded fs-6 mt-2">NB! All bids are binding</label>
                       </div>
                       <div id="errorMessage" class="text-danger mt-2 fs-4"></div>
                       <button
                           type="submit"
                           id="createBidButton"
-                          class="btn btn-secondary border border-primary btn-md mt-2"
+                          class="btn btn-lg btn-secondary border border-primary btn-md mt-2"
                       >
                           Bid Now
                       </button>
