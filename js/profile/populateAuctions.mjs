@@ -131,11 +131,13 @@ export function populateAuctions(json) {
         auction.tags.forEach((tag) => {
           const tagText = document.createElement("p");
           tagText.classList.add(
-            "text-white",
-            "bg-info",
+            "text-primary",
+            "bg-white",
             "p-2",
-            "rounded-4",
+            "rounded-1",
             "fs-6",
+            "border",
+            "border-secondary",
             "auctionTag"
           );
           tagText.textContent = " " + tag;

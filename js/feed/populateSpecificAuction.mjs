@@ -1,16 +1,19 @@
 /**
- * Populates the UI with details of a single auction.
+ * Populates the UI with details of a single auction. This function dynamically creates and appends elements to display auction information.
  * @function
  * @name populateSingleAuction
  * @param {Object} data - The auction data to be displayed.
- * @property {string} data.title - The title of the auction.
- * @property {string} data.description - The description of the auction.
- * @property {Object} data.seller - The seller information.
- * @property {string} data.seller.name - The name of the seller.
- * @property {string} data.seller.avatar - The avatar URL of the seller.
- * @property {Array} data.media - An array of URLs representing auction media (images).
- * @property {string} data.endsAt - The end date and time of the auction.
- * @property {Array} data.bids - An array of bids made on the auction.
+ *   @property {string} data.title - The title of the auction.
+ *   @property {string} data.description - The description of the auction.
+ *   @property {Object} data.seller - The seller information.
+ *     @property {string} data.seller.name - The name of the seller.
+ *     @property {string} data.seller.avatar - The avatar URL of the seller.
+ *   @property {Array<string>} data.media - An array of URLs representing auction media (images).
+ *   @property {string} data.endsAt - The end date and time of the auction.
+ *   @property {Array<Object>} data.bids - An array of bids made on the auction.
+ *     @property {string} data.bids[].bidderName - The name of the bidder.
+ *     @property {number} data.bids[].amount - The amount of the bid.
+ *     @property {string} data.bids[].created - The date and time when the bid was made.
  * @throws {Error} If there is an issue populating the UI with auction data.
  */
 export function populateSingleAuction(data) {
@@ -209,12 +212,13 @@ export function populateSingleAuction(data) {
     "mb-2",
     "mt-3"
   );
+  bidHistoryButton.style.borderRadius = "0px";
   bidHistoryButton.setAttribute("type", "button");
   bidHistoryButton.setAttribute("data-bs-toggle", "collapse");
   bidHistoryButton.setAttribute("data-bs-target", "#bidHistoryCollapse");
   bidHistoryButton.setAttribute("aria-expanded", "false");
   bidHistoryButton.setAttribute("aria-controls", "bidHistoryCollapse");
-  bidHistoryButton.textContent = "Bidding History";
+  bidHistoryButton.textContent = "Bid History";
 
   const bidHistoryCollapse = document.createElement("div");
   bidHistoryCollapse.classList.add("collapse", "mt-2");
@@ -301,6 +305,13 @@ export function populateSingleAuction(data) {
     carouselItem.classList.add("carousel-item");
     if (index === 0) carouselItem.classList.add("active");
 
+    const imageWrapper = document.createElement("div");
+    imageWrapper.classList.add(
+      "d-flex",
+      "justify-content-center",
+      "align-items-center"
+    );
+
     const img = document.createElement("img");
     img.src = imageSrc;
     img.classList.add("d-block", "w-100");
@@ -308,7 +319,8 @@ export function populateSingleAuction(data) {
     img.style.objectFit = "cover";
     img.alt = "Auction Image " + (index + 1);
 
-    carouselItem.appendChild(img);
+    imageWrapper.appendChild(img);
+    carouselItem.appendChild(imageWrapper);
     carouselInner.appendChild(carouselItem);
 
     const smallImg = document.createElement("li");

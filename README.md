@@ -27,11 +27,13 @@ Our Auction site had to fulfill some specific user stories:
 We could design the site as we wanted, but had to remember what we had learned about user accessability and UX design from the previous semesters.
 After some brainstorming, the style I was aiming for was a vintage luxurious site, that specialized in expensive vintage clothes and jewelry. I wanted the site te feel classic and luxurious so I went for black, gold and kings blue colors. It was difficult to work with the gold color, since I could not get it to look gold enough, as it looked more yellow than gold. I went with "Playfair display" as my header font as it displayed large text quite nicely. for my body i first used "Comfortaa" but it actually made all my text look like a mess, especially with large text parts. therefore I switched to "Raleway".
 
-I wanted to play around some with boostrap so I added an image carousel to the main page for estheic purposes. If I had more time i would probably do something more with it like dynamically build from tags in auctions. The profile pages got a bit long when i had all the different sections flexing like a column, so I decided to add tabs to easliy switch between different sections. I also added some parallex scrolling on my auctions site. I wanted to work with modals so the pages looked cleaner without a lot of input fields.
+I wanted to play around some with Bootstrap so I added an image carousel to the main page for esthetic purposes. If I had more time i would probably do something more with it like dynamically build from tags in auctions. The profile pages got a bit long when i had all the different sections flexing like a column, so I decided to add tabs to easily switch between different sections. I also added some parallax scrolling on my auctions site. I wanted to work with modals so the pages looked cleaner without a lot of input fields.
 
 #### Images
 
-All images are made by Bing Image AI
+I had some challenges getting all images to fit properly, as object-fit-contain worked better on some images, and object-fit-cover worked better some, even though i could not get the entire image to fit properly. Would probably be easier with more control over the image original sizes.
+
+All images are created with Bing AI Image generator.
 
 #### Style Guide
 
@@ -71,6 +73,10 @@ Build SASS
 
 ```
 npm run build
+```
+
+```
+npm run watch
 ```
 
 ##Contributing

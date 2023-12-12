@@ -204,7 +204,7 @@ export function populateAllAuctions(data) {
               "text-white",
               "bg-primary",
               "p-2",
-              "rounded-4",
+              "rounded-1",
               "auctionTag"
             );
             tagText.textContent = " " + tag;

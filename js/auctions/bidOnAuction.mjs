@@ -20,7 +20,7 @@ const auctionId = urlParams.get("id");
  * @property {number} userData.amount - The bid amount.
  * @throws {Error} If the bid submission fails.
  */
-export async function bidOnAuction(auctionId, userData) {
+export async function bidOnAuction(auctionId, bidData) {
   const token = localStorage.getItem("accessToken");
   const url = `${API_BASE_URL}${listing_endpoint}/${auctionId}/bids`;
 
@@ -31,7 +31,7 @@ export async function bidOnAuction(auctionId, userData) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(bidData),
     });
 
     createBidButton.innerText = "Posting Bid...";
@@ -66,9 +66,9 @@ document
 
     const bidAmount = parseFloat(document.getElementById("amount").value);
 
-    const userData = {
+    const bidData = {
       amount: bidAmount,
     };
 
-    await bidOnAuction(auctionId, userData);
+    await bidOnAuction(auctionId, bidData);
   });

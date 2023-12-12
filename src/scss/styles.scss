@@ -26,6 +26,10 @@ body {
 
 // Index //
 
+#back-to-top {
+  z-index: 99;
+}
+
 //Carousel
 .carouselIndex img {
   height: 600px;
