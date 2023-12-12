@@ -254,33 +254,6 @@ export function populateSingleAuction(data) {
 
   auctionInfo.appendChild(bidHistoryBox);
 
-  // const mediaGallery = document.createElement("div");
-  // mediaGallery.classList.add(
-  //   "imageGallery"
-  //   "bg-primary",
-  //   "bg-opacity-75",
-  //   "border",
-  //   "border-secondary",
-  //   "border-3",
-  //   "p-3",
-  //   "gap-3",
-  //   "mt-4",
-  //   "d-flex",
-  //   "flex-column",
-  //   "d-md-grid",
-  //   "grid-cols-md-4"
-  // );
-
-  // const auctionMedia = data.media;
-
-  // auctionMedia.forEach((image, index) => {
-  //   const media = document.createElement("img");
-
-  //   media.src = image;
-  //   media.alt = "Images of the Auction ";
-
-  //   mediaGallery.appendChild(media);
-
   const auctionMedia = data.media;
 
   const mediaGallery = document.createElement("div");
@@ -330,7 +303,7 @@ export function populateSingleAuction(data) {
     const img = document.createElement("img");
     img.src = imageSrc;
     img.classList.add("d-block", "w-100");
-    img.style.height = "800px";
+    img.style.height = "600px";
     img.style.objectFit = "cover";
     img.alt = "Auction Image " + (index + 1);
 
