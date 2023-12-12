@@ -1,5 +1,4 @@
 import { setupScrollBehavior } from "./backToTop.mjs";
-setupScrollBehavior();
 
 /**
  * Adds a click event listener to the 'redirectLink' element. When clicked, it prevents the default
@@ -40,3 +39,5 @@ if (loginAnchor) {
     }
   });
 }
+
+setupScrollBehavior();

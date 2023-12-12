@@ -14,8 +14,6 @@ newProfileAvatarMedia();
  * Fetches user profile information from the specified URL, including bids, auctions, wins,
  * and other details. The function sends a GET request with the user's access token to retrieve
  * profile data. Once the data is obtained, it calls functions to create and populate various
- * sections of the user interface, including bids, auctions, profile details, and wins.
- * Additionally, it hides a loader element after the data is loaded.
  * @param {string} url - The URL to fetch user profile data.
  * @throws {Error} If there is an issue fetching or processing profile data.
  * @returns {void}
@@ -35,16 +33,26 @@ export async function createProfile(url) {
     const response = await fetch(url, fetchProfileInfo);
     const json = await response.json();
 
-    createBids(json);
-    createAuctions(json);
-    populateProfile(json);
-    populateWins(json);
     hideLoader();
-
+    return json;
     // console.log(json);
   } catch (error) {
     console.log(error);
   }
 }
 
-createProfile(profileInfo);
+/**
+ * Asynchronously generates the page by fetching all auctions and populating the UI.
+ * @async
+ * @function
+ * @name buildPage
+ */
+async function buildProfile() {
+  const json = await createProfile(profileInfo);
+  createBids(json);
+  createAuctions(json);
+  populateProfile(json);
+  populateWins(json);
+}
+
+buildProfile();

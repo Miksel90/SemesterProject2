@@ -261,35 +261,131 @@ export function populateSingleAuction(data) {
 
   auctionInfo.appendChild(bidHistoryBox);
 
-  const mediaGallery = document.createElement("div");
-  mediaGallery.classList.add(
-    "imageGallery",
-    // "bg-primary",
-    // "bg-opacity-75",
-    // "border",
-    // "border-secondary",
-    // "border-3",
-    "p-3",
-    "gap-3",
-    "mt-4",
-    "d-flex",
-    "flex-column",
-    "d-md-grid",
-    "grid-cols-md-4"
-  );
+  // const mediaGallery = document.createElement("div");
+  // mediaGallery.classList.add(
+  //   "imageGallery"
+  //   "bg-primary",
+  //   "bg-opacity-75",
+  //   "border",
+  //   "border-secondary",
+  //   "border-3",
+  //   "p-3",
+  //   "gap-3",
+  //   "mt-4",
+  //   "d-flex",
+  //   "flex-column",
+  //   "d-md-grid",
+  //   "grid-cols-md-4"
+  // );
+
+  // const auctionMedia = data.media;
+
+  // auctionMedia.forEach((image, index) => {
+  //   const media = document.createElement("img");
+
+  //   media.src = image;
+  //   media.alt = "Images of the Auction ";
+
+  //   mediaGallery.appendChild(media);
 
   const auctionMedia = data.media;
 
-  auctionMedia.forEach((image, index) => {
-    const media = document.createElement("img");
+  const mediaGallery = document.createElement("div");
+  mediaGallery.classList.add(
+    "imageGallery",
+    "carousel",
+    "slide",
+    "mt-3",
+    "mb-3"
+  );
+  mediaGallery.id = "auctionCarousel";
 
-    media.src = image;
-    media.alt = "Images of the Auction ";
+  const carouselInner = document.createElement("div");
+  carouselInner.classList.add("carousel-inner");
 
-    mediaGallery.appendChild(media);
+  const indicators = document.createElement("ol");
+  indicators.classList.add("carousel-indicators");
+
+  const createControl = (direction) => {
+    const control = document.createElement("a");
+    control.className = `carousel-control-${direction}`;
+    control.href = "#auctionCarousel";
+    control.role = "button";
+    control.dataset.bsSlide = direction;
+
+    const controlIcon = document.createElement("span");
+    controlIcon.className = `carousel-control-${direction}-icon`;
+    controlIcon.setAttribute("aria-hidden", "true");
+
+    const controlText = document.createElement("span");
+    controlText.className = "sr-only";
+    controlText.textContent = direction === "prev" ? "Previous" : "Next";
+
+    control.appendChild(controlIcon);
+    control.appendChild(controlText);
+
+    return control;
+  };
+
+  auctionMedia.forEach((imageSrc, index) => {
+    const carouselItem = document.createElement("div");
+    carouselItem.classList.add("carousel-item", "border-secondary", "border-5");
+    if (index === 0) carouselItem.classList.add("active");
+
+    const img = document.createElement("img");
+    img.src = imageSrc;
+    img.classList.add("d-block", "w-100");
+    img.alt = "Auction Image " + (index + 1);
+
+    carouselItem.appendChild(img);
+    carouselInner.appendChild(carouselItem);
+
+    const indicator = document.createElement("li");
+    indicator.dataset.bsTarget = "#auctionCarousel";
+    indicator.dataset.bsSlideTo = index;
+    if (index === 0) {
+      indicator.classList.add("active");
+    }
+    indicator.style.backgroundImage = `url('${imageSrc}')`;
+    indicator.style.backgroundSize = "cover";
+    indicator.style.backgroundPosition = "center";
+    indicator.style.height = "75px";
+    indicator.style.width = "75px";
+    indicator.style.border = "1px solid #d4af37";
+    indicators.style.listStyleType = "none";
+
+    indicators.appendChild(indicator);
   });
 
+  mediaGallery.appendChild(carouselInner);
+  mediaGallery.appendChild(indicators);
+
+  const prevControl = createControl("prev");
+  const nextControl = createControl("next");
+
+  mediaGallery.appendChild(prevControl);
+  mediaGallery.appendChild(nextControl);
+
   auctionContainer.appendChild(mediaGallery);
+
+  const carousel = new bootstrap.Carousel(mediaGallery);
+
+  prevControl.addEventListener("click", (e) => {
+    e.preventDefault();
+    carousel.prev();
+  });
+
+  nextControl.addEventListener("click", (e) => {
+    e.preventDefault();
+    carousel.next();
+  });
+
+  indicators.querySelectorAll("li").forEach((indicator) => {
+    indicator.addEventListener("click", () => {
+      const slideToIndex = parseInt(indicator.dataset.bsSlideTo);
+      carousel.to(slideToIndex);
+    });
+  });
 
   auctionBox.append(auctionContainer);
 }

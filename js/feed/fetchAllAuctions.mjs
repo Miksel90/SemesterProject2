@@ -35,6 +35,8 @@ async function fetchAllAuctions(url) {
   }
 }
 
+export { fetchAllAuctions, allAuctions, allAuctionResults };
+
 /**
  * Asynchronously generates the page by fetching all auctions and populating the UI.
  * @async
@@ -47,5 +49,3 @@ async function generatePage() {
 }
 
 generatePage();
-
-export { fetchAllAuctions, allAuctions, allAuctionResults };

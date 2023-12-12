@@ -12000,27 +12000,6 @@ body {
   z-index: -1;
 }
 
-.imageGallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-inline: auto;
-  max-width: 70rem;
-  flex-direction: column;
-}
-
-.imageGallery > img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  transition: all 0.3s ease;
-}
-
-.imageGallery:has(img:hover) img:not(:hover) {
-  scale: 0.7;
-  opacity: 0.5;
-  filter: grayscale(90%);
-}
-
 .custom-text {
   text-shadow: 1px 1px 2px #000000;
 }
