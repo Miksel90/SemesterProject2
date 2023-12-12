@@ -319,8 +319,8 @@ export function populateSingleAuction(data) {
     indicator.style.backgroundImage = `url('${imageSrc}')`;
     indicator.style.backgroundSize = "cover";
     indicator.style.backgroundPosition = "center";
-    indicator.style.height = "75px";
-    indicator.style.width = "75px";
+    indicator.style.height = "50px";
+    indicator.style.width = "50px";
     indicator.style.border = "1px solid #d4af37";
     indicators.style.listStyleType = "none";
 
