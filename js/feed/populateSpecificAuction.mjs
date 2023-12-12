@@ -79,14 +79,7 @@ export function populateSingleAuction(data) {
   auctionTitle.textContent = data.title;
 
   const auctionDescription = document.createElement("h2");
-  auctionDescription.classList.add(
-    "text-primary",
-    "fs-4",
-    "mt-3",
-    "border-bottom",
-    "border-secondary",
-    "border-2"
-  );
+  auctionDescription.classList.add("text-primary", "fs-4", "mt-3", "mb-3");
   auctionDescription.textContent = data.description;
 
   auctionContainer.appendChild(auctionTitle);
@@ -96,7 +89,7 @@ export function populateSingleAuction(data) {
   auctionInfo.classList.add("list-unstyled");
 
   const li1 = document.createElement("li");
-  li1.classList.add("text-primary", "fs-6");
+  li1.classList.add("text-primary", "fs-5");
 
   const endsAtDate = new Date(data.endsAt);
 
@@ -127,7 +120,7 @@ export function populateSingleAuction(data) {
   li1.innerHTML = "Auction ends: " + dateSpan.outerHTML;
 
   const li2 = document.createElement("li");
-  li2.classList.add("text-primary", "mt-2", "auctionBidder", "fs-6");
+  li2.classList.add("text-primary", "mt-2", "auctionBidder", "fs-5");
   const highestBidSpan = document.createElement("div");
   highestBidSpan.classList.add("fw-bold", "fs-4");
   if (data.bids.length > 0) {
@@ -141,7 +134,7 @@ export function populateSingleAuction(data) {
   li2.innerHTML = " Current Bid " + highestBidSpan.outerHTML;
 
   const li4 = document.createElement("li");
-  li4.classList.add("text-primary", "mt-1", "auctionSeller", "fs-6");
+  li4.classList.add("text-primary", "mt-1", "auctionSeller", "fs-5");
   const sellerName = document.createElement("div");
   sellerName.classList.add("fs-4", "fw-bold");
   sellerName.textContent = data.seller.name;
@@ -296,7 +289,9 @@ export function populateSingleAuction(data) {
     "carousel",
     "slide",
     "mt-3",
-    "mb-3"
+    "mb-3",
+    "border",
+    "border-secondary"
   );
   mediaGallery.id = "auctionCarousel";
 
@@ -329,12 +324,14 @@ export function populateSingleAuction(data) {
 
   auctionMedia.forEach((imageSrc, index) => {
     const carouselItem = document.createElement("div");
-    carouselItem.classList.add("carousel-item", "border-secondary", "border-5");
+    carouselItem.classList.add("carousel-item");
     if (index === 0) carouselItem.classList.add("active");
 
     const img = document.createElement("img");
     img.src = imageSrc;
     img.classList.add("d-block", "w-100");
+    img.style.height = "800px";
+    img.style.objectFit = "cover";
     img.alt = "Auction Image " + (index + 1);
 
     carouselItem.appendChild(img);
