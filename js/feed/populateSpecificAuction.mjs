@@ -273,6 +273,7 @@ export function populateSingleAuction(data) {
 
   const indicators = document.createElement("ol");
   indicators.classList.add("carousel-indicators");
+  indicators.style.listStyleType = "none";
 
   const createControl = (direction) => {
     const control = document.createElement("a");
@@ -310,21 +311,20 @@ export function populateSingleAuction(data) {
     carouselItem.appendChild(img);
     carouselInner.appendChild(carouselItem);
 
-    const indicator = document.createElement("li");
-    indicator.dataset.bsTarget = "#auctionCarousel";
-    indicator.dataset.bsSlideTo = index;
+    const smallImg = document.createElement("li");
+    smallImg.dataset.bsTarget = "#auctionCarousel";
+    smallImg.dataset.bsSlideTo = index;
     if (index === 0) {
-      indicator.classList.add("active");
+      smallImg.classList.add("active");
     }
-    indicator.style.backgroundImage = `url('${imageSrc}')`;
-    indicator.style.backgroundSize = "cover";
-    indicator.style.backgroundPosition = "center";
-    indicator.style.height = "50px";
-    indicator.style.width = "50px";
-    indicator.style.border = "1px solid #d4af37";
-    indicators.style.listStyleType = "none";
+    smallImg.style.backgroundImage = `url('${imageSrc}')`;
+    smallImg.style.backgroundSize = "cover";
+    smallImg.style.backgroundPosition = "center";
+    smallImg.style.height = "50px";
+    smallImg.style.width = "50px";
+    smallImg.style.border = "1px solid #d4af37";
 
-    indicators.appendChild(indicator);
+    indicators.appendChild(smallImg);
   });
 
   mediaGallery.appendChild(carouselInner);
