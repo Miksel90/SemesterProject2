@@ -141,9 +141,9 @@
       >
         <div class="modal-dialog">
           <div
-            class="modal-content border border-3 border-secondary bg-info text-white"
+            class="modal-content border border-3 border-secondary bg-primary bg-opacity-75 text-white"
           >
-            <div class="modal-header" id="createAuctionModal-header">
+            <div class="modal-header bg-primary" id="createAuctionModal-header">
               <h4 class="modal-title">Create New Auction</h4>
               <button
                 type="button"
@@ -155,7 +155,7 @@
             </div>
             <div class="modal-body">
               <form id="createNewAuctionForm">
-                <label for="auctionTitle" class="form-label text-start"
+                <label for="auctionTitle" class="form-label text-start fs-4"
                   >Title</label
                 >
                 <div class="auctionTitle">
@@ -169,7 +169,7 @@
                     required
                   />
                 </div>
-                <label for="auctionBody" class="form-label text-start mt-2"
+                <label for="auctionBody" class="form-label text-start mt-2 fs-4"
                   >Body:</label
                 >
                 <textarea
@@ -180,7 +180,9 @@
                   required
                   rows="3"
                 ></textarea>
-                <label for="auctionEndsAt" class="form-label text-start mt-2"
+                <label
+                  for="auctionEndsAt"
+                  class="form-label text-start mt-2 fs-4"
                   >Ends At:</label
                 >
                 <div class="auctionEndsAt">
@@ -192,7 +194,7 @@
                     required
                   />
                 </div>
-                <label for="auctionTags" class="form-label text-start mt-2"
+                <label for="auctionTags" class="form-label text-start mt-2 fs-4"
                   >Tags</label
                 >
                 <div class="auctionTags">
@@ -201,10 +203,12 @@
                     class="form-control"
                     id="auctionTags"
                     name="tags"
-                    placeholder="Add Tags, use comma between tags"
+                    placeholder="Add Tag"
                   />
                 </div>
-                <label for="auctionMedia" class="form-label text-start mt-2"
+                <label
+                  for="auctionMedia"
+                  class="form-label text-start mt-2 fs-4"
                   >Image URL:</label
                 >
                 <div id="mediaGallery">
@@ -233,11 +237,13 @@
                 >
                   <i class="fa-solid fa-minus"></i>
                 </button>
-                <div class="modal-footer justify-content-around mt-2">
+                <div
+                  class="modal-footer justify-content-around mt-2 modal-background"
+                >
                   <button
                     type="submit"
                     id="createAuctionButton"
-                    class="mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
+                    class="mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto fw-bold"
                   >
                     Create Auction
                   </button>

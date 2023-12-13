@@ -1,5 +1,5 @@
 import { setupScrollBehavior } from "./backToTop.mjs";
-
+setupScrollBehavior();
 /**
  * Adds a click event listener to the 'redirectLink' element. When clicked, it prevents the default
  * behavior, and based on the presence of an access token, redirects the user to either the profile
@@ -18,26 +18,3 @@ redirectLink.addEventListener("click", function (event) {
     window.location.href = "/index.html";
   }
 });
-
-/**
- * Adds a click event listener to the login anchor element. When clicked, it prevents the default
- * behavior, and scrolls the login form into view smoothly.
- * @returns {void}
- */
-let loginAnchor = document.getElementById("loginAnchor");
-
-if (loginAnchor) {
-  loginAnchor.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    let loginForm = document.getElementById("loginForm");
-
-    if (loginForm) {
-      loginForm.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  });
-}
-
-setupScrollBehavior();

@@ -141,7 +141,7 @@ export function populateProfile(json) {
 
   editAvatarButton.style.width = "100px";
   editAvatarButton.style.height = "50px";
-  editAvatarButton.innerText = "Edit Avatar";
+  editAvatarButton.innerText = "Edit Profile";
 
   editAvatarButton.addEventListener("click", (e) => {
     e.preventDefault();

@@ -106,7 +106,7 @@
         </div>
         <div class="container fs-4">
           <ul
-            class="nav mb-3 gap-1 border-secondary border border-2 border-top-0 rounded-bottom justify-content-evenly"
+            class="nav mb-3 gap-1 border-secondary border border-top-0 justify-content-evenly"
             id="auction-tab"
             role="tablist"
           >
@@ -198,12 +198,10 @@
         >
           <div class="modal-dialog modal-dialog-centered">
             <div
-              class="modal-content border border-3 border-secondary bg-info text-white"
+              class="modal-content border border-3 border-secondary text-white"
             >
-              <div class="modal-header">
-                <h5 class="modal-title" id="editProfileImage">
-                  Edit Profile Image
-                </h5>
+              <div class="modal-header bg-primary">
+                <h5 class="modal-title" id="editProfileImage">Update Avatar</h5>
                 <button
                   type="button"
                   class="btn-close"
@@ -211,10 +209,12 @@
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body modal-background">
                 <form id="updateProfileMediaForm">
-                  <label for="updateProfileMedia" class="form-label text-start"
-                    >Edit Avatar</label
+                  <label
+                    for="updateProfileMedia"
+                    class="form-label text-start fs-4 visually-hidden"
+                    >Update Avatar</label
                   >
                   <div class="updateProfileMedia">
                     <input
@@ -229,7 +229,7 @@
                     <button
                       type="submit"
                       id="editProfileMediaButton"
-                      class="btn btn-info btn-lg mt-2 ml-auto btn-dark"
+                      class="btn btn-lg mt-2 ml-auto border-primary btn-secondary fw-bold"
                     >
                       Update
                     </button>
@@ -249,9 +249,9 @@
       >
         <div class="modal-dialog">
           <div
-            class="modal-content border border-3 border-secondary bg-info text-white"
+            class="modal-content border border-3 border-secondary bg-primary bg-opacity-75 text-white"
           >
-            <div class="modal-header" id="createAuctionModal-header">
+            <div class="modal-header bg-primary" id="createAuctionModal-header">
               <h4 class="modal-title">Create New Auction</h4>
               <button
                 type="button"
@@ -263,7 +263,7 @@
             </div>
             <div class="modal-body">
               <form id="createNewAuctionForm" class="needs-validation">
-                <label for="auctionTitle" class="form-label text-start"
+                <label for="auctionTitle" class="form-label text-start fs-4"
                   >Title</label
                 >
                 <div class="auctionTitle">
@@ -280,7 +280,7 @@
                     The Auction must have a title
                   </div>
                 </div>
-                <label for="auctionBody" class="form-label text-start mt-2"
+                <label for="auctionBody" class="form-label text-start mt-2 fs-4"
                   >Description:</label
                 >
                 <textarea
@@ -295,7 +295,9 @@
                 <div class="invalid-feedback text-danger">
                   The Auction must have a description
                 </div>
-                <label for="auctionEndsAt" class="form-label text-start mt-2"
+                <label
+                  for="auctionEndsAt"
+                  class="form-label text-start mt-2 fs-4"
                   >Ends At:</label
                 >
                 <div class="auctionEndsAt">
@@ -310,7 +312,7 @@
                     The Auction must have an end date
                   </div>
                 </div>
-                <label for="auctionTags" class="form-label text-start mt-2"
+                <label for="auctionTags" class="form-label text-start mt-2 fs-4"
                   >Tags</label
                 >
                 <div class="auctionTags">
@@ -319,10 +321,12 @@
                     class="form-control"
                     id="auctionTags"
                     name="tags"
-                    placeholder="Add Tags, use comma between tags"
+                    placeholder="Add Tag"
                   />
                 </div>
-                <label for="auctionMedia" class="form-label text-start mt-2"
+                <label
+                  for="auctionMedia"
+                  class="form-label text-start mt-2 fs-4"
                   >Image URL:</label
                 >
                 <div id="mediaGallery">
@@ -354,12 +358,14 @@
                 >
                   <i class="fa-solid fa-minus"></i>
                 </button>
-                <div class="modal-footer justify-content-around mt-2">
+                <div
+                  class="modal-footer justify-content-around mt-2 modal-background"
+                >
                   <button
                     type="submit"
                     id="createAuctionButton"
                     aria-label="Create Auction"
-                    class="mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
+                    class="mainButton btn btn-secondary border border-primary btn-lg mt-2 ml-auto fw-bold"
                   >
                     Create Auction
                   </button>
@@ -378,9 +384,9 @@
       >
         <div class="modal-dialog">
           <div
-            class="modal-content border border-3 border-secondary bg-info text-white"
+            class="modal-content border border-3 border-secondary bg-primary bg-opacity-75 text-white"
           >
-            <div class="modal-header" id="editAuctionModal-header">
+            <div class="modal-header bg-primary" id="editAuctionModal-header">
               <h4 class="modal-title">Edit Auction</h4>
               <button
                 type="button"
@@ -392,7 +398,7 @@
             </div>
             <div class="modal-body">
               <form id="editAuctionForm" class="needs-validation">
-                <label for="editAuctionTitle" class="form-label text-start"
+                <label for="editAuctionTitle" class="form-label text-start fs-4"
                   >Title</label
                 >
                 <div class="auctionTitle">
@@ -408,7 +414,9 @@
                     The Auction must have a title
                   </div>
                 </div>
-                <label for="editAuctionBody" class="form-label text-start mt-2"
+                <label
+                  for="editAuctionBody"
+                  class="form-label text-start mt-2 fs-4"
                   >Body:</label
                 >
                 <div class="editAuctionBody">
@@ -424,7 +432,9 @@
                     The Auction must have a description.
                   </div>
                 </div>
-                <label for="editAuctionTags" class="form-label text-start mt-2"
+                <label
+                  for="editAuctionTags"
+                  class="form-label text-start mt-2 fs-4"
                   >Tags</label
                 >
                 <div class="editAuctionTags">
@@ -433,10 +443,12 @@
                     class="form-control"
                     id="editAuctionTags"
                     name="tags"
-                    placeholder="Add Tags, use comma between tags"
+                    placeholder="Add Tag"
                   />
                 </div>
-                <label for="editAuctionMedia" class="form-label text-start mt-2"
+                <label
+                  for="editAuctionMedia"
+                  class="form-label text-start mt-2 fs-4"
                   >Image URL:</label
                 >
                 <div id="editMediaGallery">
@@ -470,11 +482,13 @@
                 >
                   <i class="fa-solid fa-minus"></i>
                 </button>
-                <div class="modal-footer justify-content-around mt-2">
+                <div
+                  class="modal-footer justify-content-around mt-2 modal-background"
+                >
                   <button
                     type="submit"
                     id="editAuctionButton"
-                    class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto"
+                    class="btn btn-secondary border border-primary btn-lg mt-2 ml-auto fw-bold"
                     aria-label="Edit Auction"
                   >
                     Save

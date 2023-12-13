@@ -288,6 +288,7 @@ export function populateSingleAuction(data) {
 
     const controlIcon = document.createElement("span");
     controlIcon.className = `carousel-control-${direction}-icon`;
+    controlIcon.classList.add("p-4");
     controlIcon.setAttribute("aria-hidden", "true");
 
     const controlText = document.createElement("span");
