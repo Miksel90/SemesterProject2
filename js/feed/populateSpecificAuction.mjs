@@ -62,8 +62,8 @@ export function populateSingleAuction(data) {
   const createdDate = new Date(data.created);
   const formattedDate = createdDate.toLocaleDateString();
   const auctionCreated = document.createElement("p");
-  auctionCreated.classList.add("card-text", "fst-italic");
-  auctionCreated.textContent = formattedDate;
+  auctionCreated.classList.add("card-text", "fs-4");
+  auctionCreated.textContent = "Listed " + formattedDate;
 
   sellerBox.appendChild(sellerAvatar);
   sellerBox.appendChild(auctionSeller);

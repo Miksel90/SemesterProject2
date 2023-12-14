@@ -91,4 +91,4 @@ My LinkedIn page
 
 ## Acknowledgments
 
-I would like to thank my peers for constant feedback and help with code, and a special thanks to Hans AKA Spookyrumble for always lending a helping hand!
+I would like to thank my peers for constant feedback and help with javascript logic, and a special thanks to Hans AKA Spookyrumble for always lending a hand when i was stuck.
