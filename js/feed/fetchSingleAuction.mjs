@@ -27,7 +27,7 @@ async function fetchSingleAuction() {
 
     const response = await fetch(auctionURL, fetchSpecificData);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     populateSingleAuction(data);
     hideLoader();
