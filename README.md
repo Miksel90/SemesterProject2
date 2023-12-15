@@ -27,7 +27,7 @@ Our Auction site had to fulfill some specific user stories:
 We could design the site as we wanted, but had to remember what we had learned about user accessability and UX design from the previous semesters.
 After some brainstorming, the style I was aiming for was a vintage luxurious site, that specialized in expensive vintage clothes and jewelry. I wanted the site te feel classic and luxurious so I went for black, gold and a hint of kings blue for the palette. It was difficult to work with the gold color, since I could not get it to look gold enough, as it looked more yellow than gold. I started out with a lot of kings blue, especially on modals, but i toned it down as black and gold, with opacity fit the design better. I went with "Playfair display" as my header font as it displayed large text quite nicely. for my body i first used "Comfortaa" but it actually made all my text look like a mess, especially with large text parts. therefore I switched to "Raleway".
 
-I wanted to play around some with Bootstrap so I added an image carousel to the main page for esthetic purposes. If I had more time i would probably do something more with it like dynamically build from tags in auctions. The profile pages got a bit long when i had all the different sections flexing like a column, so I decided to add tabs to easily switch between different sections. I also added some parallax scrolling on my auctions site. I wanted to work with modals so the pages looked cleaner without a lot of input fields.
+I wanted to play around some with Bootstrap so I added an image carousel to the main page for esthetic purposes. If I had more time I would probably do something more with it like dynamically build from tags in auctions. The end result is almost like the prototype, but implemented some changes that helped the site. The profile page needed to much scrolling when I had all the different sections flexing like a column, so I decided to add tabs to easily switch between different sections and to limit scrolling. I also added some parallax scrolling on my auctions site. I wanted to work with modals so the pages looked cleaner without a lot of input fields.
 
 #### Images
 
@@ -51,7 +51,7 @@ You can look through my Style guide and Figma prototype here:
 
 - Bootstrap 5.3.1
 
-##Innstalling
+##Installing
 
 This is a simple website for school. You can simply clone the repo, open it and install some minor dependencies.
 
@@ -91,4 +91,4 @@ My LinkedIn page
 
 ## Acknowledgments
 
-I would like to thank my peers for constant feedback and help with javascript logic, and a special thanks to Hans AKA Spookyrumble for always lending a hand when i was stuck.
+I would like to thank my peers for constant feedback and help with javascript logic, and a special thanks to Hans AKA Spookyrumble for always lending a hand when I asked for feedback.
