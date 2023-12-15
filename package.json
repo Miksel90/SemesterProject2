@@ -2,7 +2,7 @@
   "name": "semesterproject2",
   "version": "0.1.0",
   "description": "This is the repository for my semester project 2 at Noroff. Christmas 2023",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css",
