@@ -1,4 +1,4 @@
-# SemesterProject2 - Vintage$Brokers
+# Semester Project 2 - Vintage$Brokers
 
 <img src="/images/gadgetvault.webp">
 
@@ -41,7 +41,7 @@ You can look through my Style guide and Figma prototype here:
 
 - https://www.figma.com/file/NnSpGExZnpgSxMMiXRO8v1/Vintage%24Broker?type=design&node-id=16%3A319&mode=design&t=JamyyPCSUfS0AZBm-1
 
-##Built With
+## Built With
 
 - HTML
 - CSS/SASS/SCSS
@@ -51,7 +51,7 @@ You can look through my Style guide and Figma prototype here:
 
 - Bootstrap 5.3.1
 
-##Installing
+## Installing
 
 This is a simple website for school. You can simply clone the repo, open it and install some minor dependencies.
 
@@ -79,7 +79,7 @@ npm run build
 npm run watch
 ```
 
-##Contributing
+## Contributing
 
 Open a pull request so code can be reviewed.
 
