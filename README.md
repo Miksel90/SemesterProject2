@@ -1,6 +1,6 @@
 # SemesterProject2 - Vintage$Brokers
 
-<img src="/images/gadgetvault.webp">
+<img src="/images/VintageBrokers.webp">
 
 This is the repository for my semester project 2 at Noroff for Christmas 2023. the task was to use the skills we had learned over the past three semesters to create an auction site.
 
